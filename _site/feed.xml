@@ -1,0 +1,1278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Hwijeen Ahn</title>
+    <link>http://localhost:4000</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>coding 일기</title>
+        <description>&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;string&quot;&gt;String&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;str.replace(원래 문구, 바꿀 문구, &lt;strong&gt;몇 개만 바꿀지&lt;/strong&gt;)
+    &lt;ul&gt;
+      &lt;li&gt;str.rreplace(원래 문구, 바꿀 문구, &lt;strong&gt;뒤에서부터 몇 개 바꿀지&lt;/strong&gt;)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;str.count(몇 개인지 궁금한 문구)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;tricks&quot;&gt;Tricks&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;List of tuple에서 개수 세기&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;postagged_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'나'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'NP'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'는'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'JX'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'형태소'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'NNP'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'분석'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'NNG'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'을'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'JKO'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'하'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'VV'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'ㄴ다'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'EC'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;num_NP&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'NP'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;postagged_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Fri, 25 May 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018-05-25/coding-%EC%9D%BC%EA%B8%B0/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018-05-25/coding-%EC%9D%BC%EA%B8%B0/</guid>
+      </item>
+    
+      <item>
+        <title>Sublime Text</title>
+        <description>&lt;h3 id=&quot;기본-사항&quot;&gt;기본 사항&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Sublime Text 설치&lt;/li&gt;
+  &lt;li&gt;Package Control 설치&lt;/li&gt;
+  &lt;li&gt;ConvertToUTF Package 설치
+    &lt;ul&gt;
+      &lt;li&gt;인코딩 관련 이슈들을 해결해준다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;InputArgs 설치&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;build 이후에 argument 받을 수 있도록 해준다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;conda-가상환경-사용&quot;&gt;Conda 가상환경 사용&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Sublime Conda Package 설치
+    &lt;ul&gt;
+      &lt;li&gt;Preference - Package Setting - Conda - Settings - User파일에서 conda 설치 위치 잡아줄 수 있다.
+        &lt;ul&gt;
+          &lt;li&gt;Setting - User 파일은 Packages / User에서 관리되는 듯! User 안에 있는 파일이 우선이고, 그 다음에 Default setting이 적용되는 듯. Default는 안 건드리는 게 현명한 방법.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;이후 Command Pallette에서 가상환경 설정 가능&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;서버-연결&quot;&gt;서버 연결&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;ssh 설정하기&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;ssh config 파일 수정하기&lt;/li&gt;
+      &lt;li&gt;public key 등록하기&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Sublime SFTP  설치&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;서버와 파일 주고 받을 수 있다.&lt;/li&gt;
+      &lt;li&gt;프로젝트 폴더 단위로 Remote Mapping 등록가능.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Sublime REPL 설치&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;Sublime Text 안에서 interpreter 사용 가능하게 해준다.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Packages - SublimeREPL - config - Python 안에 Default.sublime-commands 와 Main.sublime-menu를 잘 조정해주면 &lt;strong&gt;서버의 interpreter를 킬 수 있다.&lt;/strong&gt;&lt;/p&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;“cmd” 에서 “python”대신 서버의 파이썬 절대 경로 지정해주면 됨.&lt;/li&gt;
+          &lt;li&gt;“cmd” 앞에 “ssh” “224” 추가해줘서 일단 서버 접속하도록 한다. 1은 이걸 위한 준비작업.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;TODO: 서버 인터프리터로 RUN CURRENT FILE하기&lt;/p&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;
+            &lt;p&gt;실행하고자하는 파일의 path가 잘 안 잡혀서 오류 난다ㅠㅠ…&lt;/p&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;p&gt;Sublime Text에서 Jupyter Notebook 5는 안 되는듯. 주피터는 그냥 주피터에서 쓰자.&lt;/p&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;tips&quot;&gt;Tips&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;cntl + c : cancel build. Keyboard Interrupt로 사용하면 된다!&lt;/li&gt;
+  &lt;li&gt;option + down, option + left : Jumb back, Go To Definition&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 21 May 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018-05-21/Sublie-Text/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018-05-21/Sublie-Text/</guid>
+      </item>
+    
+      <item>
+        <title>Multivariate Functions</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://www.khanacademy.org/math/multivariable-calculus&quot;&gt;Khan Academy&lt;/a&gt;, &lt;a href=&quot;http://darkpgmr.tistory.com/132&quot;&gt;다크 프로그래머의 블로그&lt;/a&gt;, &lt;a href=&quot;https://web.stanford.edu/class/cs224n/readings/gradient-notes.pdf&quot;&gt;cs224n lecture note&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;함수의-종류-input--ouput-space-차원에-따라&quot;&gt;함수의 종류: input &amp;amp; ouput space 차원에 따라&lt;/h3&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+\mathbb{R} &amp;\rightarrow \mathbb{R} \\
+\mathbb{R}^n &amp;\rightarrow \mathbb{R} \\
+\mathbb{R}^n &amp;\rightarrow \mathbb{R}^n \\
+\mathbb{R} &amp;\rightarrow \mathbb{R}^n
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;output value가 $\mathbb{R}$인 함수를 &lt;strong&gt;single-valued function&lt;/strong&gt;이라고 부르고, output value가 $\mathbb{R}^n$인 함수를 vector-valued function이라고 부른다.&lt;/p&gt;
+
+&lt;p&gt;multivariate function이라 함은 보통 input이 $ \mathbb{R}^n $인 함수를 일컫는다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;visualizing-functions-seeing-connection-between-input--output-space&quot;&gt;Visualizing functions: seeing connection between input &amp;amp; output space&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Graph: input &amp;amp; output space를 한 공간에서 표현한다
+    &lt;ul&gt;
+      &lt;li&gt;$ \mathbb{R}\rightarrow\mathbb{R} $ , $\mathbb{R}^2 \rightarrow \mathbb{R}$밖에 표현하지 못함($\mathbb{R}^2 \rightarrow \mathbb{R}$는 잘 안 씀)&lt;/li&gt;
+      &lt;li&gt;$\mathbb{R}^2 \rightarrow \mathbb{R}$인 경우, (x,y,f(x,y)) 를 하나의 점으로, 3차원 공간에 표현&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Contour maps: input space를 표현하고, 그 값이 mapping 되는 output 지점을 표현한다.
+    &lt;ul&gt;
+      &lt;li&gt;$\mathbb{R}^2 \rightarrow \mathbb{R}$을 표현하는 그래프이다.&lt;/li&gt;
+      &lt;li&gt;등고선은 output 기준으로 evenly spaced.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Parametric functions: output space를 표현&lt;/li&gt;
+  &lt;li&gt;Vector field: &lt;del&gt;모르기로 한다&lt;/del&gt;&lt;/li&gt;
+  &lt;li&gt;Transformation: 하나의 공간에서 다른 공간으로 transform!
+    &lt;ul&gt;
+      &lt;li&gt;차원에 국한되지 않는 표현이 가능하다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;todo&quot;&gt;TODO:&lt;/h4&gt;
+
+&lt;p&gt;Derivates of multivariable functions&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 21 May 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018-05-21/Multivariate-functions/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018-05-21/Multivariate-functions/</guid>
+      </item>
+    
+      <item>
+        <title>LaTex</title>
+        <description>&lt;p&gt;From &lt;a href=&quot;http://hellbell.tistory.com/entry/OSX-Sublime-Text-3-Latex-Plugin-설치기&quot;&gt;blog&lt;/a&gt;, Latex 입문서&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 19 May 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018-05-19/LaTex/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018-05-19/LaTex/</guid>
+      </item>
+    
+      <item>
+        <title>Information, Entropy, Cross Entropy</title>
+        <description>&lt;p&gt;From Deep Learning Book, Jimin Sun’s Blog&lt;/p&gt;
+
+&lt;h2 id=&quot;information-of-an-event&quot;&gt;Information of an event&lt;/h2&gt;
+
+&lt;p&gt;정보량는 &lt;strong&gt;사건&lt;/strong&gt;에 대해서 정의된다.&lt;/p&gt;
+&lt;center&gt;$$I(x) = -\log{P(x)} \\
+x : \text{an event}$$&lt;/center&gt;
+
+&lt;p&gt;log 를 붙여주는 이유는 엔트로피간 더하기 연산이 가능하게 만들기 위함이고,&lt;/p&gt;
+
+&lt;p&gt;- 를 붙여주는 이유는 확실한 사건일수록 정보량이 적게하기 위해서다.&lt;/p&gt;
+
+&lt;h2 id=&quot;entropy&quot;&gt;Entropy&lt;/h2&gt;
+
+&lt;p&gt;엔트로피는 &lt;strong&gt;확률변수&lt;/strong&gt;에 대해서 정의된다&lt;/p&gt;
+
+&lt;center&gt;
+$$
+\begin{align}
+\ H(X) &amp;amp;= \mathbb{E}_{X \sim p(X)}{[I(x)]} \\
+\ &amp;amp;=  \sum_{i}{-P(x_i)\log{P(x_i)}} \\
+\end{align} \\
+$$
+$$\text{(when X is a discrete variable)} \\$$
+&lt;/center&gt;
+&lt;p&gt;이것의 의미는 확률변수 X가 가지는 불확실성의 정도! X가 가지는 값이 뻔할 때 크로스 엔트로피 값은 작도록 설정되어있다.&lt;/p&gt;
+
+&lt;h2 id=&quot;cross-entropy&quot;&gt;Cross Entropy&lt;/h2&gt;
+
+&lt;p&gt;크로스 엔트로피는 &lt;strong&gt;두 확률밀도함수&lt;/strong&gt;에 대해서 정의된다.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+\ H(P,Q) &amp;= \mathbb{E}_{X \sim p(X)}{[-\log{Q(x)}]} \\
+\ &amp;= \sum_{i}{-P(x_i)\log{Q(x_i)}} \\
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;확률 변수 X는 P(X)를 따르지만 P(X)를 모를 때 우리가 임의로 Q(X)를 따른다고 가정한다. 그랬을 때 X의 정보량을 크로스 엔트로피라고 한다. 내 가정이 틀릴수록 크로스 엔트로피 값은 증가하게 된다.&lt;/p&gt;
+
+&lt;p&gt;내 가정에 따라 증가한 엔트로피(정보의 불확실성)는 다음과 같이 표현할 수 있다.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;H(P,Q) - H(X) = \sum_{i}P(x_i)\log{\frac{P(x_i)}{Q(x_i)}} \\
+\text {this is }KL(P||Q)&lt;/script&gt;
+
+&lt;p&gt;식을 정리하고 보니까 가정에 따라 증가한 엔트로피는 KL-divergence라는 통계치로 정리된다. 이는 두 확률분포의 차이를 나타내는 통계치이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;$Q(X)$를 조정함으로써 크로스엔트로피를 최소화한다&lt;/strong&gt;는 것은 결국 $KL(P||Q)$값을 최소화한다는 것과 동치이다!&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;KL(P||Q) =\mathbb{E}_{X \sim p(X)}{[\log{\frac{P(x)}{Q(x)})}]}  = \mathbb{E}_{X \sim p(X)}{[\log{P(x)}-\log{Q(x)}]}&lt;/script&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;todo&quot;&gt;TODO:&lt;/h5&gt;
+
+&lt;p&gt;Maximizing likelihood is minimizaing cross entropy&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://taeoh-kim.github.io/blog/cross-entropy의-정확한-확률적-의미/&quot;&gt;참고&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 18 May 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018-05-18/Information,-Entropy,-Cross-Entropy/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018-05-18/Information,-Entropy,-Cross-Entropy/</guid>
+      </item>
+    
+      <item>
+        <title>Neural Network in Bayesian Framework</title>
+        <description>&lt;p&gt;From Neural Network Design, CS229 lecture note, 문일철 강의&lt;/p&gt;
+
+&lt;h1 id=&quot;training-neural-network----in-bayesian-statistical-framework&quot;&gt;Training Neural Network  - in Bayesian Statistical Framework&lt;/h1&gt;
+
+&lt;p&gt;베이지안 관점으로 뉴럴 네트워크를 표현하면 다음과 같은 장점이 있기에 이 작업을 한다&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;장점 1. prior knowledge를 반영할 수 있다. 즉, 뉴럴넷의 weight는 이럴 것이다!라는 정보를 수식에 반영할 수 있다.&lt;/p&gt;
+
+  &lt;p&gt;장점 2. 최적 regularization 강도를 결정할 수 있다. 즉, $\lambda$값을 주먹구구식으로 찾지 않아도 된다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;뉴럴넷을 학습하는 과정을 베이지안 관점에서 표현하기 위해선 몇 가지 &lt;strong&gt;가정&lt;/strong&gt;이 필요하다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;가정 1. 네트워크의 weight는 확률 변수이다. 그리고 &lt;strong&gt;weight는 정규분포를 따른다&lt;/strong&gt;. &lt;em&gt;베이지안이 아닌 관점에서는 weight를 확률 변수로 보지 않는다는 점에 유의하자!&lt;/em&gt;&lt;/p&gt;
+
+  &lt;p&gt;가정 2. &lt;strong&gt;데이터의 오차는 정규분포를 따른다&lt;/strong&gt;. $Y = F(x) + \epsilon$ 이라고 할 때, $\epsilon \text{~} N(0, \sigma^2)$이다. &lt;em&gt;여기서 $F(x)$는 우리가 만들어내는 함수가 아니라 근사하고자 하는 미지의 true function임에 유의하자.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;아래서 전개할 내용은 위의 가정들이 성립할 때만! 유효하다는 걸 명심해두자. 단순한 결과는 이러한 가정이 있기에 가능한 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;가정을 했으니 뉴럴네트워크 학습 과정을  다음과 같이 수학적으로 표현할 수 있다.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\arg\max_\mathbf{w}  P(w|D,\alpha, \beta, M) = \frac  {P(D|\mathbf{w},\beta,M)P(\mathbf{w}|\alpha,M)}{P(D|\alpha, \beta, M)} \\&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{align}
+w: weights\\
+D: \text{Train data}\\
+M: \text{selected model }\\
+\alpha: \text{see below }\\
+\beta: \text{see below}
+\end{align}&lt;/script&gt;
+
+&lt;p&gt;등식의 좌항을 말로 표현하면 이렇다. 학습 데이터(D)와 모델(M)이 주어졌을 때, 가장 확률이 높은 weight를 찾자!(가정 1에 따라 weight를 확률적으로 표현할 수 있다.) 좌항의 이름은 &lt;strong&gt;Posterior density function&lt;/strong&gt;이다. 데이터가 주어진 후에 weight를 고려하니까 posterior라고 말한다.&lt;/p&gt;
+
+&lt;p&gt;베이지안 관점을 적용한다는 것은 좌항을 우항으로 표현한다는 것을 의미한다. 우항은 P( )꼴로 생긴 3개의 항으로 이루어져있는데, 각각의 값들을 살펴보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;$P(D|\mathbf{w},\beta,M)$: weight와 모델(M)이 주어졌을 때 D의 확률밀도함수, 즉 &lt;strong&gt;likelihood function&lt;/strong&gt;.&lt;/p&gt;
+
+    &lt;p&gt;가정 2에서 오차$\epsilon$의 정규분포를 가정했으므로 likelihood funciton은 정규분포를 따른다(&lt;del&gt;믿음으로 극복&lt;/del&gt;).&lt;/p&gt;
+
+    &lt;p&gt;​&lt;center&gt;	
+$$
+\begin{align}
+P(D\|\mathbf{w},\beta,M) = \frac{1}{\sqrt{(2\pi\sigma_e^2)^n}}\exp{(-\frac{E_D}{2\sigma_e^2})} \\
+= \frac{1}{Z_D(\beta)}\exp{(-\beta E_D)}
+\end{align}
+$$
+&lt;/center&gt; &lt;br /&gt;
+앞서 밝히지 않은 $\beta$의 정체가 여기있다. $P(D|\mathbf{w},\beta,M)$이라는 정규분포에서 표준편차를 포함하는 부분을 치환한 것이다.&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{align}
+\beta = \frac{1}{2\sigma_e^2}\
+\end{align}&lt;/script&gt;
+
+    &lt;p&gt;이때 한 가지 흥미로운 점은, 주어진 likelihood function을 최대화하는 weight를 찾는다는 것은 (=MLE를 하면) 곧 squared error를 최소화하는 weight를 찾는다는 것과 동일하다는 점이다. 뉴럴네트워크 등에서 목적 함수를 squared error를 사용하는 데는 이러한 이론적 바탕이 있다.&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;../assets/img/squarederror.png&quot; alt=&quot;squarederror&quot; /&gt; &lt;br /&gt;
+likelihood function을 최대화하는 weight값을 &lt;em&gt;most likely&lt;/em&gt; 한 값이라고 부른다.
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;$P(\mathbf{w}|\alpha,M)$:  데이터도 안 보고 얘기할 수 있는 weight의 확률밀도함수. 이걸 &lt;strong&gt;prior density function&lt;/strong&gt;이라고 부른다. 데이터에 대한 정보가 없이 weight는 이렇다!라고 얘기하는 부분이니까 prior다. 이 부분은 우리가 &lt;strong&gt;마음대로&lt;/strong&gt; 조절할 수 있는 부분이다. 앞서 말했던 장점 1. “weights이럴 것이다!”를 수식적으로 반영하는 부분이 여기다.&lt;/p&gt;
+
+    &lt;p&gt;가정 2에서 weight가 평균이 0인 정규분포를 따른다고 했다. 정규분포로 설정하는 데는 세상에 존재하는 많은 값들이 정규 분포를 따르니까 weight도 그렇겠지라는 믿음이 반영되어있다(중심극한정리에 따르면 sample사이즈가 클 경우 weight의 평균은 정규분포를 따른 다는 밑바탕도 있고). 게다가, 정규분포는 두 개의 parameter로 손쉽게 다룰 수 있다는 장점도 있다. 물론 weight가 다른 분포를 따를 것 같다고 생각하면, 다른 분포를 쓰면 되긴 된다.&lt;/p&gt;
+
+    &lt;center&gt;
+$$
+P(\mathbf{w}\|\alpha,M) = \frac{1}{(\sqrt{(2\pi\sigma_w^2)^n})}\exp{(-\frac{E_w}{2\sigma_w^2})} \\
+= \frac{1}{Z_W(\alpha)}\exp{(-\alpha E_W)}
+$$
+&lt;/center&gt;
+    &lt;blockquote&gt;
+
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;$P(D|\alpha, \beta, M)$: &lt;del&gt;모델(M)이 주어졌을 때&lt;/del&gt; train data(D)의 확률밀도함수. 이 놈의 이름은 evidence이다. 위의 수식에 나와 있듯이, 뉴럴네트워크 학습 과정은 w에 관한 식을 푸는 것이다. 그런데 evidence는 w에 관한 식이 아니다. 즉, 위의 식에서 상수로 취급된다. &lt;em&gt;나중에 $\alpha, \beta$값을 구할 땐 중요하게 다뤄지긴 하지만.&lt;/em&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;1,2,3에서 논의한 내용을 정리하면 우항은 $\frac{정규분포 * 정규분포}{상수}$의 꼴로 표현되는데, 이는 곧 새로운 정규분포로 표현된다. 정규분포에 정규분포를 곱하면 정규분포니까. 그런데 이 새로운 정규분포의 모양이 흥미롭다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/img/posterior.jpeg&quot; alt=&quot;posterior&quot; /&gt;&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;P(w\|D,\alpha, \beta, M) \propto -F(\mathbf{w}) \\
+ F(\mathbf{w}) = \alpha E_d + \beta E_w \\
+ E_d: \sum(t-a)^T(t-a) \\
+ E_w: \sum w^2&lt;/script&gt;
+
+&lt;p&gt;이게 흥미로운 이유: 베이지안에 따르면 사후 확률을 최대화하는 w값을 찾는다는 건(MAP) 곧 regularization term을 포함한 목적 함수를 최소화하겠다는 의미랑 같다! 다시 말하면, 우리가 목적 함수에 $\sum \mathbf{x^2}$을 추가해주고 최적화 문제를 푼다는 것은 베이지안 관점에서 MAP을 한다는 걸로 이해할 수 있다는 점!&lt;/p&gt;
+
+&lt;p&gt;posterior density function을 최대화하는 weight값을 &lt;em&gt;most probable&lt;/em&gt;한 값이라고 부른다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;여기까지 전개를 하면 &lt;strong&gt;$\alpha, \beta$값을 이해&lt;/strong&gt;할 수 있다. $\beta$값을 먼저 보면, 이 값은 error의 분산에 반비례한다. error가 크면 우리에게 주어진 데이터를 마냥 신뢰할 수 없는 상황이다. 그러니까 주어진 데이터에 딱 맞는 함수를 찾으면 안 되는 상황이다. $\beta$ 수식에 따라 error의 분산이 크면 값이 작아지고, 그러면 regularization strength를 크게하는 꼴이 된다. 즉, 주어진 데이터에 딱 맞게 하지 않겠다는 것이다.&lt;/p&gt;
+
+&lt;p&gt;$\alpha$값은 weight의 분산에 반비례한다. weight에 대해 확신할 수 없는 상황이라면 우리의 network의 variation을 최대한 보장해줘야하는 상황이다. weight 분산이 커지면 regularization strength는 작아지고, weight에 대한 제약 조건이 작아진다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;TODO:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;각각의 데이터 포인트가 정규분포를 따른다는 정확한 증명! notation도 표현해서.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 10 May 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018-05-10/Neural-Network-in-Bayesian-Framework/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018-05-10/Neural-Network-in-Bayesian-Framework/</guid>
+      </item>
+    
+      <item>
+        <title>내적과 사잇각</title>
+        <description>&lt;p&gt;From Introduction to Linear Algebra(Gilbert Strang), &lt;a href=&quot;https://wikidocs.net/6957&quot;&gt;위키독스&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;궁금했던-것들&quot;&gt;궁금했던 것들&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;두 벡터가 수직이면 내적이 0이다. 왜?&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;이건 증명이 가능하다.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;||\vec{v}-\vec{w}||^2 = ||\vec{v}||^2 + ||\vec{w}||^2 \\
+(v1-w1)^2 + (v2-w2)^2 = (v1^2 + v2^2) + (w1^2 + w2^2) \\
+-2v1w1 -2v2w2 = 0 \\
+v1w1 + v2w2 =0 \\
+\therefore \vec{v} \cdot \vec{w} =  0 \: when \:  \vec{v} \: and \: \vec{w} \: \text{are perpendicular}&lt;/script&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/img/perpendicular.JPG&quot; alt=&quot;perpendicular&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;두 벡터의 내적이 최대가 되는 건 왜 두 벡터가 같을 때?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;벡터의 내적 정의를 조금 바꿔보면&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\vec{a} \cdot \vec{b}  = |a| cos\theta \cdot |b|&lt;/script&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/img/dotproduct.png&quot; alt=&quot;dotproduct&quot; /&gt;
+&lt;script type=&quot;math/tex&quot;&gt;\text{dot product is maximum when} \\
+|\vec{a}|cos\theta \text{ is longest!}&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;벡터 내적과 코사인이 어떻게 연결되는지&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;이건 증명보다는 예시를 통해 이해하는 방향으로 가자..&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\text{inner product of two unit vectors is the cosine of } \theta \\
+\theta = \text{angle between two vectors} \\
+\frac{\vec{a} \cdot \vec{b}}{|\vec{a}| \cdot |\vec{b}|} = cos\theta  \\
+\text{inner product of two NORMALIZED vectors!}&lt;/script&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;벡터 내적과 상관계수가 어떻게 연결되는지?&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;상관계수는 두 벡터의 사잇각으로 표현된다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\vec{x} = [x_1, x_2, \dots, x_n] \\
+\vec{y}= [{y_1, y_2, \dots, y_n}] \\
+\text{data points} = (x_i, y_i) \\
+
+\text {two  vectors }\vec{a} \:and\: \vec{b} \\
+\vec{a} = \vec{x} - \bar{x} \\
+\vec{b} = \vec{y} - \bar{y} \\
+
+\frac{\vec{a} \cdot \vec{b}}{|\vec{a}| \cdot |\vec{b}|} = cos\theta =  r\text{ (correlation coefficient)}&lt;/script&gt;
+</description>
+        <pubDate>Mon, 30 Apr 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018-04-30/%EB%82%B4%EC%A0%81%EA%B3%BC-%EC%82%AC%EC%9E%87%EA%B0%81/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018-04-30/%EB%82%B4%EC%A0%81%EA%B3%BC-%EC%82%AC%EC%9E%87%EA%B0%81/</guid>
+      </item>
+    
+      <item>
+        <title>git 조각</title>
+        <description>&lt;h1 id=&quot;개념&quot;&gt;개념&lt;/h1&gt;
+
+&lt;h3 id=&quot;문제-상황&quot;&gt;문제 상황&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;github에 &lt;em&gt;‘foo.txt’&lt;/em&gt;파일이 이미 올라가 있다.&lt;/li&gt;
+  &lt;li&gt;파일을 정리하면서 local에서 &lt;em&gt;‘foo.txt’&lt;/em&gt; 파일을 지웠다.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git add *&lt;/code&gt;  &lt;code class=&quot;highlighter-rouge&quot;&gt;git commit -m &quot;deleted file&quot;&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;git push origin master&lt;/code&gt;을 시전했다. github에서도 &lt;em&gt;‘foo.txt’&lt;/em&gt;가 삭제되길 바라며..&lt;/li&gt;
+  &lt;li&gt;github에 가보니까 지운 파일이 그대로 있다!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;해결책&quot;&gt;해결책&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git rm&lt;/code&gt;을 이용하자!&lt;/li&gt;
+  &lt;li&gt;물론 더 좋은 방법이 있겠지만 무식한 방법으로는 ‘foo.txt’를 삭제한 이후에도 &lt;code class=&quot;highlighter-rouge&quot;&gt;git rm 'foo.txt'&lt;/code&gt;해주고, 그 이후에 &lt;code class=&quot;highlighter-rouge&quot;&gt;add&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;commit&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;push&lt;/code&gt;를 해주는 것!&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 29 Apr 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018-04-29/git%EC%A1%B0%EA%B0%81/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018-04-29/git%EC%A1%B0%EA%B0%81/</guid>
+      </item>
+    
+      <item>
+        <title>인코딩 지옥</title>
+        <description>&lt;h1 id=&quot;개념&quot;&gt;개념&lt;/h1&gt;
+
+&lt;h3 id=&quot;unicode&quot;&gt;Unicode&lt;/h3&gt;
+
+&lt;p&gt;인코딩이 아니고 코드표! &lt;strong&gt;문자 - 코드(숫자)의 매핑&lt;/strong&gt;일 뿐이다. 전 세계 모든 문자에 대한 숫자 매핑이 있는 게 특징!&lt;/p&gt;
+
+&lt;p&gt;그러니까 ASCII 코드표랑 같은 개념이라고 보면 된다. ASCII는 한글 등 다양한 문자를 표현하지 못하기에, 확장판인 유니코드가 나온 격!&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;char&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Unicode&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;ASCII&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;A&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U+0041&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;65&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;가&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;U+AC00&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;N/A&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;encoding&quot;&gt;Encoding&lt;/h3&gt;
+
+&lt;p&gt;인코딩은 &lt;strong&gt;코드를 저장하는 방식&lt;/strong&gt;이다! 같은 유니코드라 하더라도, 컴퓨터에 저장할 땐 다양한 방식으로 저장할 수 있다. 어떤 인코딩 방식은 ‘ㄱ’를 e18480으로 저장하고, 어떤 인코딩은 feff11a8로 저장한다.&lt;/p&gt;
+
+&lt;p&gt;여러 인코딩 방식이 있는 이유는, “내가 더 많은 양의 자료를 효과적으로 저장할 수 있어!”, “알파벳이 많은 자료라면 내가 더 효과적이야!”라는 식으로 각자의 장점이 있기 때문…&lt;/p&gt;
+
+&lt;p&gt;텍스트 파일은 &lt;strong&gt;특정 인코딩 방식으로 저장되어 있다.&lt;/strong&gt; 따라서 그 파일을 읽으려면 그 방식대로 &lt;strong&gt;decoding&lt;/strong&gt; 해줘야한다. 다른 방식으로 파일을 읽을 경우 !@#!@#!@# 같이 파일이 깨진다.&lt;/p&gt;
+
+&lt;h3 id=&quot;utf-8-utf-16-euc-kr-cp494&quot;&gt;UTF-8? UTF-16? EUC-KR? CP494?&lt;/h3&gt;
+
+&lt;p&gt;이런 것들이 다 여러가지 인코딩 방식의 예시들이다. 각자의 특징이 있으나, UTF-8을 쓰면 탈날 일은 없다! 호환성이 좋다는 장점이 있단다. 별일 없으면 UTF-8을 쓰자.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;대처방법&quot;&gt;대처방법&lt;/h1&gt;
+
+&lt;p&gt;어디서 파일을 다운받았는데 열었더니 깨지더라. 그러면 아주 막막하다. 몇 가지 경우에 대처할 수 있는 방법들 여기!&lt;/p&gt;
+
+&lt;h3 id=&quot;vi로-txt파일을-열었는데-깨진다&quot;&gt;vi로 .txt파일을 열었는데 깨진다?&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;linux에서 .txt파일을 열었는데 문자가(특히 한글) 다 깨진다&lt;/li&gt;
+  &lt;li&gt;문자는 안 깨지는데 문장의 끝마다 ^M같이 보기 싫은 문자가 있다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# reload a file using different encoding&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# utf-8자리에 이 파일의 인코딩을 써줘야한다&lt;/span&gt;
+:e ++enc&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;utf-8
+
+&lt;span class=&quot;c&quot;&gt;# get rid of broken new line symbol&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# :1,$s/[Control]+v+m//g&lt;/span&gt;
+:1,&lt;span class=&quot;nv&quot;&gt;$s&lt;/span&gt;/^M//g 
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;python-소스코드가-깨진다&quot;&gt;python 소스코드가 깨진다?&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;소스코드에서 한글 주석 등이 다 깨진다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 소스 코드 맨 위에 주석 달아주기&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#-*- coding utf-8-*-&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# 저것도 안 되면!&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sys&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;reload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sys&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setdefaultencoding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'utf-8'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://libsora.so/posts/python-hangul/&quot;&gt;이유가 궁금하다면&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;TODO:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Binary file? Text file?&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 25 Apr 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018-04-25/%EC%9D%B8%EC%BD%94%EB%94%A9-%EC%A7%80%EC%98%A5/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018-04-25/%EC%9D%B8%EC%BD%94%EB%94%A9-%EC%A7%80%EC%98%A5/</guid>
+      </item>
+    
+      <item>
+        <title>서버 이용하기</title>
+        <description>&lt;p&gt;운영체제 들을 때 처음 서버를 이용해봤다. 운 좋게도 실력 좋은 친구가 나랑 같이 맥 유저여서 서버 접속해서 이용하는 방법을 몇 가지 알려줬다. ssh로 접속하고 filezilla 등등…&lt;/p&gt;
+
+&lt;p&gt;대학원에 와서 몇 가지 더 배운 내용을 정리해둔다. 지금 여기에 있는 건 내 표현대로 이해한거라 되게 부정확하다ㅠㅠ 정확한 개념 파악이 필요하다… 어디서 배우지?&lt;/p&gt;
+
+&lt;h2 id=&quot;서버-접속&quot;&gt;서버 접속&lt;/h2&gt;
+
+&lt;p&gt;맥에선 Terminal을 키고 ssh를 통해 서버에 접속했다. 따로 뭐 설치할 필요 없이 바로 ssh 주소~ 하면 접속 됐다. ssh는 secure shell이라는 암호화된(?) 통신 프로토콜을 말하는 것같다. sftp를 이용한 파일 전송은 Filezilla를 이용했다.&lt;/p&gt;
+
+&lt;p&gt;연구실 컴 Putty를 통해 접속했다. Putty는 ssh 통신을 하게끔 해주는 ssh 클라이언트다. 오늘 새로 알게 된 건 MobaXterm. ssh뿐만 아니라 sftp(파일 전송 프로토콜이라고 이해했다)까지 지원해줘서, stfp용으로 쓰던 Filezilla를 안 깔아도 되게 됐다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;파이참에서-원격-서버-연결하기&quot;&gt;파이참에서 원격 서버 연결하기&lt;/h2&gt;
+
+&lt;p&gt;파이참 프로젝트 interpreter를 server에 있는 interpreter로 등록하고 remote host지정해주기.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://pytogether.tistory.com/1&quot;&gt;연구실 선배가 알려줌&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;주피터-노트북에서-서버-연결하기&quot;&gt;주피터 노트북에서 서버 연결하기&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://coderwall.com/p/ohk6cg/remote-access-to-ipython-notebooks-via-ssh&quot;&gt;일단 여기를 따라하면 된다&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;그런데 Windows cmd에서 ‘ssh ~’를 치면 안 된다. openssh라는 패키지가 안 깔려 있기에. 나는 Cygwin이라는 걸 먼저 깔았다. Cygwin은 위도우에서 리눅스 프로그램/유틸리티를 사용 가능하게 해 준다. 이 걸 깔고 가능해지는 것 중 하나가 ls, cd 등 리눅스 기반 명령어를 사용할 수 있는 거. 깔면서 openssh라는 패키지도 같이 깔았다. openssh는 ssh client인듯.&lt;/p&gt;
+
+&lt;p&gt;만약 MobaXTerm을 사용한다면 위 과정을 다 스킵해도 된다! MobaXTerm 자체가 Cygwin기반으로 만든 프로그램이고, ssh client기능도 제공한다. 게다가, MobaXTerm을 사용한다면 모니터가 없는 서버에서 jupyter notebook을 실행시켜도 local컴퓨터에서 화면을 볼 수 있게 해준다. 그러니까 위 링크를 따라할 필요가 없다..&lt;/p&gt;
+
+&lt;p&gt;MobaXTerm의 모니터 보여주기 기능(?)을 이용하지 않고 Port Forwarding 기능을 이용하고 싶다면 위에 링크 따라하면 된다.&lt;/p&gt;
+
+&lt;p&gt;몇 가지 주피터 명령어:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# shows list of jupyter notebook servers
+jupyter notebook list
+
+# stops localhost:8888
+# available on notebook version 5.1.0 or after
+jupyter notebook stop 8888
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;jupyter notebook list 상에 많은 서버가 켜져있더라도, 컴퓨터 &lt;strong&gt;재부팅&lt;/strong&gt;이후엔 싹 다 꺼진다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;우분투에-서버-설치하기&quot;&gt;우분투에 서버 설치하기&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;우분투 설치&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;외장 ODD에 우분투 설치 파일이 들어있는 씨디 넣어서&lt;/li&gt;
+  &lt;li&gt;아이디 및 패스 워드 설정&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;인터넷 설정&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Ethernet 케이블 연결&lt;/li&gt;
+  &lt;li&gt;고정아이피 할당: 우분투 홈 화면 오른 쪽 위에 네크워크 관련 탭. Edit-IPv4 설정란에 들어가서 아이피 등등 번호 채우기&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;ssh 설정&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;sudo apt-get update: 우분투 저장소 업데이트&lt;/li&gt;
+  &lt;li&gt;sudo apt-get install ssh: ssh 설치 이후 클라이언트가 접속 가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;그 외 기본적으로 설치가 필요한 것들&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Vim&lt;/li&gt;
+  &lt;li&gt;Anaconda&lt;/li&gt;
+  &lt;li&gt;CuDNN&lt;/li&gt;
+  &lt;li&gt;Git&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;###&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 01 Apr 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018-04-01/%EC%84%9C%EB%B2%84-%EC%9D%B4%EC%9A%A9%ED%95%98%EA%B8%B0/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018-04-01/%EC%84%9C%EB%B2%84-%EC%9D%B4%EC%9A%A9%ED%95%98%EA%B8%B0/</guid>
+      </item>
+    
+      <item>
+        <title>3월 4주차 &amp; 4월 1주차 입데마</title>
+        <description>&lt;p&gt;인터뷰를 하려면 입데마가 필요하니까.. 정리해둔다.&lt;/p&gt;
+
+&lt;p&gt;1일 1질문이 목표!&lt;/p&gt;
+
+&lt;p&gt;(updated 3/26)&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;machine-learning&quot;&gt;Machine Learning&lt;/h2&gt;
+
+&lt;h4 id=&quot;1차원의-저주에-대해-설명해주세요&quot;&gt;1.&lt;strong&gt;&lt;u&gt;차원의 저주에 대해 설명해주세요&lt;/u&gt;&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;고차원 공간의 data를 다룰 때 나타나는 여러가지 특징을 일컫는 표현.&lt;/p&gt;
+
+&lt;p&gt;대표적인 예시로 &lt;strong&gt;차원이 증가하면서 공간의 부피가 너무 빠르게(exponentially) 증가&lt;/strong&gt;하는 현상이 있다. 이게 문제가 되는 이유는 데이터 분석을 할 때 우리의 데이터가 공간의 일정 부분을 cover하고 있어야하기 때문이다. 몇 차원 공간이든간에 우리의 data가 공간의 70%는 커버하고 있어야 우리의 분석에 일리가 있는 건데, 고차원 공간에서 70%를 커버하는 데이터를 구하기란 쉽지 않다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;..\assets\img\curse.PNG&quot; alt=&quot;curse&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위 예시에서 차원이 증가하면서 25% 공간을 점유하기 위해 필요한 점의 개수는 1개, 4개, 16개, … 이런 식으로 &lt;strong&gt;지수적으로 증가&lt;/strong&gt;한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;2-data-preprocessing에-대해서-말해주세요-normalization은-뭐고-왜-하나요&quot;&gt;2. &lt;u&gt;Data Preprocessing에 대해서 말해주세요. Normalization은 뭐고 왜 하나요?&lt;/u&gt;&lt;/h4&gt;
+
+&lt;p&gt;학습 알고리즘이 원만하게 돌아가기 위해서 data preprocessing을 한다.&lt;/p&gt;
+
+&lt;p&gt;대표적인 예시로 normalization이 있다. 각 feature들을 Z score로 바꾸는 과정이다(평균 빼고 표준편차로 나누기). 이걸 하는 이유는 1) feature 값이 원점 주위에 분포되도록 해서(zero centered), non linearity의 input(Wx)이 0에서 너무 멀어지지 않도록 조정해준다. Sigmoid나 Tanh처럼 saturation problem을 가지는 경우, activation function의 input이 극단값으로 가면 backprop시 gradient가 소멸되는 문제가 발생한다. 2) 또 하나의 역할은 모든 feature의 중요도를 동일하게 보기 위해서다. 모든 feature들이 동일한 range에 있도록 scaling을 함으로써.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/img/preprocessing.jpeg&quot; alt=&quot;img&quot; /&gt;3) 모든 feature가 비슷한 범위를 가진다면 error surface가 &lt;strong&gt;타원이 아닌 원형&lt;/strong&gt;이 된다. 원형 error surface일 경우 minimum으로 수렴하는 &lt;strong&gt;속도가 더 빠르다&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/img/normalize.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이미지의 경우 RGB값은 각각 0~255의 범위를 가지므로, 표준편차로 나눠주는 과정은 생략해도 된다. RGB의 표준편차는 대략 비슷할 테니까!&lt;/p&gt;
+
+&lt;p&gt;CNN을 통한 이미지 처리의 핵심은 이미지의 구조적 정보를 유지하는 거다. 그러니까 구조적 정보를 흐트러트리는 PCA, whitening은 CNN의 전처리로 쓰이지 않는다.&lt;/p&gt;
+
+&lt;p&gt;주의할 점! preprocessing statistics는 &lt;strong&gt;training data&lt;/strong&gt;가지고서만 계산해야한다! image mean이란 것도 training image mean을 말하는 거다. Test할 때엔 test이미지에 training image mean을 빼는 방식으로 전처리를 해야한다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;TODO: 이유1)이 맞나?, PCA, whitening&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;3-weight-initialization이-왜-중요하고-어떤-방법이-있나요&quot;&gt;3. &lt;u&gt;Weight initialization이 왜 중요하고 어떤 방법이 있나요?&lt;/u&gt;&lt;/h4&gt;
+
+&lt;p&gt;뉴럴 네트워크 학습시 초기 W값을 잘못 설정하면, 제대로된 학습이 이뤄지지 않을 수 있다. 가령, 모든 weight를 0으로 설정한다면 hidden layer 모든 뉴런의 input은 같은 값을 갖게 된다. 이렇게 되면 backprop시 같은 gradient를 갖게 되며, 전체적으로 learning이 이뤄지지 않는다고 할 수 있다. &lt;strong&gt;Symmetry breaking&lt;/strong&gt;을 위해서 randomness를 도입, 0 주위의 난수(zero mean unit standard deviation gaussian * small number)로 초기화하는 게 일반적이다. Backprop시 gradient는 W의  값들에 비례하기 때문에, 너무 작은 값으로 초기화할 경우 deep network에서 문제가 발생할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;이 방법의 문제는 number of input이 많아질수록 neuron output값들의 분포에서 variance가 커진다는 거! 처음에 variance크게 하려고 randomness 도입했으나, 너무 커진면 또 문제가 되니. 이에 대한 해결방법으로 몇 가지가 있다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# To make variance of each neuron 1
+W = np.random.randn(n) / sqrt(n)
+
+# Use this for ReLU, in practice
+# variance of each output = 2.0/n
+W = np.random.rand(n) * sqrt(2.0/n)
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Bias는 0으로 초기화하는 게 일반적이다. Weight initialization을 통해 symmetry breaking했으니 문제 없다!&lt;/p&gt;
+
+&lt;p&gt;Batch Normalization(주로 Fully connected 혹은 Conv layer 이후, activation 이전)을 사용할 경우 neuron의 input 을 가우시안 분포따르게 해주는 작업이므로, weight init이 잘못 됐더라도 얘가 해결해줄 수 있다.&lt;/p&gt;
+
+&lt;h4 id=&quot;4-dropout&quot;&gt;&lt;u&gt;4. Dropout?&lt;/u&gt;&lt;/h4&gt;
+
+&lt;p&gt;Overfitting을 방지하기 위해서 사용한다. 하이퍼파라미터 p로 뉴런이 activate되는 정도를 제어하는 방식으로 작동한다. p=0.5일 경우 해당 레이어 전체 뉴런의 절반만 활성화하는 방식이다. 이러한 방식은 전체 네트워크의 일부분을 샘플링해서 subnetwork를 구성하고, 그에 대한 파라미터만 업데이트하는 흐름으로 이해할 수 있다(물론 exponentially 많은 subnetwork들이 독립은 아니다. 파라미터가 중복되니까.) 테스트 할 때는 dropout을 사용하지 않는데, 이는 많은 sub-network들의 결과를 ensemble하는 방식으로 이해할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;조심해야할 것: 테스트 시 드롭아웃을 적용하지 않기 &amp;amp; test data의 스케일을 조정해주기, *p 만큼. 그래야 각 뉴런이 training time에 만든 output의 기대값과 test time output의 기대값이 같아진다. test data를 직접 건들지 않기 위해, 코드의 확장성(dropout 쉽게 껐다 키기)을 위해서 구현시 &lt;strong&gt;inverted dropout&lt;/strong&gt;을 주로 사용한다. Test data에 *p scaling을 해주는 대신 training data에 /p 스케일링을 해주는 것!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/img/dropout.jpeg&quot; alt=&quot;dropout&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;5-batch-normalization&quot;&gt;5. Batch Normalization&lt;/h4&gt;
+
+&lt;p&gt;뉴럴넷 학습의 문제점 중 하나는 &lt;strong&gt;weight initialize&lt;/strong&gt;를 어떻게 하냐에 따라 학습이 잘 될 수도, 안 될 수도 있다는 것. Initial weight이 너무 작아도, 너무 커도 학습이 일어나지 않으며 이에 대처하기 위해 Xavier initialization등등이 나와있다.&lt;/p&gt;
+
+&lt;p&gt;Batch Normalization의 역할은 non-linearity의 input을 normalize하는 것. 그래야 gradient flow가 잘 일어나도록 할 수 있으니. 주의할 점은 &lt;strong&gt;training example의 각 feature&lt;/strong&gt;에 대한 평균과 분산을 고려해서 normalize해주는 것. Bad initialization을 잡아주는 효과가 있다. 이후 감마, 베타 파라미터를 도입해 적절 normalize 정도를 학습 과정에 포함시킨다.&lt;/p&gt;
+
+&lt;p&gt;부수적인 효과로 더 큰 learning rate를 가능하게 하는 점과, 일종의 regularization으로 작용한다는 게 있다.&lt;/p&gt;
+
+&lt;p&gt;Test time에 적용하는 mean, variance는 training에서 계산된 값을 이용한다!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/img/batchNormalization.JPG&quot; alt=&quot;batchNormalization&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 26 Mar 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018-03-26/3%EC%9B%94-4%EC%A3%BC%EC%B0%A8-&-4%EC%9B%94-1%EC%A3%BC%EC%B0%A8-%EC%9E%85%EB%8D%B0%EB%A7%88/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018-03-26/3%EC%9B%94-4%EC%A3%BC%EC%B0%A8-&-4%EC%9B%94-1%EC%A3%BC%EC%B0%A8-%EC%9E%85%EB%8D%B0%EB%A7%88/</guid>
+      </item>
+    
+      <item>
+        <title>3월 2&amp;3주차 입데마</title>
+        <description>&lt;p&gt;인터뷰를 하려면 입데마가 필요하니까.. 정리해둔다.&lt;/p&gt;
+
+&lt;p&gt;1일 1질문이 목표!&lt;/p&gt;
+
+&lt;p&gt;(updated 3/23)&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;machine-learning&quot;&gt;Machine Learning&lt;/h2&gt;
+
+&lt;h4 id=&quot;1-cross-validation이-무엇인가요-어떻게-하나요&quot;&gt;&lt;u&gt;1. Cross-validation이 무엇인가요? 어떻게 하나요?&lt;/u&gt;&lt;/h4&gt;
+
+&lt;p&gt;통계적 분석의 결과가 얼마나 일반화 가능한지 평가하는 모델 테스트 방법. 단일 테스트 데이터 set을 사용할 경우, 모형의 성능 평가는 이 테스트 데이터에만 의존. 여러 테스트 셋에 대해 반복적으로 성능 평가함으로써 미지의 데이터에 대해서 얼마나 좋은 성능을 낼지 평가한다.&lt;/p&gt;
+
+&lt;p&gt;LOOCV의 경우 거의 모든 data를 train에 사용하므로 측정된 test error는 low bias. 그러나 n개의 test error가 서로 높은 상관을(다 비슷) 가지므로, 이들을 평균낸 최종 error는 high variance.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;TODO : How to do CV right&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;2-회귀--분류시-알맞은-metric은&quot;&gt;&lt;u&gt;2. 회귀 / 분류시 알맞은 Metric은?&lt;/u&gt;&lt;/h4&gt;
+
+&lt;p&gt;Regression이냐 Classification이냐에 따라, &lt;em&gt;Business goal&lt;/em&gt;에 따라, &lt;em&gt;target variable의 분포&lt;/em&gt;에 따라 고른다. 우리가 optimize하는 대상이 되기 때문에 신중히 고를 필요가 있다.&lt;/p&gt;
+
+&lt;p&gt;Regression의 경우 MSE(Mean Squared Error), MAE(Mean Absolute Error)는 &lt;strong&gt;큰 에러가 높은 가중치&lt;/strong&gt;를 갖게끔 되어있다. 큰 Error에 대해서 페널티를 많이 주고 싶다면 MSE가 적절하다. MAE는 linear score로, &lt;strong&gt;outlier에 more robust&lt;/strong&gt;하다.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\\
+MSE = \sqrt{\frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2}		\\
+MAE = \frac{1}{n} \sum_{i=1}^{n} |y_i-\hat{y}_i|			\\&lt;/script&gt;
+
+&lt;p&gt;이 외에 RMSLE(Root Mean Squared Logarithmic Error), WMAE(Weighted Mean Absolute Error)가 있다. RMLSE의 경우 &lt;strong&gt;over estimated value를 under estimate보다 더 크게 penalize&lt;/strong&gt; 하는 특징이 있다 (RMSE는 under, over에 동일). 최근 / 과거 데이터에 대해 다른 가중치를 써야하는 추천시스템 경우, WMAE를 고려해볼 수 있다.&lt;/p&gt;
+
+&lt;p style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;/assets/img/RMSLE.png&quot; width=&quot;500&quot; alt=&quot;RMSLE&quot; align=&quot;middle&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Classification의 metric은 기본적으로 Accuracy, Recall, Precision가 있다. Accuracy paradox는 unbalanced classes 경우 찍는 것도 accuracy가 높다는 얘기. Precision은 내 분류가 얼마냐 정확하냐, 즉 맞다고 한 것중에 얼마나 맞았냐. Recall은 실제 정답 중에 내가 몇 개나 맞췄나 리뷰하는 느낌.&lt;/p&gt;
+
+&lt;p&gt;위에 3개의 metric은 모두 unbalanced classe에 민감하다는 특징이 있다. F1 Score은 Precision과 Recall의 &lt;em&gt;조화평균&lt;/em&gt;으로, target variable이 unbalanced일 때 사용한다. ROC는 binary classifier의 성능을 그래프로 표현해주며, unbalanced classes에 민감하지 않다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;TODO : F1 Score 의미, ROC&lt;/p&gt;
+
+    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;3-정규화regularization이-뭐고-왜-유용한가요-ridge와-lasso의-장단점이-뭔가요&quot;&gt;&lt;u&gt;3. 정규화(regularization)이 뭐고 왜 유용한가요? ridge와 lasso의 장단점이 뭔가요?&lt;/u&gt;&lt;/h4&gt;
+
+&lt;p&gt;Train data에 오버피팅되는 것을 방지함으로써 &lt;strong&gt;모델의 일반화 정도(generalization)을 높이는 방법&lt;/strong&gt;이다. Loss function(minimization problem)에 regularization term을 추가함으로써 모델의 complexity를 낮출 수 있다. “같은 현상을 설명하는 두 개의 주장이 있다면 간단한 쪽을 선택해라”라는 &lt;strong&gt;Occam’s razor&lt;/strong&gt;원리를 따르는 개념이라고 할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;Ridge regression은 loss function에 &lt;strong&gt;L2 penalty&lt;/strong&gt;를 추가한다. hyperparameter &lt;script type=&quot;math/tex&quot;&gt;\lambda&lt;/script&gt;를 통해서 bias-variance tradeoff 정도를 조정할 수 있다. &lt;strong&gt;lasso 보다 조금 빠르다는 특징이 있다&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Lasso는 &lt;strong&gt;L1 penalty&lt;/strong&gt;를 부여한다. 중요한 몇 개의 변수((회귀의 계수로 이해)만 선택하고 나머지는 가 0이 되게하는 효과가 있어서, 그 자체로 &lt;strong&gt;feature selection method&lt;/strong&gt;로 자주 쓰인다.&lt;/p&gt;
+
+&lt;p&gt;Ridge, lasso term을 추가한 회귀식을 ridge regresssion, lasso regression이라고 한다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://brunch.co.kr/@itschloe1/11&quot;&gt;참고&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;4-local-optimum이-뭔가요-k-means-clustering같이-특정-알고리즘에서-local-optimum문제가-중요한-이유가-뭔가요-&quot;&gt;&lt;u&gt;4. Local optimum이 뭔가요? K-means clustering같이 특정 알고리즘에서 local optimum문제가 중요한 이유가 뭔가요? &lt;u&gt;&lt;/u&gt;&lt;/u&gt;&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;주변&lt;/strong&gt; candidate solution 중에서 optimal한 게 local optimum. Global optimum은 &lt;strong&gt;모든&lt;/strong&gt; candidate solution중 최적의 solution을 말한다.&lt;/p&gt;
+
+&lt;p&gt;K-means 알고리즘은 local optimum을 찾을 때까지 cost function을 줄여가는 방향으로 작동한다. 처음에 random assignment를 어떻게 하냐에 따라 다른 local optimum에 도착할 수 있다. 다른 초기화에 따라 다른 답이 나오는 결과를 보고 local optimum에 빠졌음을 알 수 있다. 또한, local optimum에 빠지는 많은 경우 수렴이 빠르다는 특징이 있다.&lt;/p&gt;
+
+&lt;p&gt;K-means의 경우 여러 가지 초기화로 알고리즘을 돌리고, lowest cost를 갖는 초기화 방법을 택할 필요가 있다!&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;5-왜-dot-product가-두-벡터의-유사도를-측정하는-데-쓰이나요&quot;&gt;&lt;u&gt;5. 왜 dot product가 두 벡터의 유사도를 측정하는 데 쓰이나요?&lt;/u&gt;&lt;/h4&gt;
+
+&lt;p&gt;대표적 similarity metric으로 cosine similarity가 있다.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;cosine(\theta) = \frac{\mathbf{x \cdot y}}{||x|| \cdot ||y||}&lt;/script&gt;
+
+&lt;p&gt;두 벡터 x, y를 먼저 normalize시켜주면 cosine similarity는 정규화된 두 벡터의 내적으로 생각할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;정규화 시켜준다는 것의 의미 벡터의 크기는 고려하지 않고 방향성분만 고려한다는 걸 의미한다. 어떤 문서를 BOW방식을 통해 vector로 표현하는 상황을 고려해보자. 두 문서 D1, D2가 같은 내용을 다루더라도(쓰이는 단어가 같더라도) 만약 두 문서의 길이가 현저하게 차이 난다면 두 문서의 벡터 또한 크기 차이가 나게 된다. 이 때 두 벡터를 정규화를 해주고 내적을 하면(cosine similarity) 두 문서는 비슷하게(값이 크다) 나오니까, 직관에 맞는 distance metric으로 쓸 수 있다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;TODO : NLP할 때 보통 정규화 해주나…? pretrained vector들은 정규화 된 애들인가..?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://nlp.stanford.edu/IR-book/html/htmledition/dot-products-1.html&quot;&gt;참고&lt;/a&gt;&lt;/p&gt;
+
+    &lt;p&gt;​&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Thu, 15 Mar 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018-03-15/3%EC%9B%94-2&3%EC%A3%BC%EC%B0%A8-%EC%9E%85%EB%8D%B0%EB%A7%88/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018-03-15/3%EC%9B%94-2&3%EC%A3%BC%EC%B0%A8-%EC%9E%85%EB%8D%B0%EB%A7%88/</guid>
+      </item>
+    
+      <item>
+        <title>Python 일지</title>
+        <description>&lt;h2 id=&quot;file-handling&quot;&gt;File Handling&lt;/h2&gt;
+
+&lt;p&gt;텍스트 데이터를 불러오고, 처리하고, 저장하는 과정에 필요한 것들. 점프 투 파이썬에 요지만 잘 정리되어 있다 짱짱맨.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;glob&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pickle&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# 'with' closes file automatically&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;./data/foo.txt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;r&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#returns a list of files in 'dir'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;file_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;listdir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#basically same functionality(wrapper of os.listdir)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;file_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;glob&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;glob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'*.txt'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# similar to string.join&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# glues directory and filename&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pathjoin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dirname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# splits full_filename into [filename, ext]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;ext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;splittext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;full_filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# returns boolean telling if dir is directory. False means file&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isdir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#cf)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sep&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;walk&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;basename&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dirname&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;pycharm&quot;&gt;Pycharm&lt;/h2&gt;
+
+&lt;p&gt;Shortcut &amp;amp; tip 몇 개 알아두기:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;ctrl + B&lt;/strong&gt; : Go to declaration&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;ctrl + alt + left&lt;/strong&gt; : Back(방금 전 커서 위치로 돌아가기)&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Run - Edit - Parameters&lt;/strong&gt; : 파일 실행 argument전달 가능&lt;/li&gt;
+  &lt;li&gt;해당 파일 탭 오른쪽 클릭 - Run으로 Run 대상 변경 가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;gensim&quot;&gt;Gensim&lt;/h2&gt;
+
+&lt;p&gt;Gensim 패키지 안에 LDA, word2vec 등 다양한 모듈이 있다. 그 중에 doc2vec 맛보기 해본 거!&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;gensim&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;gensim&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# 1.instantiate a model&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gensim&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;doc2vec&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Doc2vec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vector_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;300&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min_count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;epoch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# 2. build_vocab&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;build_vocab&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;training_corpus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# 3. train&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;train&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;train_corpus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;total_examples&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;train_corpus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;epochs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;epochs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# 4. save &amp;amp; load&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;path+filename&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model_loaded&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Doc2Vec&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;path+filename&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# gensim.models.doc2vec.TaggedDocument contains words and tags&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;train_corpus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;words&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;train_corpus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tags&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Vector representation of documents acceessible through &lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;docvec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;argparse&quot;&gt;Argparse&lt;/h2&gt;
+
+&lt;p&gt;Argument를 받고, 처리해준다! Pintos할 때 argument parsing만 하는 것도 너무 힘들었던 게 생각난다. 파이썬은 짱이다.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;argparse&lt;/span&gt; 
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;__main__&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argparse&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AugumentParser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_argument&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'--option'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;help&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;option description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    
+    &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parse_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;option&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;something&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;something&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;something&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;git&quot;&gt;Git&lt;/h2&gt;
+
+&lt;p&gt;로컬 폴더에서 git &amp;amp; github을 사용하려면 절차!&lt;/p&gt;
+
+&lt;p&gt;서버에서 git을 쓰려니 다른 사용자에게도 영향을 미칠까봐(?) 무서웠는데 폴더 별로 사용자 지정이 가능하다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. git init
+
+2. git config user.name &quot;hwijeen&quot;
+   git config user.email &quot;aurorall@naver.com&quot;
+   - --global 옵션을 사용하지 않은 경우 해당 폴더 scope에서 git 사용자 등록 가능
+ 
+# cf) git clone
+3. git remote add origin $address_copied_from_github_repo
+   - 주소에 나온 repository를 origin이라는 이름으로 remote에 등록한다
+   - git remote시 remote 저장소 list 볼 수 있다
+   - http:// 주소를 복사해올 경우 push할 때마다 github ID/password 입력해줘야한다
+   
+4. git add / commit / push 이제 사용 가능!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Tue, 13 Mar 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018-03-13/python-%EC%9D%BC%EC%A7%80/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018-03-13/python-%EC%9D%BC%EC%A7%80/</guid>
+      </item>
+    
+      <item>
+        <title>HMM 정리</title>
+        <description>&lt;p&gt;문일철 HMM 강의 Objectives:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Learn hidden Markov model&lt;br /&gt;
+ 1-1. Transition from the static clustering to the dynamic clustering&lt;br /&gt;
+ 1-2. Understand the difference of the graphical model&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Know and albe to answer the three major questions of HMM&lt;br /&gt;
+ 2-1. Know how to solve the evaluation question&lt;br /&gt;
+ 2-2. Know how to solve the decoding question&lt;br /&gt;
+ 2-3. Know how to solve the learning question&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Link to the previous lectures&lt;br /&gt;
+ 3-1. Link the forward-backward algorithm to the message passing&lt;br /&gt;
+ 3-2. Link the baum-welch algorithm to the EM algorithm&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;
+1-1. Dynamic clustering&lt;/p&gt;
+&lt;p style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;/assets/img/latent variable.png&quot; width=&quot;550&quot; alt=&quot;latentvariable&quot; align=&quot;middle&quot; /&gt;&lt;font size=&quot;3&quot; color=&quot;grey&quot;&gt;&lt;br /&gt;HMM in graphical notation&lt;/font&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;‘시간’이라는 요소를 넣어서 모델링한다는 점에서 ‘dynamic’이라는 용어가 붙었다.&lt;/li&gt;
+  &lt;li&gt;‘시간’ 요소가 더해짐에 따라, data points는 더이상 서로 독립이 아니고 temporal relation을 갖는다.&lt;/li&gt;
+  &lt;li&gt;즉, t+1 시점의 data는 t시점의 영향을 받는다.&lt;/li&gt;
+  &lt;li&gt;이때, 다음 시점에 영향을 주는 건 개별 데이터가 아닌 latent factor다.&lt;/li&gt;
+  &lt;li&gt;각 시점마다 잠재적인 동력(latent variable)이 있다. 각 시점에서 관측된 data는 그 잠재 동력의 발현일 뿐이다. HMM은 이런 생각을 담은 모델이다.&lt;/li&gt;
+  &lt;li&gt;대표적인 예시는 HMM을 활용한 POS tagging. &lt;script type=&quot;math/tex&quot;&gt;x_k&lt;/script&gt;를 단어, &lt;script type=&quot;math/tex&quot;&gt;z_k&lt;/script&gt;를 품사로 생각한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;
+1-2. Properties of HMM&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;script type=&quot;math/tex&quot;&gt;x_k&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;z_k&lt;/script&gt;는 확률 변수. 어떤 분포를 가정하냐에 따라 continuous할 수도, discrete할 수도 있다.&lt;/li&gt;
+  &lt;li&gt;여기서 &lt;script type=&quot;math/tex&quot;&gt;x_k&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;z_k&lt;/script&gt;는 multinomial distribution을 따른다고 가정한다. 즉, discrete 변수.&lt;/li&gt;
+  &lt;li&gt;Initial state probability는 첫 시점의 latent variable z값을 설정해주는 확률. 첫 시점은 ‘이전’이 없기에 따로 설정해주어야한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;P(z_1) \text{~} Mult(\pi_1, \dots, \pi_k)&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Transition probability는 다음 시점으로 ‘넘어갈 때’의 확률. 지금 latent variable이 &lt;script type=&quot;math/tex&quot;&gt;i&lt;/script&gt;로 주어질 때 다음 latent variable이 j일 확률.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;P(z_t^j =1 \mid z_{t-1}^i = 1) = a_{i,j}&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Emission Probability는 현 시점 latent varialbe이 그 data를 ‘뱉어낼’ 확률. 지금 이 시점엔 명사가 올텐데, 사과라는 단어일 확률은?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;P(x_t^j = 1 \mid z_t^i = 1) = b_{i,j}&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt;가 &lt;script type=&quot;math/tex&quot;&gt;z&lt;/script&gt;를 ‘따르는’ 걸 정확하게 뭐라하지?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;br /&gt;
+2-1. Evaluation question&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;script type=&quot;math/tex&quot;&gt;P(X \mid M, \pi, a, b)&lt;/script&gt;를 찾는 문제. trained model에서 주어진 데이터가 관측될 확률은?&lt;/li&gt;
+  &lt;li&gt;learning question을 통해 &lt;script type=&quot;math/tex&quot;&gt;\pi, a, b&lt;/script&gt;를 다 추정하고 나서야 이 문제들을 풀 수 있다.&lt;/li&gt;
+  &lt;li&gt;X &amp;amp; Z라는 labeled training data를 가지고 있다면 쉽게 구할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+P(X,Z) &amp;= P(x_1, \dots, x_t, z_1, \dots, z_t) \\  
+		&amp;= P(z_1)P(x_1 \mid z_1)P(z2 \mid z1) \dots P(z_t \mid z_{t-1})P(x_t \mid z_t) \\
+		&amp;= \pi_{z1} b_{z1,x1} a_{z1,z2} \dots a_{z_{t-1},z_t} b_{z_t, x_t}
+
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;이 식은 &lt;script type=&quot;math/tex&quot;&gt;Z&lt;/script&gt;값을 다 알고 있을 때나 써먹을 수 있다. 게다가 &lt;script type=&quot;math/tex&quot;&gt;Z&lt;/script&gt;값의 조합에 따라 &lt;script type=&quot;math/tex&quot;&gt;P(X,Z)&lt;/script&gt;값을 각각 계산해줘야한다는 단점이 있다.&lt;/li&gt;
+  &lt;li&gt;그래서 대안으로 나온 게 forward probability.&lt;/li&gt;
+  &lt;li&gt;forward probability를 사용하면 &lt;script type=&quot;math/tex&quot;&gt;Z&lt;/script&gt;없이도 evaluation question 답을 찾을 수 있다.&lt;/li&gt;
+  &lt;li&gt;방법은 &lt;script type=&quot;math/tex&quot;&gt;P(x_1, \dots, x_t, z_t^k=1)&lt;/script&gt;이라는 식을 derive하고, 이후에 &lt;script type=&quot;math/tex&quot;&gt;z_t^k&lt;/script&gt;를 marginalize out하자는 것.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+&amp;P(x_1, \dots, x_t, z_t^k=1) = \alpha_t^k \\
+&amp;\alpha_1^k = b_{k,x1} \pi_k \\
+&amp;\alpha_t^k =b_{k,x_t} \sum_{i}\alpha_{t-1}^i a_{i,k} \\
+&amp;RETURN \sum_{i}\alpha_t^i \\
+&amp;\because \sum_{i}\alpha_t^i = \sum_{i}P(x_1, \dots, x_t, z_t^i) = P(x_1, \dots, x_t)
+\end{align} %]]&gt;&lt;/script&gt;
+
+</description>
+        <pubDate>Mon, 05 Feb 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018-02-05/HMM-%EC%A0%95%EB%A6%AC/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018-02-05/HMM-%EC%A0%95%EB%A6%AC/</guid>
+      </item>
+    
+      <item>
+        <title>GRU &amp; LSTM 질문 정리</title>
+        <description>&lt;p&gt;&lt;strong&gt;* ReLU가 왜 non-linear일까?&lt;/strong&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;/assets/img/relu.png&quot; width=&quot;450&quot; alt=&quot;ReLU&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;ReLU를 여러 개 더하면 non-linear decision boundary를 근사할 수 있다.  &lt;br /&gt;
+&lt;a href=&quot;https://medium.com/@malay.haldar/how-do-neural-networks-work-57d1ab5337ce&quot;&gt;출처&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;* bias의 의미?&lt;/strong&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;/assets/img/sigmoid.png&quot; width=&quot;450&quot; alt=&quot;sigmoid&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;sigmoid의 인자 &lt;script type=&quot;math/tex&quot;&gt;wx&lt;/script&gt;에서 &lt;script type=&quot;math/tex&quot;&gt;w&lt;/script&gt;값을 조정하면 “기울기”를 조절할 수 있다.&lt;/p&gt;
+
+&lt;p style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;/assets/img/bias.png&quot; width=&quot;450&quot; alt=&quot;bias&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;sigmoid의 인자 &lt;script type=&quot;math/tex&quot;&gt;wx+b&lt;/script&gt;에서 &lt;script type=&quot;math/tex&quot;&gt;b&lt;/script&gt;값을 조정하면 “x축에 대해 평행이동”하는 효과가 있다.&lt;br /&gt;
+&lt;a href=&quot;https://stackoverflow.com/questions/2480650/role-of-bias-in-neural-networks&quot;&gt;출처&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;* RNN with variable length input?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;* &lt;script type=&quot;math/tex&quot;&gt;(1-z_t)&lt;/script&gt;과 &lt;script type=&quot;math/tex&quot;&gt;z_t&lt;/script&gt;의 위치&lt;/strong&gt;&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\\
+Hidden\:state\:of\:GRU \\
+h_t = (1-z_t) \odot \tilde{h_t} + z_t \odot h_{t-1}&lt;/script&gt;
+
+&lt;p&gt;여기서 &lt;script type=&quot;math/tex&quot;&gt;(1-z_t)&lt;/script&gt;과 &lt;script type=&quot;math/tex&quot;&gt;z_t&lt;/script&gt;의 위치를 바꿔도 알아서 learning 해준다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;* GRU와 LSTM이 vanishing gradient problem 어느 정도 해결해주는 이유?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;h_t&lt;/script&gt;와 &lt;script type=&quot;math/tex&quot;&gt;h_{t-1}&lt;/script&gt;이 &lt;script type=&quot;math/tex&quot;&gt;z_t&lt;/script&gt;(0~1 사이)를 곱한 관계니까 vanishing gradient problem 여전한 거 아닌가?
+실제론 z값이 1에 근접한가 항상..?
+“linear carousel”
+더 조사해봐야겠다&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;* 왜 &lt;script type=&quot;math/tex&quot;&gt;\tilde{h_t}&lt;/script&gt;엔 &lt;script type=&quot;math/tex&quot;&gt;tanh&lt;/script&gt;를 적용?&lt;/strong&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;/assets/img/activations.png&quot; width=&quot;500&quot; alt=&quot;activations&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;sigmoid 보다 tanh가 수렴 속도가 빠르다. 
+&lt;a href=&quot;https://ratsgo.github.io/deep%20learning/2017/04/22/NNtricks/&quot;&gt;출처&lt;/a&gt;
+게다가 sigmoid의 경우 미분계수가 최대 0.25니까 vanishing 현상이 더욱 잘 발생한다. tanh의 경우 최대 미분계수는 1.
+그럼에도 불구하고 GRU reset gate(&lt;script type=&quot;math/tex&quot;&gt;z_t&lt;/script&gt;) &amp;amp; reset gate(&lt;script type=&quot;math/tex&quot;&gt;r_T&lt;/script&gt;)에서 sigmoid를 쓰는 이유는 0~1사이의 “비율”값을 뽑아내기 위해.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;* GRU과 LSTM엔 왜 bias가 없지?&lt;/strong&gt;&lt;br /&gt;
+있음ㅋ activation function의 평행이동을 가능하게 해주는 기능이니까, 어느 모델이나 없으면 절대 안 될 듯!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;* GRU와 LSTM의 &lt;script type=&quot;math/tex&quot;&gt;\hat{y}&lt;/script&gt;?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;* LSTM은 GRU보다 parameter가 많으니 data가 더 많이 필요한가?&lt;/strong&gt;&lt;br /&gt;
+일단 LSTM 및 GRU는 data가 기본적을 많아야하고, 많을 수록 성능이 좋은 건 당연한 사실&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;* encoder, decoder 적용한 GRU, LSTM 모델은?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;더 알아볼 것:&lt;br /&gt;
+soft sampling? hard sampling? attention이 alignment를 어느 정도 잡는다?&lt;/p&gt;
+</description>
+        <pubDate>Sat, 03 Feb 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018-02-03/GRU-&-LSTM-%EC%A7%88%EB%AC%B8-%EC%A0%95%EB%A6%AC/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018-02-03/GRU-&-LSTM-%EC%A7%88%EB%AC%B8-%EC%A0%95%EB%A6%AC/</guid>
+      </item>
+    
+      <item>
+        <title>HCI Korea 2018 감상평</title>
+        <description>&lt;h1 id=&quot;학회-구성&quot;&gt;학회 구성&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Keynote speech&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Tutorial&lt;/li&gt;
+  &lt;li&gt;Workshop&lt;/li&gt;
+  &lt;li&gt;Panel Discussion&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Case Study&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Papers&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Doctoral Consortium&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Posters&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Creative Award&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;font size=&quot;3&quot; color=&quot;grey&quot;&gt;&lt;i&gt;(진한 표시는 내가 참석한 것들)&lt;/i&gt;&lt;/font&gt;
+
+&lt;p&gt;학회는 2박 3일간 빽빽하게 진행됐다. 여러 가지 프로그램이 준비되어 있기에 내 목적과 관심사에 맞게 프로그램을 선택하는 게 중요했다. 더군다나 HCI는 융합학문이기 때문에 다른 학회보다도 더 다양한 주제를 다루는 것 같았다. 일례로, paper 발표 세션은 디자인, 기술, 인문 세 분야로 분류되어 있었다. 내가 주로 관심을 가졌던 건 machine learning을 활용한 기술이다. 그 외에도 VR과 디자인 관련 프로그램도 참가했다.&lt;/p&gt;
+
+&lt;h2 id=&quot;keynote-speech&quot;&gt;Keynote Speech&lt;/h2&gt;
+&lt;p&gt;Everyday Interaction with Machine Learning이라는 제목으로 James Forgarty라는 교수님이 한 시간 동안 발표를 했다. 지각한 탓에 앞 20분 정도는 놓쳤지만 그래도 나머지 40분 동안 HCI라는 학문이 어떤 문제를 염두에 두는지 큰 그림을 접할 수 있었다. 기술 연구의 방향성에 대해서도 다시 생각해볼 수 있는 시간이었다. 이걸 듣기 전까지 내가 참여했던 건 주로 paper 발표 세션이었다. 주로 석사생들이 자신이 연구한 내용에 대해 20분 남짓한 시간 동안 발표하는 시간이었다. Wordle을 이용한 워드 시각화, data noise 증폭해서 예술작품 만들기, 휘발성 사진에 대한 연구, 분산표상기법을 활용한 단어의 비표준 의미 탐지, 시각장애인들을 위한 TouchPhoto 기술 등등… 각각의 연구는 완성도가 높아 보였지만, 이게 왜 HCI지?라는 생각이 계속 맴돌았다. &lt;strong&gt;특정 분야에 대한 기술 연구에서는 human이 어디에 들어가는지 찾기 어려웠고, 인문적 접근에선 computer가 어디에 있는지 모르겠다는 느낌&lt;/strong&gt;이었다.&lt;/p&gt;
+
+&lt;p style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;../assets/img/forgarty.jpg&quot; alt=&quot;James Forgarty&quot; width=&quot;200&quot; align=&quot;middle&quot; /&gt;&lt;br /&gt;&lt;font size=&quot;3&quot; color=&quot;grey&quot;&gt;얼굴이 어질다..&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;Forgarty 교수도 석사생들과 마찬가지로 자신의 연구를 소개했는데, 다른 점 중 하나는 연구 배경에 대해서 많은 고민을 한 걸 보여줬다는 거다. 결국엔 어떤 기술을 구현해서 소프트웨어를 만든 격인데, 왜 그걸 만들었나에 대해서 풍부한 이유가 있었다. 이 기술과 관련된 얕은 서론이 아니라 &lt;strong&gt;공감할 수 있는 문제에 대한 해결책으로써 기술&lt;/strong&gt;을 제시한다는 점이 인상적이었다. 예를 들어, CueFlik이라는 이미지 검색 도우미(?)를 소개하기에 앞서 이미지 검색의 어려움을 예시로 들었다. Category 구조에서 폴더를 선택해가면서 선택지를 좁혀가는 것과 방대한 자료에서 키워드 기반으로 원하는 걸 찾아내는 건 사고의 구조가 근본적으로 다른 문제라는 점부터 시작했다. 그러고는 깔끔한 스피커 이미지를 얻기 위해서 검색 엔진에 ‘stereo’라고 검색을 하면 지저분한 배경에 있는 스피커는 물론이고 stereo라는 이름을 가진 가수까지 검색된다는 문제점을 지적했다. 이미지의 태그, 이미지 주변 텍스트를 기반으로 검색하는 엔진 특성상 ‘stereo on white background’는 해결책이 되지 못한다. 이러한 문제 상황에서 CueFlik이 지원하는 기능은 몇천 장에 이르는 stereo 검색 결과에서 사용자가 needs에 맞는 사진 몇 장을 고르면, 나머지 사진에 대해 macihe learning기반 classification을 수행해준다는 것이다. 내가 고른 기준에 따라 실시간으로 이미지가 sorting되면 원하는 이미지 여러 장을 손쉽게 찾을 수 있다는 점을 강조했다. 인간이 겪는 문제를 해주는 컴퓨터가 해결해준다는 점에서 HCI 느낌이 났다.&lt;/p&gt;
+
+&lt;p&gt;두 번째는 HCI의 이론적인 내용에 대해서도 강조했다는 점이다. 나처럼 HCI를 잘 모르는 사람은 HCI가 human과 computer의 interaction을 연구하는 분야구나라는 막연한 느낌밖에 없을 거다. HCI의 이론적 토대와 HCI에서 고민하는 주제들을 보여주니 HCI라는 학문이 조금은 더 와닿았다. 기억에 남는 건 HCI 연구할 떄 염두에 두어야 할 주제 5가지 : Address / Attention / Action / Alignment / Accident. 쉽게 말하면 Attention은 컴퓨터가 나에게 집중하는 중인지 보이나? Action은 컴퓨터에게 어떤 방식으로 말하나? Alignment는 컴퓨터가 잘 하고 있는지 어떻게 아나?라고 했다. Address와 Accident에 대한 쉬운 설명은 놓쳤다ㅠ. &lt;strong&gt;Interaction이라는 모호한 개념을 다섯 가지 부분으로 세분화&lt;/strong&gt;하니 좀 더 와닿았다. 학회에서 소개하는 여러 연구을 다섯 가지 분류법으로 나눠도 얼추 맞는 거 같다.&lt;/p&gt;
+&lt;p style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;../assets/img/HCI.jpg&quot; alt=&quot;HCI&quot; width=&quot;450&quot; align=&quot;middle&quot; /&gt;&lt;br /&gt;&lt;font size=&quot;3&quot; color=&quot;grey&quot;&gt;이런게 다 HCI의 출발점이 아닐까&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;세 번째는 본질적인 질문을 해야한다는 거. 이건 뻔한 말이지만 자주 까먹는 점이다. 게다가 뻔한 내용이라 아우라 있는 교수 정도가 말해야 들어오는 어려운 메시지다ㅋㅋ. 기술을 위한 기술을 경계해야 한다는 포인트가 있었다. Personal data, self-tracking, machine learning, visualization이라는 멋진 키워드로 무장한 기술도 사실 쓸모 없을 수도 있다는 얘기를 했다. 개인의 이동 기록, 운동 기록 등등을 종합해서 사용자가 학생인지, 회사원인지를 classify해주는 서비스가 과연 &lt;strong&gt;사용자의 needs를 고려&lt;/strong&gt;한 것인지 의문을 제기했다. 항상 사람의 needs를 먼저 파악하는 게 먼저고, 그에 따른 기술 구현을 생각해야 한다고 했다. 물론, 어떤 회사 입장에선 사용자 데이터를 토대로 고객의 신상을 추론하는 게 중요할 수 있으니 위의 기술도 기업 needs엔 맞는 거라고 할 수 있겠다.&lt;/p&gt;
+
+&lt;p&gt;그리고 결론 부분에서 강조한 &lt;strong&gt;not data about us, but for us.&lt;/strong&gt; 데이터가 넘치는 세상이라지만 사실 내 개인 데이터는 구글, 페이스북이 쥐고 있는 형국이다. Big data 그 자체에 관서만 이야기할 뿐만 아니라 그것의 사용처가 human을 위하는 방향일 필요가 있다는 점을 강조했다. 그리고 machine learning에 관련해서는 그것이 doing many things on behalf of us, without explicit ordering이 현재 상황이라고 했다. 사용자의 편의를 위해 자동화된 부분이 많다는 얘기로 이해했다. 이럴 때 일수록 그 기술을 제어할 방법에 대한 연구가 필요하고, 인간이 효과적으로 제어하기 위해선 language based approach가 필요하다고 했다(human language를 통한 기술 제어가 이 교수의 관심사인 듯?). HCI라는 학문이 태어난 게 이런 맥락에서 아닐까 싶었다.&lt;/p&gt;
+
+&lt;h2 id=&quot;doctoral-consortium&quot;&gt;Doctoral Consortium&lt;/h2&gt;
+&lt;p&gt;Consortium이란 게 무슨 뜻인지도 모르고 doctoral이라는 단어에 끌려서 갔다. 박사들이니까 좀 더 내공 있는 모습을 볼 수 있겠지! 기대를 하며. 기대에 부응하는 시간이었다. 김주호 교수의 사회로 세션이 시작됐는데 해외 유수 학회의 경우 doctoral consortium이 그 꽃이라고 했다. 열띤 논쟁과 피드백이 오가는 자리이고, 큰 학자가 되기 위한 등용문이라고 했다. 소개대로 paper session보다 깊이 있는 발표가 이뤄졌다. 박사 5명이 각자 연구 주제에 대해서 15분가량 발표하고, 나머지 15분 동안은 심사 교수들 및 다른 박사들의 피드백을 받았다.&lt;/p&gt;
+&lt;p style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;../assets/img/consortium.jpg&quot; alt=&quot;HCI&quot; width=&quot;550&quot; align=&quot;middle&quot; /&gt;&lt;br /&gt;&lt;font size=&quot;3&quot; color=&quot;grey&quot;&gt;참가자가 많지 않지만 다들 진지한 게 이런 느낌(사진 무관)&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;Dematerialized 된 현대 사회에서 material 측면을 고민하여 physical object를 만드는 것에 대한 연구가 인상적이었다. 제목이 너무 복잡해서 발표자가 설명하기 전까진 이게 뭐야.. 알 수 없는 공대의 세계인가 싶었다. 세련됐다고 할 순 없지만 열의와 진심이 느껴지는 발표자는 서론을 통해 연구 주제를 잘 설명해줬다. 현대 기술 사회에서 기술과의 상호작용이 대부분 screen-based인 걸 dematerialization의 예시로 들었다. 편의를 위해 다양한 task를 screen 기반 구현으로 통일시키다보니 도구 각각이 가지던 physical routine, physical richeness가 사라지는 것에 대한 문제의식을 가졌다. 그래서 연구자는 다양한 도구의 physical form을 되찾는 노력을 한다. 이 과정에서 material(재질)을 통해 디자인적 요소를 살려냈다. 전혀 생각해보지 못한 측면을 파고드는 연구 방향성이 매력적이었다. 새롭기만 한 것이 아니라, &lt;strong&gt;기술을 통해 아날로그를 재현&lt;/strong&gt;한다는 점에서 의미도 있어 보였다. 멋있는 서론에 묻히지 않을 만큼 예쁜 도구의 prototype(황동, 대리석, 콘크리트, 나무 등을 사용한 실시간 날씨 및 일정 알리미, 나무와 스크린을 접목한 스케줄 관리 및 교통 정보 제공 도구)도 사고 싶은 생각이 들 정도로 완성도가 있었다.&lt;/p&gt;
+
+&lt;p&gt;이에 대한 심사 교수님들의 평가도 인상적이었다. 본인은 디자인 문외한이라고 밝힌 김주호 교수는 전반적인 연구의 절차 및 방향성에 대해 조언을 해줬다. 전공 분야가 아닌데 조언할 부분을 찾아내는 것도 능력이다. 디자인 연구의 이론적 토대(conceptual framework)가 탄탄한 점을 칭찬했다. 그렇지만 연구의 의미에 대해서는 끝없이 고민할 필요가 있다고 했다. &lt;strong&gt;“너가 한 게 100배가 되면 그게 무슨 의미 일까? prototype이 100개가 생기면 그땐 어떤 의미가 생기는 건가?”&lt;/strong&gt;라는 질문을 스스로에게 던져보라고 조언했다. 프라이탁 가방을 메고 지각을 해서 나에게 강렬한 인상을 남긴 이병주 교수도 훌륭한 피드백을 남겼다. 이 전 발표자에겐 “predictive brain”에 대해 알아보라고 간접적인 도움을 줬다. 수동적 인간을 가정하는 연구의 본질적인 한계에 대해서 고민해보라고 말하는데 그치지 않고 구체적인 리소스를 알려준다는 점에서 훌륭한 피드백이었다. 이 발표자에겐 “materiality”라는 게 재질에 한정되는 게 아니고 버튼을 누를 때의 강도 등 다양한 요소를 포함하는 개념이라고 전문적인 조언을 해줬다(전공이 기계공학이었다). 그러고는 기계공학이 아닌 디자인 전공 발표자가 materiality를 다루려면 “현상학적 건축”이라는 개념으로 접근하는 게 좋을 수도 있다는 전략적인 조언도 해줬다. 두 교수의 코멘트는 짧지만, 청중인 나에게도 기억이 남을 정도로 훌륭했다.&lt;/p&gt;
+
+&lt;h2 id=&quot;case-study&quot;&gt;Case Study&lt;/h2&gt;
+&lt;p&gt;Case Study 세션은 Paper 세션과 버금갈 만큼의 비중이다. 학계 뿐만 아니라 기업에서도 나와 UI/UX 적용 사례, 앱 개발 사례, 음성디자인 인터페이스 디자인 사례 등 다양한 주제를 다룬다. 나는 SK Telecom이 한 Tmap x NUGU 음성 인터페이스 디자인 사례 발표에 참석했다. 기업 발표는 처음 듣는 거였는데, 학생 발표와 다른 점이 보였다. 일단 발표자가 떠는 기색 없이 차분하게 발표를 잘 하는 데서 이런 자리에 익숙한 게 보였다. 듣는 사람들에게 잘 보여야 하는 을의 입장이라기보다 “우리 정보 공유해줄게” 포스를 풍기는 자신감 있는 태도였다. 실제로 발표 시간 내내 찰칵찰칵 소리가 들릴 정도로 사람들이 계속 사진을 찍었다. 대기업의 업무 절차, 고민, 아이디어 등등을 담은 피피티에서 배워갈 점이 많아서 그랬나 보다. 발표 중간중간에 짤막한 동영상을 넣는 것도 부가적이지만 재밌는 발표 전략으로 보였다.&lt;/p&gt;
+&lt;p style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;../assets/img/voice.jpg&quot; alt=&quot;HCI&quot; width=&quot;550&quot; align=&quot;middle&quot; /&gt;&lt;br /&gt;&lt;font size=&quot;3&quot; color=&quot;grey&quot;&gt;터치 -&amp;gt; 음성 인터페이스 전환에 따라 디자이너도 일이 많아졌다&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;대기업의 업무 절차는 매우 꼼꼼했다. 기획부터 구현, 테스트까지 일련의 절차에 대한 가이드라인이 뚜렷했다. 우선, 음성 인터페이스가 기존의 터치 인터페이스보다 작동 depth가 얕다는 걸 기회로 인식하고 기획을 시작했다. 길 안내를 위해 터치를 5번 정도 해야 하던 것을 음성 명령 하나로 대체할 수 있다는 것이다. 이후에 네비게이션 관련 소비자의 구체적 needs를 파악하고, 원칙을 세워 어떤 needs를 반영할지, 안 할지를 정한다. 소비자가 네비게이션에게 엔터테인먼트 기능을 바란다고 조사에서 드러났어도, 안전 내비 원칙 상 동영상 기능은 제공하지 않는다는 식이다. 또한, 환경에 따른 현실적 제약을 고려해 서비스 범위를 명확히 한다. 운전 중인 사용자의 인지 능력은 50퍼센트밖에 안 된다는 한계를 고려해서 대표적 기능만을 제공한다. 핵심 기능에 대한 구상이 어느 정도 진전되면 target 고객의 입장에서 다시 한번 생각한다. Tmap 주요 고객층은 30-50대 남성으로 매우 성격이 급하고 디지털 literacy가 낮은 게 특징이니 기존의 인터페이스를 최대한 살린다. 그런 다음에야 관련 분야 research를 진행한다. 음성 인터페이스 관련 교재를 정해 스터디를 하기도 하고, 타사 서비스에 대한 case study도 한단다. 이후에 본격적인 디자인이 이루어지고, 결과물이 서비스로 거듭나기 전에 꼼꼼한 test 과정도 빼먹지 않는다.&lt;/p&gt;
+
+&lt;p&gt;디자인 과정에서 여러 고민이 있었고, 그에 따라 아이디어를 발전시키고 의사결정을 했다. 버튼 위치, 화면 구성, 폰트, 검색 시 노출되는 리스트 개수, 내비 대사의 정보량 등등 모든 의사결정에는 그에 선행하는 고민과 토론 과정이 있었다는 데서 기업은 기업이구나 싶었다. 터치가 아닌 음성 인터페이스라는 특성상 고려할 것이 몇 가지가 있었는데, 두 가지가 기억난다. 첫째는 정보량에 대한 부분이다. 사용자에게 제공할 수 있는 정보를 많이 가지고 있지만, 사용자가 가만히 기다리며 귀로 정보를 접하는 상황이므로 정보 개수를 최대 3개로 제한했다고 한다. “주유소 알려줘”라는 요청에 대해 가는 길에 있는 주유소, 가는 길은 아니지만 거리가 가까운 주요소, 가격이 싼 주요소 등 다양한 정보가 있지만 적절한 것 몇 개만 사용자에게 제공하는 식이다. 둘째는 음성 인식의 한계를 고려해서 유도성 대사(?)를 만든다는 부분이다. 같은 기능이더라도 사람마다 말하는 방식이 많은데, 그 모든 것을 이해하도록 음성인식 기술을 구현하는 건 쉽지 않다. “몇 번째” 장소로 갈까요? 이렇게 하려면 “안내 시작”이라고 말하세요, 같이 사용자의 대답을 특정 방향으로 유도하는 꾀를 썼다.&lt;/p&gt;
+&lt;p style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;../assets/img/tmap.png&quot; alt=&quot;Tmap x NUGU&quot; width=&quot;250&quot; align=&quot;middle&quot; /&gt;&lt;br /&gt;&lt;font size=&quot;3&quot; color=&quot;grey&quot;&gt;이게 다 고민의 결과물&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;대기업의 힘은 사후 관리에서도 드러났다. 내가 주변에서 흔히 볼 수 있는 프로젝트는(주로 대학생) 데드라인이 가까워질수록 노력이 많이 투입되고, 제출과 동시에 프로젝트가 끝이 나는 순서였다. 기업은 서비스 출시 이후에도 유지 보수에 많은 자원을 투자한다. 사용자 로그 데이터를 통해 어떤 명령어가 많이 유입되는지 분석하고, Tmap 이용률이 타사 음성인식 서비스에 비해 높은 이유는 차 안이라는 개인적 공간에서 사용하기 때문이라는 분석도 내놓고, 생각보다 많은 사람이 AI와 잡담하기를 바란다는 점을 파악한다. 이 모든 데이터는 추후 업데이트에 반영된다고 한다. 기업의 규모 있는 프로젝트를 엿볼 수 있는 좋은 시간이었다.&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 01 Feb 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018-02-01/HCIKorea2018/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018-02-01/HCIKorea2018/</guid>
+      </item>
+    
+      <item>
+        <title>Anaconda의 정체</title>
+        <description>&lt;h3 id=&quot;--시작&quot;&gt;- 시작&lt;/h3&gt;
+&lt;p&gt;난 내 친구를 통해서 컴퓨터에 python을 깔았다. “이거 다운 받으면 필요한 패키지 다 같이 받아져. 이거 짱이야 이거 받어”라고 하며 anaconda를 다운 받았다. 그 이후엔 terminal에 jupyter notebook 입력해서 나오는 창에서 코딩을 했다. 새로운 패키지가 필요할 땐  conda install, 안 되면 pip install을 쳐서 원하는 패키지를 받을 수 있었다. 
+알고보니 anaconda는 여러 pacakage 모아두기보다 훨씬 더 하는 게 많은 툴이었다. 아나콘다의 기능은 &lt;strong&gt;패키지 관리&lt;/strong&gt; &amp;amp; &lt;strong&gt;가상환경 관리&lt;/strong&gt; 이 두 가지이다.&lt;/p&gt;
+
+&lt;h3 id=&quot;--패키지-관련-명령어&quot;&gt;- 패키지 관련 명령어&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda install $PACKAGE_NAME
+conda install --name $ENVIRONMENT_NAME $PACKAGE_NAME
+conda update --name $ENVIRONMENT_NAME $PACKAGE_NAME
+conda update conda
+conda remove --name $ENVIRONMENT_NAME $PACKAGE_NAME
+conda list --name $ENVIORNMENT_NAME 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;--가상환경-관련-명령어&quot;&gt;- 가상환경 관련 명령어&lt;/h3&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;conda create --name $ENVIRONMENT_NAME python=3.6 $PACKAGE_NAME
+source activate $ENVIRONMENT_NAME 
+source deactivate
+conda env remove --name $ENVIRONMENT_NAME
+conda info --envs
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;--nb_conda라는-jupyer-notebook-extension&quot;&gt;- nb_conda라는 jupyer notebook extension&lt;/h3&gt;
+&lt;p&gt;terminal에서 각종 명령어로 하는 가상환경 설정이 어렵다면 이걸 깐다(jupyter notebook extension). jupyter notebook에서 GUI로 가상환경 설정을 할 수 있게끔 해준다. conda install nb_conda 이거 깔면  jupyer notebook에 conda tab이 생긴다.
+jupyter notebook에서 새 코드를 작성할 때 new 버튼을 누른다. 이 때 new에 가상환경 리스트가 뜨게 하려면 모든 환경에 conda install notebook 되어 있어야해.&lt;/p&gt;
+
+&lt;p&gt;nb_conda 사용 예시
+&lt;img src=&quot;../assets/img/nb_conda1.png&quot; alt=&quot;nb_conda1&quot; width=&quot;650px&quot; /&gt;
+&lt;img src=&quot;../assets/img/nb_conda2.png&quot; alt=&quot;nb_conda1&quot; width=&quot;650px&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://egloos.zum.com/mataeoh/v/7052271&quot;&gt;reference1&lt;/a&gt;
+&lt;a href=&quot;https://graspthegist.com/post/learn-conda-1/&quot;&gt;reference2&lt;/a&gt;
+&lt;a href=&quot;https://docs.anaconda.com/anaconda/user-guide/tasks/use-jupyter-notebook-extensions&quot;&gt;reference3&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;--jupyter-notebook-홈-디렉토리-변경&quot;&gt;- jupyter notebook 홈 디렉토리 변경&lt;/h3&gt;
+&lt;p&gt;jupyter notebook에서 new 버튼을 눌러 코드를 작성하면 홈 디렉토리에 저장된다. 컴퓨터의 최상위 디렉토리에 저장되는 건데 사실 잘 안 쓰는 장소라 파일 찾기 귀찮을 때가 있다. 기본 저장 장소를 바꾸려면 홈 폴더에 있는 숨겨진 파일 .jupyter/jupyter_notebook_config.py 파일을 내용을 바꿔줘야한다. 179번 째 줄 즈음에 있는 #c.Notebook.App.notebook_di= ‘’ 을 수정해준다. 따옴표 안에 원하는 디렉토리를 넣어야겠지?&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://luke77.tistory.com/52&quot;&gt;reference1&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;--참고&quot;&gt;- 참고&lt;/h3&gt;
+&lt;p&gt;pip install해도 conda 환경 안에 패키지가 설치된다. pip라는 패키지가 conda 환경 안에 있기 때문에!&lt;/p&gt;
+</description>
+        <pubDate>Sat, 20 Jan 2018 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2018-01-20/Anaconda%EC%9D%98-%EC%A0%95%EC%B2%B4/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018-01-20/Anaconda%EC%9D%98-%EC%A0%95%EC%B2%B4/</guid>
+      </item>
+    
+  </channel>
+</rss>

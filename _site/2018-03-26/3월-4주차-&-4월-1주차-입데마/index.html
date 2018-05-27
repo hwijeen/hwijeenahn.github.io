@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3월 4주차 & 4월 1주차 입데마</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+  <!-- Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for Hwijeen Ahn" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>3월 4주차 &amp; 4월 1주차 입데마 | Hwijeen Ahn</title>
+<meta name="generator" content="Jekyll v3.8.0" />
+<meta property="og:title" content="3월 4주차 &amp; 4월 1주차 입데마" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="데이터 사이언티스트 인터뷰 질문 및 답변" />
+<meta property="og:description" content="데이터 사이언티스트 인터뷰 질문 및 답변" />
+<link rel="canonical" href="http://localhost:4000/2018-03-26/3%EC%9B%94-4%EC%A3%BC%EC%B0%A8-&-4%EC%9B%94-1%EC%A3%BC%EC%B0%A8-%EC%9E%85%EB%8D%B0%EB%A7%88/" />
+<meta property="og:url" content="http://localhost:4000/2018-03-26/3%EC%9B%94-4%EC%A3%BC%EC%B0%A8-&-4%EC%9B%94-1%EC%A3%BC%EC%B0%A8-%EC%9E%85%EB%8D%B0%EB%A7%88/" />
+<meta property="og:site_name" content="Hwijeen Ahn" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-03-26T00:00:00+09:00" />
+<script type="application/ld+json">
+{"headline":"3월 4주차 &amp; 4월 1주차 입데마","dateModified":"2018-03-26T00:00:00+09:00","datePublished":"2018-03-26T00:00:00+09:00","description":"데이터 사이언티스트 인터뷰 질문 및 답변","url":"http://localhost:4000/2018-03-26/3%EC%9B%94-4%EC%A3%BC%EC%B0%A8-&-4%EC%9B%94-1%EC%A3%BC%EC%B0%A8-%EC%9E%85%EB%8D%B0%EB%A7%88/","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018-03-26/3%EC%9B%94-4%EC%A3%BC%EC%B0%A8-&-4%EC%9B%94-1%EC%A3%BC%EC%B0%A8-%EC%9E%85%EB%8D%B0%EB%A7%88/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="http://localhost:4000/logo.png">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="http://localhost:4000/logo.png">
+
+  <!-- Google Analytics -->
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-112068488-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+<body>
+  <div class="content-container">
+    
+
+
+<header>
+  <div class="header-small">
+    <a href="http://localhost:4000">Hwijeen Ahn</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">3월 4주차 & 4월 1주차 입데마</div>
+  <span class="post-date">
+    <time>26 Mar 2018</time>
+  </span>
+
+  
+    <span class="post-minute"> 
+     3 minute read
+    </span>
+  
+
+
+  <div class="post-tag">
+    <ul>
+      
+      <li>
+        <a href="http://localhost:4000/tags#Interview">
+          <span>Interview</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+
+  <p>인터뷰를 하려면 입데마가 필요하니까.. 정리해둔다.</p>
+
+<p>1일 1질문이 목표!</p>
+
+<p>(updated 3/26)<br /><br /><br /></p>
+
+<h2 id="machine-learning">Machine Learning</h2>
+
+<h4 id="1차원의-저주에-대해-설명해주세요">1.<strong><u>차원의 저주에 대해 설명해주세요</u></strong></h4>
+
+<p>고차원 공간의 data를 다룰 때 나타나는 여러가지 특징을 일컫는 표현.</p>
+
+<p>대표적인 예시로 <strong>차원이 증가하면서 공간의 부피가 너무 빠르게(exponentially) 증가</strong>하는 현상이 있다. 이게 문제가 되는 이유는 데이터 분석을 할 때 우리의 데이터가 공간의 일정 부분을 cover하고 있어야하기 때문이다. 몇 차원 공간이든간에 우리의 data가 공간의 70%는 커버하고 있어야 우리의 분석에 일리가 있는 건데, 고차원 공간에서 70%를 커버하는 데이터를 구하기란 쉽지 않다.</p>
+
+<p><img src="..\assets\img\curse.PNG" alt="curse" /></p>
+
+<p>위 예시에서 차원이 증가하면서 25% 공간을 점유하기 위해 필요한 점의 개수는 1개, 4개, 16개, … 이런 식으로 <strong>지수적으로 증가</strong>한다.</p>
+
+<p><br /></p>
+
+<h4 id="2-data-preprocessing에-대해서-말해주세요-normalization은-뭐고-왜-하나요">2. <u>Data Preprocessing에 대해서 말해주세요. Normalization은 뭐고 왜 하나요?</u></h4>
+
+<p>학습 알고리즘이 원만하게 돌아가기 위해서 data preprocessing을 한다.</p>
+
+<p>대표적인 예시로 normalization이 있다. 각 feature들을 Z score로 바꾸는 과정이다(평균 빼고 표준편차로 나누기). 이걸 하는 이유는 1) feature 값이 원점 주위에 분포되도록 해서(zero centered), non linearity의 input(Wx)이 0에서 너무 멀어지지 않도록 조정해준다. Sigmoid나 Tanh처럼 saturation problem을 가지는 경우, activation function의 input이 극단값으로 가면 backprop시 gradient가 소멸되는 문제가 발생한다. 2) 또 하나의 역할은 모든 feature의 중요도를 동일하게 보기 위해서다. 모든 feature들이 동일한 range에 있도록 scaling을 함으로써.</p>
+
+<p><img src="../assets/img/preprocessing.jpeg" alt="img" />3) 모든 feature가 비슷한 범위를 가진다면 error surface가 <strong>타원이 아닌 원형</strong>이 된다. 원형 error surface일 경우 minimum으로 수렴하는 <strong>속도가 더 빠르다</strong>.</p>
+
+<p><img src="../assets/img/normalize.png" alt="img" /></p>
+
+<p>이미지의 경우 RGB값은 각각 0~255의 범위를 가지므로, 표준편차로 나눠주는 과정은 생략해도 된다. RGB의 표준편차는 대략 비슷할 테니까!</p>
+
+<p>CNN을 통한 이미지 처리의 핵심은 이미지의 구조적 정보를 유지하는 거다. 그러니까 구조적 정보를 흐트러트리는 PCA, whitening은 CNN의 전처리로 쓰이지 않는다.</p>
+
+<p>주의할 점! preprocessing statistics는 <strong>training data</strong>가지고서만 계산해야한다! image mean이란 것도 training image mean을 말하는 거다. Test할 때엔 test이미지에 training image mean을 빼는 방식으로 전처리를 해야한다.</p>
+
+<ul>
+  <li>TODO: 이유1)이 맞나?, PCA, whitening</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="3-weight-initialization이-왜-중요하고-어떤-방법이-있나요">3. <u>Weight initialization이 왜 중요하고 어떤 방법이 있나요?</u></h4>
+
+<p>뉴럴 네트워크 학습시 초기 W값을 잘못 설정하면, 제대로된 학습이 이뤄지지 않을 수 있다. 가령, 모든 weight를 0으로 설정한다면 hidden layer 모든 뉴런의 input은 같은 값을 갖게 된다. 이렇게 되면 backprop시 같은 gradient를 갖게 되며, 전체적으로 learning이 이뤄지지 않는다고 할 수 있다. <strong>Symmetry breaking</strong>을 위해서 randomness를 도입, 0 주위의 난수(zero mean unit standard deviation gaussian * small number)로 초기화하는 게 일반적이다. Backprop시 gradient는 W의  값들에 비례하기 때문에, 너무 작은 값으로 초기화할 경우 deep network에서 문제가 발생할 수 있다.</p>
+
+<p>이 방법의 문제는 number of input이 많아질수록 neuron output값들의 분포에서 variance가 커진다는 거! 처음에 variance크게 하려고 randomness 도입했으나, 너무 커진면 또 문제가 되니. 이에 대한 해결방법으로 몇 가지가 있다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># To make variance of each neuron 1
+W = np.random.randn(n) / sqrt(n)
+
+# Use this for ReLU, in practice
+# variance of each output = 2.0/n
+W = np.random.rand(n) * sqrt(2.0/n)
+
+</code></pre></div></div>
+
+<p>Bias는 0으로 초기화하는 게 일반적이다. Weight initialization을 통해 symmetry breaking했으니 문제 없다!</p>
+
+<p>Batch Normalization(주로 Fully connected 혹은 Conv layer 이후, activation 이전)을 사용할 경우 neuron의 input 을 가우시안 분포따르게 해주는 작업이므로, weight init이 잘못 됐더라도 얘가 해결해줄 수 있다.</p>
+
+<h4 id="4-dropout"><u>4. Dropout?</u></h4>
+
+<p>Overfitting을 방지하기 위해서 사용한다. 하이퍼파라미터 p로 뉴런이 activate되는 정도를 제어하는 방식으로 작동한다. p=0.5일 경우 해당 레이어 전체 뉴런의 절반만 활성화하는 방식이다. 이러한 방식은 전체 네트워크의 일부분을 샘플링해서 subnetwork를 구성하고, 그에 대한 파라미터만 업데이트하는 흐름으로 이해할 수 있다(물론 exponentially 많은 subnetwork들이 독립은 아니다. 파라미터가 중복되니까.) 테스트 할 때는 dropout을 사용하지 않는데, 이는 많은 sub-network들의 결과를 ensemble하는 방식으로 이해할 수 있다.</p>
+
+<p>조심해야할 것: 테스트 시 드롭아웃을 적용하지 않기 &amp; test data의 스케일을 조정해주기, *p 만큼. 그래야 각 뉴런이 training time에 만든 output의 기대값과 test time output의 기대값이 같아진다. test data를 직접 건들지 않기 위해, 코드의 확장성(dropout 쉽게 껐다 키기)을 위해서 구현시 <strong>inverted dropout</strong>을 주로 사용한다. Test data에 *p scaling을 해주는 대신 training data에 /p 스케일링을 해주는 것!</p>
+
+<p><img src="../assets/img/dropout.jpeg" alt="dropout" /></p>
+
+<h4 id="5-batch-normalization">5. Batch Normalization</h4>
+
+<p>뉴럴넷 학습의 문제점 중 하나는 <strong>weight initialize</strong>를 어떻게 하냐에 따라 학습이 잘 될 수도, 안 될 수도 있다는 것. Initial weight이 너무 작아도, 너무 커도 학습이 일어나지 않으며 이에 대처하기 위해 Xavier initialization등등이 나와있다.</p>
+
+<p>Batch Normalization의 역할은 non-linearity의 input을 normalize하는 것. 그래야 gradient flow가 잘 일어나도록 할 수 있으니. 주의할 점은 <strong>training example의 각 feature</strong>에 대한 평균과 분산을 고려해서 normalize해주는 것. Bad initialization을 잡아주는 효과가 있다. 이후 감마, 베타 파라미터를 도입해 적절 normalize 정도를 학습 과정에 포함시킨다.</p>
+
+<p>부수적인 효과로 더 큰 learning rate를 가능하게 하는 점과, 일종의 regularization으로 작용한다는 게 있다.</p>
+
+<p>Test time에 적용하는 mean, variance는 training에서 계산된 값을 이용한다!</p>
+
+<p><img src="../assets/img/batchNormalization.JPG" alt="batchNormalization" /></p>
+
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</div>
+
+  <!-- Disqus -->
+
+  <!--<div class="post-disqus">
+      <section id="disqus_thread"></section>
+      <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://https-jiminsun-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>-->
+
+
+<div class="relatedPosts">
+
+  <h3>Related Posts</h3>
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+      <div>
+      <a href="/2018-03-15/3%EC%9B%94-2&3%EC%A3%BC%EC%B0%A8-%EC%9E%85%EB%8D%B0%EB%A7%88/">3월 2&3주차 입데마</a>
+      </div>
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+</div>
+
+<div class="recentPosts">
+
+  <h3>Recent Posts</h3>
+
+  
+  
+
+    
+      
+      <div class="post ml2">
+        <a href="/2018-05-25/coding-%EC%9D%BC%EA%B8%B0/" class="post-link">
+          coding 일기
+          <small class="archive-list-post-date">25 May 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-05-21/Sublie-Text/" class="post-link">
+          Sublime Text
+          <small class="archive-list-post-date">21 May 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-05-21/Multivariate-functions/" class="post-link">
+          Multivariate Functions
+          <small class="archive-list-post-date">21 May 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-05-19/LaTex/" class="post-link">
+          LaTex
+          <small class="archive-list-post-date">19 May 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-05-18/Information,-Entropy,-Cross-Entropy/" class="post-link">
+          Information, Entropy, Cross Entropy
+          <small class="archive-list-post-date">18 May 2018</small>
+        </a>
+      </div>
+      
+    
+      
+        
+
+</div>
+
+
+    <!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    
+	
+	
+	
+	
+
+    
+
+    
+    <a href="https://github.com/hwijeen"><i class="fa fa-github" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+
+    
+
+    
+
+    
+    <a href="mailto:aurorall@naver.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </div>
+  © 2018 Hwijeen Ahn. All rights reserved.
+</div>
+
+  </div>
+</body>
+</html>

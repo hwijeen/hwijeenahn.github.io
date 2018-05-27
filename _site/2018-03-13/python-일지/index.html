@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Python 일지</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+  <!-- Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for Hwijeen Ahn" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Python 일지 | Hwijeen Ahn</title>
+<meta name="generator" content="Jekyll v3.8.0" />
+<meta property="og:title" content="Python 일지" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Python 일지" />
+<meta property="og:description" content="Python 일지" />
+<link rel="canonical" href="http://localhost:4000/2018-03-13/python-%EC%9D%BC%EC%A7%80/" />
+<meta property="og:url" content="http://localhost:4000/2018-03-13/python-%EC%9D%BC%EC%A7%80/" />
+<meta property="og:site_name" content="Hwijeen Ahn" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-03-13T00:00:00+09:00" />
+<script type="application/ld+json">
+{"headline":"Python 일지","dateModified":"2018-03-13T00:00:00+09:00","datePublished":"2018-03-13T00:00:00+09:00","description":"Python 일지","url":"http://localhost:4000/2018-03-13/python-%EC%9D%BC%EC%A7%80/","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018-03-13/python-%EC%9D%BC%EC%A7%80/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="http://localhost:4000/logo.png">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="http://localhost:4000/logo.png">
+
+  <!-- Google Analytics -->
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-112068488-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+<body>
+  <div class="content-container">
+    
+
+
+<header>
+  <div class="header-small">
+    <a href="http://localhost:4000">Hwijeen Ahn</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">Python 일지</div>
+  <span class="post-date">
+    <time>13 Mar 2018</time>
+  </span>
+
+  
+    <span class="post-minute"> 
+     1 minute read
+    </span>
+  
+
+
+  <div class="post-tag">
+    <ul>
+      
+      <li>
+        <a href="http://localhost:4000/tags#File Handling">
+          <span>File Handling</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+
+  <h2 id="file-handling">File Handling</h2>
+
+<p>텍스트 데이터를 불러오고, 처리하고, 저장하는 과정에 필요한 것들. 점프 투 파이썬에 요지만 잘 정리되어 있다 짱짱맨.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="c"># 'with' closes file automatically</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"./data/foo.txt"</span><span class="p">,</span> <span class="s">"r"</span><span class="p">)</span><span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="nb">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c">#returns a list of files in 'dir'</span>
+<span class="n">file_list</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+
+<span class="c">#basically same functionality(wrapper of os.listdir)</span>
+<span class="n">file_list</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s">'*.txt'</span><span class="p">)</span>
+
+<span class="c"># similar to string.join</span>
+<span class="c"># glues directory and filename</span>
+<span class="n">os</span><span class="o">.</span><span class="n">pathjoin</span><span class="p">(</span><span class="n">dirname</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+<span class="c"># splits full_filename into [filename, ext]</span>
+<span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splittext</span><span class="p">(</span><span class="n">full_filename</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c"># returns boolean telling if dir is directory. False means file</span>
+<span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+
+<span class="c">#cf)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">sep</span>
+<span class="n">os</span><span class="o">.</span><span class="n">walk</span>
+<span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span>
+<span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span>
+</code></pre></div></div>
+
+<h2 id="pycharm">Pycharm</h2>
+
+<p>Shortcut &amp; tip 몇 개 알아두기:</p>
+
+<ul>
+  <li><strong>ctrl + B</strong> : Go to declaration</li>
+  <li><strong>ctrl + alt + left</strong> : Back(방금 전 커서 위치로 돌아가기)</li>
+  <li><strong>Run - Edit - Parameters</strong> : 파일 실행 argument전달 가능</li>
+  <li>해당 파일 탭 오른쪽 클릭 - Run으로 Run 대상 변경 가능</li>
+</ul>
+
+<h2 id="gensim">Gensim</h2>
+
+<p>Gensim 패키지 안에 LDA, word2vec 등 다양한 모듈이 있다. 그 중에 doc2vec 맛보기 해본 거!</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">gensim</span>
+<span class="kn">from</span> <span class="nn">gensim</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="c"># 1.instantiate a model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">doc2vec</span><span class="o">.</span><span class="n">Doc2vec</span><span class="p">(</span><span class="n">vector_size</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">min_count</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c"># 2. build_vocab</span>
+<span class="n">model</span><span class="o">.</span><span class="n">build_vocab</span><span class="p">(</span><span class="n">training_corpus</span><span class="p">)</span>
+
+<span class="c"># 3. train</span>
+<span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">train_corpus</span><span class="p">,</span> <span class="n">total_examples</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">train_corpus</span><span class="p">),</span> <span class="n">epochs</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">epochs</span><span class="p">)</span>
+
+<span class="c"># 4. save &amp; load</span>
+<span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s">"path+filename"</span><span class="p">)</span>
+<span class="n">model_loaded</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Doc2Vec</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s">"path+filename"</span><span class="p">)</span>
+
+<span class="c"># gensim.models.doc2vec.TaggedDocument contains words and tags</span>
+<span class="n">train_corpus</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">words</span>
+<span class="n">train_corpus</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">tags</span>
+<span class="c"># Vector representation of documents acceessible through </span>
+<span class="n">model</span><span class="o">.</span><span class="n">docvec</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+</code></pre></div></div>
+
+<h2 id="argparse">Argparse</h2>
+
+<p>Argument를 받고, 처리해준다! Pintos할 때 argument parsing만 하는 것도 너무 힘들었던 게 생각난다. 파이썬은 짱이다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">argparse</span> 
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">AugumentParser</span><span class="p">()</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--option'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">"option description"</span><span class="p">)</span>
+    
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">option</span> <span class="o">==</span> <span class="s">"something"</span><span class="p">:</span>
+        <span class="n">do</span> <span class="n">something</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">do</span> <span class="n">something</span> <span class="k">else</span>
+</code></pre></div></div>
+
+<h2 id="git">Git</h2>
+
+<p>로컬 폴더에서 git &amp; github을 사용하려면 절차!</p>
+
+<p>서버에서 git을 쓰려니 다른 사용자에게도 영향을 미칠까봐(?) 무서웠는데 폴더 별로 사용자 지정이 가능하다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. git init
+
+2. git config user.name "hwijeen"
+   git config user.email "aurorall@naver.com"
+   - --global 옵션을 사용하지 않은 경우 해당 폴더 scope에서 git 사용자 등록 가능
+ 
+# cf) git clone
+3. git remote add origin $address_copied_from_github_repo
+   - 주소에 나온 repository를 origin이라는 이름으로 remote에 등록한다
+   - git remote시 remote 저장소 list 볼 수 있다
+   - http:// 주소를 복사해올 경우 push할 때마다 github ID/password 입력해줘야한다
+   
+4. git add / commit / push 이제 사용 가능!
+</code></pre></div></div>
+
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</div>
+
+  <!-- Disqus -->
+
+  <!--<div class="post-disqus">
+      <section id="disqus_thread"></section>
+      <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://https-jiminsun-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>-->
+
+
+<div class="relatedPosts">
+
+  <h3>Related Posts</h3>
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+</div>
+
+<div class="recentPosts">
+
+  <h3>Recent Posts</h3>
+
+  
+  
+
+    
+      
+      <div class="post ml2">
+        <a href="/2018-05-25/coding-%EC%9D%BC%EA%B8%B0/" class="post-link">
+          coding 일기
+          <small class="archive-list-post-date">25 May 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-05-21/Sublie-Text/" class="post-link">
+          Sublime Text
+          <small class="archive-list-post-date">21 May 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-05-21/Multivariate-functions/" class="post-link">
+          Multivariate Functions
+          <small class="archive-list-post-date">21 May 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-05-19/LaTex/" class="post-link">
+          LaTex
+          <small class="archive-list-post-date">19 May 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-05-18/Information,-Entropy,-Cross-Entropy/" class="post-link">
+          Information, Entropy, Cross Entropy
+          <small class="archive-list-post-date">18 May 2018</small>
+        </a>
+      </div>
+      
+    
+      
+        
+
+</div>
+
+
+    <!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    
+	
+	
+	
+	
+
+    
+
+    
+    <a href="https://github.com/hwijeen"><i class="fa fa-github" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+
+    
+
+    
+
+    
+    <a href="mailto:aurorall@naver.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </div>
+  © 2018 Hwijeen Ahn. All rights reserved.
+</div>
+
+  </div>
+</body>
+</html>

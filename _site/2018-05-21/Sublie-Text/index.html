@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sublime Text</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+  <!-- Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for Hwijeen Ahn" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Sublime Text | Hwijeen Ahn</title>
+<meta name="generator" content="Jekyll v3.8.0" />
+<meta property="og:title" content="Sublime Text" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Sublime Text 패키지 및 팁들" />
+<meta property="og:description" content="Sublime Text 패키지 및 팁들" />
+<link rel="canonical" href="http://localhost:4000/2018-05-21/Sublie-Text/" />
+<meta property="og:url" content="http://localhost:4000/2018-05-21/Sublie-Text/" />
+<meta property="og:site_name" content="Hwijeen Ahn" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-05-21T00:00:00+09:00" />
+<script type="application/ld+json">
+{"headline":"Sublime Text","dateModified":"2018-05-21T00:00:00+09:00","datePublished":"2018-05-21T00:00:00+09:00","description":"Sublime Text 패키지 및 팁들","url":"http://localhost:4000/2018-05-21/Sublie-Text/","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018-05-21/Sublie-Text/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="http://localhost:4000/logo.png">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="http://localhost:4000/logo.png">
+
+  <!-- Google Analytics -->
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-112068488-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+<body>
+  <div class="content-container">
+    
+
+
+<header>
+  <div class="header-small">
+    <a href="http://localhost:4000">Hwijeen Ahn</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">Sublime Text</div>
+  <span class="post-date">
+    <time>21 May 2018</time>
+  </span>
+
+  
+    <span class="post-minute"> 
+     1 minute read
+    </span>
+  
+
+
+  <div class="post-tag">
+    <ul>
+      
+      <li>
+        <a href="http://localhost:4000/tags#Sublime Text">
+          <span>Sublime Text</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+
+  <h3 id="기본-사항">기본 사항</h3>
+
+<ol>
+  <li>Sublime Text 설치</li>
+  <li>Package Control 설치</li>
+  <li>ConvertToUTF Package 설치
+    <ul>
+      <li>인코딩 관련 이슈들을 해결해준다.</li>
+    </ul>
+  </li>
+  <li>
+    <p>InputArgs 설치</p>
+
+    <ul>
+      <li>build 이후에 argument 받을 수 있도록 해준다</li>
+    </ul>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h3 id="conda-가상환경-사용">Conda 가상환경 사용</h3>
+
+<ol>
+  <li>Sublime Conda Package 설치
+    <ul>
+      <li>Preference - Package Setting - Conda - Settings - User파일에서 conda 설치 위치 잡아줄 수 있다.
+        <ul>
+          <li>Setting - User 파일은 Packages / User에서 관리되는 듯! User 안에 있는 파일이 우선이고, 그 다음에 Default setting이 적용되는 듯. Default는 안 건드리는 게 현명한 방법.</li>
+        </ul>
+      </li>
+      <li>이후 Command Pallette에서 가상환경 설정 가능</li>
+    </ul>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h3 id="서버-연결">서버 연결</h3>
+
+<ol>
+  <li>
+    <p>ssh 설정하기</p>
+
+    <ul>
+      <li>ssh config 파일 수정하기</li>
+      <li>public key 등록하기</li>
+    </ul>
+  </li>
+  <li>
+    <p>Sublime SFTP  설치</p>
+
+    <ul>
+      <li>서버와 파일 주고 받을 수 있다.</li>
+      <li>프로젝트 폴더 단위로 Remote Mapping 등록가능.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Sublime REPL 설치</p>
+
+    <ul>
+      <li>
+        <p>Sublime Text 안에서 interpreter 사용 가능하게 해준다.</p>
+      </li>
+      <li>
+        <p>Packages - SublimeREPL - config - Python 안에 Default.sublime-commands 와 Main.sublime-menu를 잘 조정해주면 <strong>서버의 interpreter를 킬 수 있다.</strong></p>
+
+        <ul>
+          <li>“cmd” 에서 “python”대신 서버의 파이썬 절대 경로 지정해주면 됨.</li>
+          <li>“cmd” 앞에 “ssh” “224” 추가해줘서 일단 서버 접속하도록 한다. 1은 이걸 위한 준비작업.</li>
+        </ul>
+      </li>
+      <li>
+        <p>TODO: 서버 인터프리터로 RUN CURRENT FILE하기</p>
+
+        <ul>
+          <li>
+            <p>실행하고자하는 파일의 path가 잘 안 잡혀서 오류 난다ㅠㅠ…</p>
+          </li>
+          <li>
+            <p>Sublime Text에서 Jupyter Notebook 5는 안 되는듯. 주피터는 그냥 주피터에서 쓰자.</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h3 id="tips">Tips</h3>
+
+<ul>
+  <li>cntl + c : cancel build. Keyboard Interrupt로 사용하면 된다!</li>
+  <li>option + down, option + left : Jumb back, Go To Definition</li>
+</ul>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</div>
+
+  <!-- Disqus -->
+
+  <!--<div class="post-disqus">
+      <section id="disqus_thread"></section>
+      <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://https-jiminsun-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>-->
+
+
+<div class="relatedPosts">
+
+  <h3>Related Posts</h3>
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+</div>
+
+<div class="recentPosts">
+
+  <h3>Recent Posts</h3>
+
+  
+  
+
+    
+      
+      <div class="post ml2">
+        <a href="/2018-05-25/coding-%EC%9D%BC%EA%B8%B0/" class="post-link">
+          coding 일기
+          <small class="archive-list-post-date">25 May 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-05-21/Multivariate-functions/" class="post-link">
+          Multivariate Functions
+          <small class="archive-list-post-date">21 May 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-05-19/LaTex/" class="post-link">
+          LaTex
+          <small class="archive-list-post-date">19 May 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-05-18/Information,-Entropy,-Cross-Entropy/" class="post-link">
+          Information, Entropy, Cross Entropy
+          <small class="archive-list-post-date">18 May 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-05-10/Neural-Network-in-Bayesian-Framework/" class="post-link">
+          Neural Network in Bayesian Framework
+          <small class="archive-list-post-date">10 May 2018</small>
+        </a>
+      </div>
+      
+    
+      
+        
+
+</div>
+
+
+    <!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    
+	
+	
+	
+	
+
+    
+
+    
+    <a href="https://github.com/hwijeen"><i class="fa fa-github" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+
+    
+
+    
+
+    
+    <a href="mailto:aurorall@naver.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </div>
+  © 2018 Hwijeen Ahn. All rights reserved.
+</div>
+
+  </div>
+</body>
+</html>
