@@ -4,4 +4,4 @@ User-agent: NaverBot
 User-agent: ZumBot
 Allow: /
 
-Sitemap: http://jiminsun.github.io/sitemap.xml
+Sitemap: http://hwijeen.github.io/sitemap.xml

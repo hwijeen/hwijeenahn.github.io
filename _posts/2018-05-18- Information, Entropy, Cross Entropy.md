@@ -2,6 +2,7 @@
 layout: post
 title: "Information, Entropy, Cross Entropy"
 description: "딥러닝에서 크로스 엔트로피가 나오는 배경은?"
+comments: true
 categories: [Math & Stats]
 tags: 
 - Probability
@@ -18,7 +19,7 @@ From Deep Learning Book, Jimin Sun's Blog
 <center>$$I(x) = -\log{P(x)} \\
 x : \text{an event}$$</center>
 
-  
+
 log 를 붙여주는 이유는 엔트로피간 더하기 연산이 가능하게 만들기 위함이고,
 
 \- 를 붙여주는 이유는 확실한 사건일수록 정보량이 적게하기 위해서다.

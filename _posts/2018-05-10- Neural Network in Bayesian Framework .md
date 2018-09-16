@@ -2,6 +2,7 @@
 layout: post
 title: "Neural Network in Bayesian Framework"
 description: "베이지안 관점에서 뉴럴넷 들여다보기"
+comments: true
 categories: [Machine Learning]
 tags:
 - MLP

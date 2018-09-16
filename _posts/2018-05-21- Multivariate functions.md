@@ -2,6 +2,7 @@
 layout: post
 title: "Multivariate Functions"
 description: "Multivariate Functions 기본 지식 및 표현 방법" 
+comments: true
 categories: [Math & Stats]
 tags:
 - Multivariate Calculus

@@ -28,7 +28,7 @@ google-analytics:
 
 # Disqus
 disqus:
-  id:               "hwijeen-github-io"
+  id:               "hwijeen"
 
 # URL
 url:                "https://hwijeen.github.io" # the base hostname & protocol for your site
