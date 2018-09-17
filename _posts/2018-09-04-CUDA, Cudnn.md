@@ -34,12 +34,3 @@ python 스크립트를 실행했는데 위와 같은 에러가 났다. Pytorch�
 
 ## 기타 지식
 
-.a파일은 정적 라이브러리고 .so파일은 동적 라이브러리다. 
-
-ls -la를 통해 symbolic link 확인하기.
-
-가상환경마다 환경 변수 다르게 관리한다. 가상환경에 환경 변수 추가하는 방법. $CONDA_PREFIX 환경 변수.
-
-locate libcudart.so.8.0 명령어로 CUDA 바이너리 파일이 어디에 설치되어있는지 확인할 수 있다.
-
-기본적으로 /usr/local/cuda-9.0에 쿠다가 깔려있다. 가상환경을 만들고 CUDA를 별도로 설치했을 경우, $CONDA_PREFIX/lib 안에도 CUDA 바이너리 파일이 존재한다.
