@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Traning Neural Networks"
+title: "Training Neural Networks"
 description: "Practical Tips"
 comments: true
-categories: [정리필요]
+categories: [NLP]
 tags:
-- 정리하기
+- Machine Learning Basics
 
 ---
 
