@@ -3,7 +3,7 @@ layout: post
 title: "Sublime Text"
 description: "Sublime Text 패키지 및 팁들"
 comments: true
-categories: [개발 환경]
+categories: [개발]
 tags:
 - Sublime Text
 ---

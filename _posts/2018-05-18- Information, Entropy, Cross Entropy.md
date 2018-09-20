@@ -3,10 +3,11 @@ layout: post
 title: "Information, Entropy, Cross Entropy"
 description: "딥러닝에서 크로스 엔트로피가 나오는 배경은?"
 comments: true
-categories: [Math & Stats]
+categories: [NLP]
 tags: 
 - Probability
 - Information Theory	
+- Machine Learning Basics
 ---
 
 From Deep Learning Book, Jimin Sun's Blog

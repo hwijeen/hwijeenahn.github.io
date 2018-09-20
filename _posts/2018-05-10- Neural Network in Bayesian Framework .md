@@ -3,11 +3,12 @@ layout: post
 title: "Neural Network in Bayesian Framework"
 description: "베이지안 관점에서 뉴럴넷 들여다보기"
 comments: true
-categories: [Machine Learning]
+categories: [NLP]
 tags:
 - MLP
 - Bayesian
 - Regularization 
+- Machine Learning Basics
 ---
 
 From Neural Network Design, CS229 lecture note, 문일철 강의
