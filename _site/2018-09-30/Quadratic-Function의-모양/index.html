@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quadratic Functions</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+  <!-- Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for Hwijeen Ahn" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Quadratic Functions | Hwijeen Ahn</title>
+<meta name="generator" content="Jekyll v3.8.0" />
+<meta property="og:title" content="Quadratic Functions" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="수식으로 주어진 함수의 모양 파악하기" />
+<meta property="og:description" content="수식으로 주어진 함수의 모양 파악하기" />
+<link rel="canonical" href="http://localhost:4000/2018-09-30/Quadratic-Function%EC%9D%98-%EB%AA%A8%EC%96%91/" />
+<meta property="og:url" content="http://localhost:4000/2018-09-30/Quadratic-Function%EC%9D%98-%EB%AA%A8%EC%96%91/" />
+<meta property="og:site_name" content="Hwijeen Ahn" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-09-30T00:00:00+09:00" />
+<script type="application/ld+json">
+{"headline":"Quadratic Functions","dateModified":"2018-09-30T00:00:00+09:00","datePublished":"2018-09-30T00:00:00+09:00","description":"수식으로 주어진 함수의 모양 파악하기","url":"http://localhost:4000/2018-09-30/Quadratic-Function%EC%9D%98-%EB%AA%A8%EC%96%91/","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018-09-30/Quadratic-Function%EC%9D%98-%EB%AA%A8%EC%96%91/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="http://localhost:4000/logo.png">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="http://localhost:4000/logo.png">
+
+  <!-- Google Analytics -->
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-112068488-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+<body>
+  <div class="content-container">
+    
+
+
+<header>
+  <div class="header-small">
+    <a href="http://localhost:4000">Hwijeen Ahn</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">Quadratic Functions</div>
+  <span class="post-date">
+    <time>30 Sep 2018</time>
+  </span>
+
+  
+    <span class="post-minute"> 
+     2 minute read
+    </span>
+  
+
+
+  <div class="post-tag">
+    <ul>
+      
+      <li>
+        <a href="http://localhost:4000/tags#Deep Learning">
+          <span>Deep Learning</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#Quadratic Function">
+          <span>Quadratic Function</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+
+  <blockquote>
+  <p>딥러닝을 비롯한 여러 머신러닝 알고리즘은 목적함수를 최소화하는 문제로 귀결된다. 그 과정에서 quadratic funtion이 자주 등장한다. 설령 목적함수가 quadratic funtion이 아니더라도, taylor expansion을 통해 특정 점 주위에서 이차 근사를 시킬 수 있다. Quadratic function이 주어졌을 때, 그 함수의 모양을 어떻게 파악하는 지에 대한 내용을 정리해둔다.  <a href="http://hagan.okstate.edu/NNDesign.pdf">Neural Network Design</a> 8장, <a href="http://darkpgmr.tistory.com/132">다크프로그래머님의 블로그</a> 을 참고했다.</p>
+</blockquote>
+
+<h3 id="quadratic-function">Quadratic function</h3>
+
+<script type="math/tex; mode=display">\mathbf{F(x) = \frac{1}{2} x^\intercal Ax + d^\intercal x + c}</script>
+
+<p>일반적인 형태는 위와 같이 쓸 수 있다. 이때 $\mathbf{x}$는 벡터임에 유의한다. 여기서 다루는 함수는 변수가 $x_1, x_2, \dots, x_n$와 같이 여러 개인 multivariate functions이다. 그래프로 생각을 하려면 x축과 y축 위에 하나의 선으로 표현되는 함수가 아니라, 3차원 공간에 입체적으로 존재하는 surface 떠올려야한다.</p>
+
+<p>일차 미분은 기울기를, 이차 미분은 기울기의 변화량을 나타낸다고 배웠다. 이러한 성질을 이용해서 함수의 모양을 파악할 거니까 재료를 준비해둔다. <a href="http://darkpgmr.tistory.com/132"><strong>함수의 Gradient</strong>는 각 변수에 대한 일차 편미분 값을 지닌 벡터를, <strong>Hessian</strong>은 함수의 이차미분을 담고있는 행렬이다.</a> 
+<script type="math/tex">\mathbf{\nabla F(x) = Ax + d}  \\
+\mathbf{\nabla^2 F(x) = A}</script></p>
+
+<h3 id="함수의-모양">함수의 모양</h3>
+
+<p>식으로 주어진 quadratic function의 모양을 알아내는 과정을 말로 하면 다음과 같다. 이차 함수기에 모양이란 건 위로 볼록, 아래로 볼록 혹은 saddle point가 있을 수 있다. 즉, maximum을 갖거나, minimum을 갖거나, saddle point를 갖거나 세 경우 중 어느 것에 속하는 지를 알아내야한다. <strong>알아내는 방법은 기울기의 변화량, 즉 이차 미분값을 보는 것!</strong> 모든 기저 방향으로 기울기가 증가한다면 이차 함수는 아래로 볼록하다. 모두 감소한다면 위로 볼록한 모양, 어떤 방향으로는 감소 다른 방향으로는 증가한다면 saddle point를 가질 거라고 생각할 수 있다.</p>
+
+<p><strong>이때 공간의 기저를 특정 벡터로 잡으면, 그 방향으로의 기울기를 쉽게 구할 수 있다.</strong> 그러니까 우리가 해야할 일은 1) 기저 변환 2) 변환한 기저방향들로의 이차 미분값 구하기 두 가지다.</p>
+
+<h3 id="eigensystem-of-the-hessian">Eigensystem of the Hessian</h3>
+
+<p>지금까지는 함수 $\mathbf{F(x)}$가 존재하는 공간 $\mathbb{R^n}$을 나타낼 때 기저 벡터로 $x_1, x_2, \dots, x_n$(표준 기저)를 이용했다. 물론 이 기저 벡터들 방향으로의 이차 미분값을 다 구해보면 이차 함수의 모양을 알 수 있다. 그런데, 기저 벡터를 Hessian의 eigenvector로 바꿔서 함수를 표현하면, <strong>기저 방향으로의 이차 미분값이 eigenvalue로 쉽게 정리되는 상황이 된다!</strong></p>
+
+<blockquote>
+  <p>ㅈ어떤 공간의 기저 벡터는 서로 linearly independent해야한다.</p>
+
+  <p>Hessian $\mathbf{A}$는 symmetric matrix이므로 eigenvector들이 서로 orthogonal하다. 서로 orthogonal한 벡터들은 linearly independent하다(충분조건). 그러므로 Hessian의 eigenvector들을 공간의 기저 벡터로 사용할 수 있다.</p>
+</blockquote>
+
+<p>재료준비
+<script type="math/tex">\mathbf{B = [v_1, v_2, \dots, v_n]} \\
+\text{then} \quad \mathbf{B^{-1} = B^\intercal}</script>
+행렬 $\mathbf{B}$는 기저 벡터를 열벡터로 하는 벡터다.$\mathbf{B^\intercal B}$를 계산해보면 직교하는 두 벡터의 내적은 0이라는 성질 때문에 $\mathbf{B^\intercal B = I}$, 즉 $\mathbf{B^{-1} = B^\intercal}$를 얻어낼 수 있다. 이 성질을 이용해 행렬 $\mathbf{A}$를 eigendecomposition하면 다음과 같다. A</p>
+
+<blockquote>
+  <p>nxn 행렬이 n개의 linearly independent한 eigenvector를 가질 때 eigendecomposition을 할 수 있다.</p>
+</blockquote>
+
+<script type="math/tex; mode=display">\mathbf{A = B \Lambda B^-1 = B \Lambda B^\intercal}</script>
+
+<p>한편, 임의의 방향</p>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</div>
+
+  <!-- Disqus -->
+
+<div id="disqus_thread"></div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hwijeen-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <!--<div class="post-disqus">
+      <section id="disqus_thread"></section>
+      <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hwijeen-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>-->
+
+
+<div class="relatedPosts">
+
+  <h3>Related Posts</h3>
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+      <div>
+      <a href="/2018-09-19/Deep-Learning-Book-4%E1%84%8C%E1%85%A1%E1%86%BC-Numerical-Computation-%E1%84%87%E1%85%A9%E1%86%A8%E1%84%89%E1%85%A1%E1%84%87%E1%85%A9%E1%86%AB/">Deep Learning Book 4장 - Numerical Computation</a>
+      </div>
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+    
+      <div>
+      <a href="/2018-09-18/Deep-Learning-Book-3%E1%84%8C%E1%85%A1%E1%86%BC-Probability-and-Information-Theory/">Deep Learning Book 3장 - Probability and Information Theory</a>
+      </div>
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+    
+      <div>
+      <a href="/2018-09-18/Deep-Learning-Book-2%E1%84%8C%E1%85%A1%E1%86%BC-Linear-Algebra/">Deep Learning Book 2 - Linear Algerbra</a>
+      </div>
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+      <div>
+      <a href="/2018-02-03/GRU-&-LSTM-%E1%84%8C%E1%85%B5%E1%86%AF%E1%84%86%E1%85%AE%E1%86%AB-%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%85%E1%85%B5/">GRU & LSTM 질문 정리</a>
+      </div>
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+</div>
+
+<div class="recentPosts">
+
+  <h3>Recent Posts</h3>
+
+  
+  
+
+    
+      
+      <div class="post ml2">
+        <a href="/2018-10-27/torchtext/" class="post-link">
+          torchtext 사용법
+          <small class="archive-list-post-date">27 Oct 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-10-22/vim-%E1%84%8A%E1%85%B3%E1%84%80%E1%85%B5/" class="post-link">
+          vim 쓰기
+          <small class="archive-list-post-date">22 Oct 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-10-20/Python-Subprocess-%E1%84%86%E1%85%A9%E1%84%83%E1%85%B2%E1%86%AF/" class="post-link">
+          Python subprocess 모듈
+          <small class="archive-list-post-date">20 Oct 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-10-09/Ubuntu-&-Bash/" class="post-link">
+          Bash shell
+          <small class="archive-list-post-date">09 Oct 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-10-09/Python-%E1%84%86%E1%85%A9%E1%84%83%E1%85%B2%E1%86%AF-%E1%84%80%E1%85%AA%E1%86%AB%E1%84%85%E1%85%A7%E1%86%AB/" class="post-link">
+          Python module 관련
+          <small class="archive-list-post-date">09 Oct 2018</small>
+        </a>
+      </div>
+      
+    
+      
+        
+
+</div>
+
+
+    <!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    
+	
+	
+	
+	
+
+    
+
+    
+    <a href="https://github.com/hwijeen"><i class="fa fa-github" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+
+    
+
+    
+
+    
+    <a href="mailto:aurorall@naver.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </div>
+  © 2018 Hwijeen Ahn. All rights reserved.
+</div>
+
+  </div>
+</body>
+</html>

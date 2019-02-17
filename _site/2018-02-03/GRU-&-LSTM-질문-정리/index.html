@@ -97,24 +97,27 @@ ga('send', 'pageview');
 
   <p><strong>* ReLU가 왜 non-linear일까?</strong></p>
 <p style="text-align:center;"><img src="/assets/img/relu.png" width="450" alt="ReLU" /></p>
+
 <p>ReLU를 여러 개 더하면 non-linear decision boundary를 근사할 수 있다.  <br />
 <a href="https://medium.com/@malay.haldar/how-do-neural-networks-work-57d1ab5337ce">출처</a></p>
 
 <p><strong>* bias의 의미?</strong></p>
+
 <p style="text-align:center;"><img src="/assets/img/sigmoid.png" width="450" alt="sigmoid" /></p>
+
 <p>sigmoid의 인자 <script type="math/tex">wx</script>에서 <script type="math/tex">w</script>값을 조정하면 “기울기”를 조절할 수 있다.</p>
 
 <p style="text-align:center;"><img src="/assets/img/bias.png" width="450" alt="bias" /></p>
+
 <p>sigmoid의 인자 <script type="math/tex">wx+b</script>에서 <script type="math/tex">b</script>값을 조정하면 “x축에 대해 평행이동”하는 효과가 있다.<br />
 <a href="https://stackoverflow.com/questions/2480650/role-of-bias-in-neural-networks">출처</a></p>
 
 <p><strong>* RNN with variable length input?</strong></p>
 
-<p><strong>* <script type="math/tex">(1-z_t)</script>과 <script type="math/tex">z_t</script>의 위치</strong></p>
-
-<script type="math/tex; mode=display">\\
+<p><strong>* <script type="math/tex">(1-z_t)</script>과 <script type="math/tex">z_t</script>의 위치</strong><br />
+<script type="math/tex">\\
 Hidden\:state\:of\:GRU \\
-h_t = (1-z_t) \odot \tilde{h_t} + z_t \odot h_{t-1}</script>
+h_t = (1-z_t) \odot \tilde{h_t} + z_t \odot h_{t-1}</script></p>
 
 <p>여기서 <script type="math/tex">(1-z_t)</script>과 <script type="math/tex">z_t</script>의 위치를 바꿔도 알아서 learning 해준다.</p>
 
@@ -126,6 +129,7 @@ h_t = (1-z_t) \odot \tilde{h_t} + z_t \odot h_{t-1}</script>
 더 조사해봐야겠다</p>
 
 <p><strong>* 왜 <script type="math/tex">\tilde{h_t}</script>엔 <script type="math/tex">tanh</script>를 적용?</strong></p>
+
 <p style="text-align:center;"><img src="/assets/img/activations.png" width="500" alt="activations" /></p>
 <p>sigmoid 보다 tanh가 수렴 속도가 빠르다. 
 <a href="https://ratsgo.github.io/deep%20learning/2017/04/22/NNtricks/">출처</a>
@@ -161,6 +165,29 @@ soft sampling? hard sampling? attention이 alignment를 어느 정도 잡는다?
 
   <!-- Disqus -->
 
+<div id="disqus_thread"></div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hwijeen-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
   <!--<div class="post-disqus">
       <section id="disqus_thread"></section>
       <div id="disqus_thread"></div>
@@ -177,7 +204,7 @@ this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your pag
 
 (function() { // DON'T EDIT BELOW THIS LINE
 var d = document, s = d.createElement('script');
-s.src = 'https://https-jiminsun-github-io.disqus.com/embed.js';
+s.src = 'https://hwijeen-github-io.disqus.com/embed.js';
 s.setAttribute('data-timestamp', +new Date());
 (d.head || d.body).appendChild(s);
 })();
@@ -198,6 +225,120 @@ s.setAttribute('data-timestamp', +new Date());
   
 
   
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+      <div>
+      <a href="/2018-09-30/Quadratic-Function%E1%84%8B%E1%85%B4-%E1%84%86%E1%85%A9%E1%84%8B%E1%85%A3%E1%86%BC/">Quadratic Functions</a>
+      </div>
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+    
+      <div>
+      <a href="/2018-09-19/Deep-Learning-Book-4%E1%84%8C%E1%85%A1%E1%86%BC-Numerical-Computation-%E1%84%87%E1%85%A9%E1%86%A8%E1%84%89%E1%85%A1%E1%84%87%E1%85%A9%E1%86%AB/">Deep Learning Book 4장 - Numerical Computation</a>
+      </div>
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+    
+      <div>
+      <a href="/2018-09-18/Deep-Learning-Book-3%E1%84%8C%E1%85%A1%E1%86%BC-Probability-and-Information-Theory/">Deep Learning Book 3장 - Probability and Information Theory</a>
+      </div>
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+    
+      <div>
+      <a href="/2018-09-18/Deep-Learning-Book-2%E1%84%8C%E1%85%A1%E1%86%BC-Linear-Algebra/">Deep Learning Book 2 - Linear Algerbra</a>
+      </div>
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+    
 
   
 
@@ -366,45 +507,45 @@ s.setAttribute('data-timestamp', +new Date());
     
       
       <div class="post ml2">
-        <a href="/2018-05-25/coding-%EC%9D%BC%EA%B8%B0/" class="post-link">
-          coding 일기
-          <small class="archive-list-post-date">25 May 2018</small>
+        <a href="/2018-10-27/torchtext/" class="post-link">
+          torchtext 사용법
+          <small class="archive-list-post-date">27 Oct 2018</small>
         </a>
       </div>
       
     
       
       <div class="post ml2">
-        <a href="/2018-05-21/Sublie-Text/" class="post-link">
-          Sublime Text
-          <small class="archive-list-post-date">21 May 2018</small>
+        <a href="/2018-10-22/vim-%E1%84%8A%E1%85%B3%E1%84%80%E1%85%B5/" class="post-link">
+          vim 쓰기
+          <small class="archive-list-post-date">22 Oct 2018</small>
         </a>
       </div>
       
     
       
       <div class="post ml2">
-        <a href="/2018-05-21/Multivariate-functions/" class="post-link">
-          Multivariate Functions
-          <small class="archive-list-post-date">21 May 2018</small>
+        <a href="/2018-10-20/Python-Subprocess-%E1%84%86%E1%85%A9%E1%84%83%E1%85%B2%E1%86%AF/" class="post-link">
+          Python subprocess 모듈
+          <small class="archive-list-post-date">20 Oct 2018</small>
         </a>
       </div>
       
     
       
       <div class="post ml2">
-        <a href="/2018-05-19/LaTex/" class="post-link">
-          LaTex
-          <small class="archive-list-post-date">19 May 2018</small>
+        <a href="/2018-10-09/Ubuntu-&-Bash/" class="post-link">
+          Bash shell
+          <small class="archive-list-post-date">09 Oct 2018</small>
         </a>
       </div>
       
     
       
       <div class="post ml2">
-        <a href="/2018-05-18/Information,-Entropy,-Cross-Entropy/" class="post-link">
-          Information, Entropy, Cross Entropy
-          <small class="archive-list-post-date">18 May 2018</small>
+        <a href="/2018-10-09/Python-%E1%84%86%E1%85%A9%E1%84%83%E1%85%B2%E1%86%AF-%E1%84%80%E1%85%AA%E1%86%AB%E1%84%85%E1%85%A7%E1%86%AB/" class="post-link">
+          Python module 관련
+          <small class="archive-list-post-date">09 Oct 2018</small>
         </a>
       </div>
       

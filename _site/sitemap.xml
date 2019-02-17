@@ -2,9 +2,185 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
     <url>
-      <loc>http://localhost:4000/2018-05-25/coding-%EC%9D%BC%EA%B8%B0/</loc>
+      <loc>http://localhost:4000/2018-10-27/torchtext/</loc>
       
-        <lastmod>2018-05-25T00:00:00+09:00</lastmod>
+        <lastmod>2018-10-27T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>http://localhost:4000/2018-10-22/vim-%E1%84%8A%E1%85%B3%E1%84%80%E1%85%B5/</loc>
+      
+        <lastmod>2018-10-22T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>http://localhost:4000/2018-10-20/Python-Subprocess-%E1%84%86%E1%85%A9%E1%84%83%E1%85%B2%E1%86%AF/</loc>
+      
+        <lastmod>2018-10-20T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>http://localhost:4000/2018-10-09/Ubuntu-&-Bash/</loc>
+      
+        <lastmod>2018-10-09T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>http://localhost:4000/2018-10-09/Python-%E1%84%86%E1%85%A9%E1%84%83%E1%85%B2%E1%86%AF-%E1%84%80%E1%85%AA%E1%86%AB%E1%84%85%E1%85%A7%E1%86%AB/</loc>
+      
+        <lastmod>2018-10-09T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>http://localhost:4000/2018-09-30/Quadratic-Function%E1%84%8B%E1%85%B4-%E1%84%86%E1%85%A9%E1%84%8B%E1%85%A3%E1%86%BC/</loc>
+      
+        <lastmod>2018-09-30T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>http://localhost:4000/2018-09-19/Deep-Learning-Book-4%E1%84%8C%E1%85%A1%E1%86%BC-Numerical-Computation-%E1%84%87%E1%85%A9%E1%86%A8%E1%84%89%E1%85%A1%E1%84%87%E1%85%A9%E1%86%AB/</loc>
+      
+        <lastmod>2018-09-19T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>http://localhost:4000/2018-09-18/Deep-Learning-Book-3%E1%84%8C%E1%85%A1%E1%86%BC-Probability-and-Information-Theory/</loc>
+      
+        <lastmod>2018-09-18T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>http://localhost:4000/2018-09-18/Deep-Learning-Book-2%E1%84%8C%E1%85%A1%E1%86%BC-Linear-Algebra/</loc>
+      
+        <lastmod>2018-09-18T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>http://localhost:4000/2018-09-17/Unix-%E1%84%80%E1%85%A8%E1%84%8B%E1%85%A7%E1%86%AF-%E1%84%92%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC-%E1%84%87%E1%85%A7%E1%86%AB%E1%84%89%E1%85%AE-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC-%E1%84%87%E1%85%A9%E1%86%A8%E1%84%89%E1%85%A1%E1%84%87%E1%85%A9%E1%86%AB/</loc>
+      
+        <lastmod>2018-09-17T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>http://localhost:4000/2018-06-14/Training-Neural-Networks/</loc>
+      
+        <lastmod>2018-06-14T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>http://localhost:4000/2018-06-05/pytorch/</loc>
+      
+        <lastmod>2018-06-05T00:00:00+09:00</lastmod>
       
 
       
@@ -50,22 +226,6 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2018-05-19/LaTex/</loc>
-      
-        <lastmod>2018-05-19T00:00:00+09:00</lastmod>
-      
-
-      
-        <changefreq>weekly</changefreq>
-      
-
-      
-          <priority>0.5</priority>
-      
-
-    </url>
-  
-    <url>
       <loc>http://localhost:4000/2018-05-18/Information,-Entropy,-Cross-Entropy/</loc>
       
         <lastmod>2018-05-18T00:00:00+09:00</lastmod>
@@ -98,7 +258,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2018-04-30/%EB%82%B4%EC%A0%81%EA%B3%BC-%EC%82%AC%EC%9E%87%EA%B0%81/</loc>
+      <loc>http://localhost:4000/2018-04-30/%E1%84%82%E1%85%A2%E1%84%8C%E1%85%A5%E1%86%A8%E1%84%80%E1%85%AA-%E1%84%89%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%BA%E1%84%80%E1%85%A1%E1%86%A8/</loc>
       
         <lastmod>2018-04-30T00:00:00+09:00</lastmod>
       
@@ -114,7 +274,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2018-04-29/git%EC%A1%B0%EA%B0%81/</loc>
+      <loc>http://localhost:4000/2018-04-29/git%E1%84%8C%E1%85%A9%E1%84%80%E1%85%A1%E1%86%A8/</loc>
       
         <lastmod>2018-04-29T00:00:00+09:00</lastmod>
       
@@ -130,7 +290,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2018-04-25/%EC%9D%B8%EC%BD%94%EB%94%A9-%EC%A7%80%EC%98%A5/</loc>
+      <loc>http://localhost:4000/2018-04-25/%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8F%E1%85%A9%E1%84%83%E1%85%B5%E1%86%BC-%E1%84%8C%E1%85%B5%E1%84%8B%E1%85%A9%E1%86%A8/</loc>
       
         <lastmod>2018-04-25T00:00:00+09:00</lastmod>
       
@@ -146,7 +306,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2018-04-01/%EC%84%9C%EB%B2%84-%EC%9D%B4%EC%9A%A9%ED%95%98%EA%B8%B0/</loc>
+      <loc>http://localhost:4000/2018-04-01/%E1%84%89%E1%85%A5%E1%84%87%E1%85%A5-%E1%84%8B%E1%85%B5%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%92%E1%85%A1%E1%84%80%E1%85%B5/</loc>
       
         <lastmod>2018-04-01T00:00:00+09:00</lastmod>
       
@@ -162,7 +322,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2018-03-26/3%EC%9B%94-4%EC%A3%BC%EC%B0%A8-&-4%EC%9B%94-1%EC%A3%BC%EC%B0%A8-%EC%9E%85%EB%8D%B0%EB%A7%88/</loc>
+      <loc>http://localhost:4000/2018-03-26/%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%90%E1%85%A5-%E1%84%89%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8B%E1%85%A5%E1%86%AB%E1%84%90%E1%85%B5%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3-%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%A5%E1%84%87%E1%85%B2-%E1%84%8C%E1%85%B5%E1%86%AF%E1%84%86%E1%85%AE%E1%86%AB-%E1%84%86%E1%85%B5%E1%86%BE-%E1%84%83%E1%85%A1%E1%86%B8%E1%84%87%E1%85%A7%E1%86%AB-2/</loc>
       
         <lastmod>2018-03-26T00:00:00+09:00</lastmod>
       
@@ -178,7 +338,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2018-03-15/3%EC%9B%94-2&3%EC%A3%BC%EC%B0%A8-%EC%9E%85%EB%8D%B0%EB%A7%88/</loc>
+      <loc>http://localhost:4000/2018-03-15/%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%90%E1%85%A5-%E1%84%89%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8B%E1%85%A5%E1%86%AB%E1%84%90%E1%85%B5%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3-%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%A5%E1%84%87%E1%85%B2-%E1%84%8C%E1%85%B5%E1%86%AF%E1%84%86%E1%85%AE%E1%86%AB-%E1%84%86%E1%85%B5%E1%86%BE-%E1%84%83%E1%85%A1%E1%86%B8%E1%84%87%E1%85%A7%E1%86%AB-1/</loc>
       
         <lastmod>2018-03-15T00:00:00+09:00</lastmod>
       
@@ -194,7 +354,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2018-03-13/python-%EC%9D%BC%EC%A7%80/</loc>
+      <loc>http://localhost:4000/2018-03-13/python-%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%8C%E1%85%B5/</loc>
       
         <lastmod>2018-03-13T00:00:00+09:00</lastmod>
       
@@ -210,7 +370,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2018-02-05/HMM-%EC%A0%95%EB%A6%AC/</loc>
+      <loc>http://localhost:4000/2018-02-05/HMM-%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%85%E1%85%B5/</loc>
       
         <lastmod>2018-02-05T00:00:00+09:00</lastmod>
       
@@ -226,7 +386,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2018-02-03/GRU-&-LSTM-%EC%A7%88%EB%AC%B8-%EC%A0%95%EB%A6%AC/</loc>
+      <loc>http://localhost:4000/2018-02-03/GRU-&-LSTM-%E1%84%8C%E1%85%B5%E1%86%AF%E1%84%86%E1%85%AE%E1%86%AB-%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%85%E1%85%B5/</loc>
       
         <lastmod>2018-02-03T00:00:00+09:00</lastmod>
       
@@ -258,7 +418,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:4000/2018-01-20/Anaconda%EC%9D%98-%EC%A0%95%EC%B2%B4/</loc>
+      <loc>http://localhost:4000/2018-01-20/Anaconda-%E1%84%89%E1%85%A1%E1%84%8B%E1%85%AD%E1%86%BC%E1%84%87%E1%85%A5%E1%86%B8/</loc>
       
         <lastmod>2018-01-20T00:00:00+09:00</lastmod>
       
