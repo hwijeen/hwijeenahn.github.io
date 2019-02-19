@@ -46,7 +46,7 @@ Objective function을 최대화 하는 과정을 말로 해석하면 첫번째 t
 
 >  VAE가 CVAE로 진화하면서 생긴 차이점은 prior가 conditional distribution이 된다는 점이다. VAE에서 prior distribution은 고정이었지만 CVAE에선 condition으로 무엇이 주어지냐에 따라 바뀌게 되고, 파라미터 추정의 대상이 된다. 
 
-조건부 확률분포를 뉴럴넷으로 표현할 때 사용하는 방법들: Utterance encoder는 BiGRU, context encoder는 GRU, response decoder은 GRU이다. Encoder가 내뱉는 $\sigma, \mu$로부터 sampling(through reparameterization trick)된 벡터를 response decoder의 initial hidden state로 삼음으로써 $(x|z, c)$라는 condition을 모델링한다.
+조건부 확률분포를 뉴럴넷으로 표현할 때 사용하는 방법들: Utterance encoder는 BiGRU, context encoder는 GRU, response decoder은 GRU이다. Encoder가 내뱉는 $\sigma, \mu​$로부터 sampling(through reparameterization trick)된 벡터를 response decoder의 initial hidden state로 삼음으로써 $(x|z, c)​$라는 condition을 모델링한다.
 
 이 방법은 vanishing latent variable problem문제가 발생한다. Decoder를 RNN계열로 구성해버리면 backprop시 encoder까지 loss가 잘 전파되지 않고, 결국 encoder가 $z​$에 유용한 정보를 encode하지 못하는 상황을 일컫는 것 같다.  VAE를 text에 처음 적용한 [Bowman et al.,2015](https://arxiv.org/pdf/1511.06349.pdf)에서 이 문제에 대한 해결책을 제시한 바 있지만 여기서는 또 다른 해결책을 제시한다. Bag-of-word loss를 도입하는 것이다. Encoding된 $z​$가 순서를 보존한 원래 문장을 복원할 뿐만 아니라 bag-of-word까지 맞춰야하는 task까지 풀게 하는 것이다.
 $$
@@ -74,7 +74,7 @@ $$
 
 ![VAE-LSTM](\assets\img\gupta2018.PNG)
 
-Recognition network $q_\phi(z|x^o, x^p)$ 표현에는 두 개의 LSTM을 사용한다. 첫 번째 LSTM은 $x^o$을 인코딩하고, 마지막 hidden state를 두 번째 LSTM으로 넘긴다. 두 번째 LSTM은 $x^p$을 인풋으로 받는다. 마지막 hidden state는 MLP를 통과해 $q_\phi(z|x^o, x^p)$의 파라미터를 내뱉는다. Decoder에서도 동일한 방식으로 두 개의 LSTM이 사용된다. Reparameterization trick을 통해 recongition network에서 sampling된 $z$는 decoder의 두 번째 LSTM($x^p$를 reconstruction 하는 LSTM)에서 매 time step 입력으로 들어간다. (Encoder와 decoder 모두에 $x^o$인코더가 존재하는 셈인데, 이를 다른 LSTM으로 구성했을 때 성능이 더 좋았다고 한다.)
+Recognition network $q_\phi(z\|x^o, x^p)​$ 표현에는 두 개의 LSTM을 사용한다. 첫 번째 LSTM은 $x^o​$을 인코딩하고, 마지막 hidden state를 두 번째 LSTM으로 넘긴다. 두 번째 LSTM은 $x^p​$을 인풋으로 받는다. 마지막 hidden state는 MLP를 통과해 $q_\phi(z|x^o, x^p)​$의 파라미터를 내뱉는다. Decoder에서도 동일한 방식으로 두 개의 LSTM이 사용된다. Reparameterization trick을 통해 recongition network에서 sampling된 $z​$는 decoder의 두 번째 LSTM($x^p​$를 reconstruction 하는 LSTM)에서 매 time step 입력으로 들어간다. (Encoder와 decoder 모두에 $x^o​$인코더가 존재하는 셈인데, 이를 다른 LSTM으로 구성했을 때 성능이 더 좋았다고 한다.)
 
 - Generation LSTM의 input으로 $z$가 어떻게 들어가지? $w_{e1}^p$도 들어가야할텐데? 더 할까 concat할까
 
