@@ -74,7 +74,7 @@ $$
 
 ![VAE-LSTM](\assets\img\gupta2018.PNG)
 
-Recognition network $q_\phi(z\|x^o, x^p)​$ 표현에는 두 개의 LSTM을 사용한다. 첫 번째 LSTM은 $x^o​$을 인코딩하고, 마지막 hidden state를 두 번째 LSTM으로 넘긴다. 두 번째 LSTM은 $x^p​$을 인풋으로 받는다. 마지막 hidden state는 MLP를 통과해 $q_\phi(z|x^o, x^p)​$의 파라미터를 내뱉는다. Decoder에서도 동일한 방식으로 두 개의 LSTM이 사용된다. Reparameterization trick을 통해 recongition network에서 sampling된 $z​$는 decoder의 두 번째 LSTM($x^p​$를 reconstruction 하는 LSTM)에서 매 time step 입력으로 들어간다. (Encoder와 decoder 모두에 $x^o​$인코더가 존재하는 셈인데, 이를 다른 LSTM으로 구성했을 때 성능이 더 좋았다고 한다.)
+Recognition network $q_\phi(z\|x^o, x^p)$ 표현에는 두 개의 LSTM을 사용한다. 첫 번째 LSTM은 $x^o$을 인코딩하고, 마지막 hidden state를 두 번째 LSTM으로 넘긴다. 두 번째 LSTM은 $x^p$을 인풋으로 받는다. 마지막 hidden state는 MLP를 통과해 $q_\phi(z\|x^o, x^p)$의 파라미터를 내뱉는다. Decoder에서도 동일한 방식으로 두 개의 LSTM이 사용된다. Reparameterization trick을 통해 recongition network에서 sampling된 $z$는 decoder의 두 번째 LSTM($x^p$를 reconstruction 하는 LSTM)에서 매 time step 입력으로 들어간다. (Encoder와 decoder 모두에 $x^o​$인코더가 존재하는 셈인데, 이를 다른 LSTM으로 구성했을 때 성능이 더 좋았다고 한다.)
 
 - Generation LSTM의 input으로 $z$가 어떻게 들어가지? $w_{e1}^p$도 들어가야할텐데? 더 할까 concat할까
 
