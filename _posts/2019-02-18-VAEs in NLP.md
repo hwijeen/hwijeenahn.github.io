@@ -28,11 +28,11 @@ CVAE는 VAE에서 발전된 모델이다. 두 모델 모두 generation 모델이
 
 #### HOW: modeling
 
-대화를 다음 세 가지 확률 변수로 모델링한다. Dialog context $$c​$$, response utterance $$x​$$, latent variable $$z​$$. 이러한 확률 변수를 가지고 정의하는 분포는 아래와 같다.
+대화를 다음 세 가지 확률 변수로 모델링한다. Dialog context $c$, response utterance $x$, latent variable $z$. 이러한 확률 변수를 가지고 정의하는 분포는 아래와 같다.
 $$
 p(x, z|c) = p(z|c)p(x|z,c)
 $$
-뉴럴넷의 용어로 표현하면 $p(z|c)​$는 (conditional) **prior network**, $p(x|z,c)​$는 **response decoder**이다. 뉴럴넷 파라미터는 $p(x,z|c)​$를 최대화하도록 학습된다. 논문 표현에 따르면 이 방법은 maximizing the conditional likelihood of x given c이다. 통계 문헌에서 얘기하는 파라미터 추정 방법중 하나인 marginal likelihood of -parameter를 최대화하는 방법을 일컫는 것 같다.($p(x|c) = \int p(x|z,c)p(z|c)dz​$)
+뉴럴넷의 용어로 표현하면 $p(z|c)$는 (conditional) **prior network**, $p(x|z,c)$는 **response decoder**이다. 뉴럴넷 파라미터는 $p(x,z|c)$를 최대화하도록 학습된다. 논문 표현에 따르면 이 방법은 maximizing the conditional likelihood of x given c이다. 통계 문헌에서 얘기하는 파라미터 추정 방법중 하나인 marginal likelihood of -parameter를 최대화하는 방법을 일컫는 것 같다.($p(x|c) = \int p(x|z,c)p(z|c)dz$)
 
 Test time때는 prior network에서 $z​$를 sampling한 뒤, 이를 response decoder에 집어넣어 대화를 생성해낸다. 이때, sampling한 $z​$값에 따라 생성되는 대화가 달라진다. **One-to-many**!
 
@@ -64,9 +64,9 @@ Conditional generation의 일종인 paraphrase generation을 하기 위해서 CV
 
 #### HOW
 
-Training objective는 CVAE에서 다루는 것과 동일하다. Variational 분포에서 뽑은 $z​$ 를 사용한 reconstruction loss를 최소화하면서, 그 분포가 최대한 prior에 가깝게 하는 것이다. 위 논문과 차이점은 **prior network를 unconditional distribution으로 사용한다는 것**! CVAE를 처음 제안한 Sohn et al.,에 따르면 이는 선택 사항이다.
+Training objective는 CVAE에서 다루는 것과 동일하다. Variational 분포에서 뽑은 $z$ 를 사용한 reconstruction loss를 최소화하면서, 그 분포가 최대한 prior에 가깝게 하는 것이다. 위 논문과 차이점은 **prior network를 unconditional distribution으로 사용한다는 것**! CVAE를 처음 제안한 Sohn et al.,에 따르면 이는 선택 사항이다.
 
->  The prior of the latent variable $$z$$ is modulated by the input $$x$$ in our formulation; however, the constraint can be easily relaxed to make the latent variables statistically independent of input variables, i.e., $p_\theta(z|x) =p_\theta(x)​$
+>  The prior of the latent variable $z$ is modulated by the input $x$ in our formulation; however, the constraint can be easily relaxed to make the latent variables statistically independent of input variables, i.e., $p_\theta(z|x) =p_\theta(x)$
 
 $$
 \mathcal{L}(\theta, \phi; x^p, x^o) = \mathbb{E}_{q_{\phi}(z|x^o, x^p)}[\log{p_\theta(x^p | x^o, z)}] - KL(q_{\phi}(z|x^o, x^p)||p(z))
@@ -74,7 +74,7 @@ $$
 
 ![VAE-LSTM](\assets\img\gupta2018.PNG)
 
-Recognition network $q_\phi(z|x^o, x^p)​$ 표현에는 두 개의 LSTM을 사용한다. 첫 번째 LSTM은 $x^o​$을 인코딩하고, 마지막 hidden state를 두 번째 LSTM으로 넘긴다. 두 번째 LSTM은 $x^p​$을 인풋으로 받는다. 마지막 hidden state는 MLP를 통과해 $q_\phi(z|x^o, x^p)​$의 파라미터를 내뱉는다. Decoder에서도 동일한 방식으로 두 개의 LSTM이 사용된다. Reparameterization trick을 통해 recongition network에서 sampling된 $z​$는 decoder의 두 번째 LSTM($x^p​$를 reconstruction 하는 LSTM)에서 매 time step 입력으로 들어간다. (Encoder와 decoder 모두에 $x^o​$인코더가 존재하는 셈인데, 이를 다른 LSTM으로 구성했을 때 성능이 더 좋았다고 한다.)
+Recognition network $q_\phi(z|x^o, x^p)$ 표현에는 두 개의 LSTM을 사용한다. 첫 번째 LSTM은 $x^o$을 인코딩하고, 마지막 hidden state를 두 번째 LSTM으로 넘긴다. 두 번째 LSTM은 $x^p$을 인풋으로 받는다. 마지막 hidden state는 MLP를 통과해 $q_\phi(z|x^o, x^p)$의 파라미터를 내뱉는다. Decoder에서도 동일한 방식으로 두 개의 LSTM이 사용된다. Reparameterization trick을 통해 recongition network에서 sampling된 $z$는 decoder의 두 번째 LSTM($x^p$를 reconstruction 하는 LSTM)에서 매 time step 입력으로 들어간다. (Encoder와 decoder 모두에 $x^o$인코더가 존재하는 셈인데, 이를 다른 LSTM으로 구성했을 때 성능이 더 좋았다고 한다.)
 
 - Generation LSTM의 input으로 $z$가 어떻게 들어가지? $w_{e1}^p$도 들어가야할텐데? 더 할까 concat할까
 
