@@ -1,20 +1,20 @@
 ---
 layout: post
-title: "Multivariate Functions"
-description: "Multivariate Functions 기본 지식 및 표현 방법" 
+title: "Multivariate functions"
+description: "Multivariate functions 기본 지식 및 표현 방법" 
 comments: true
-categories: [NLP]
+categories: [ML, 수학, 통계]
 tags:
-- Multivariate Calculus
+- Multivariate calculus
 ---
 
 
 
 [Khan Academy](https://www.khanacademy.org/math/multivariable-calculus), [다크 프로그래머의 블로그](http://darkpgmr.tistory.com/132), [cs224n lecture note](https://web.stanford.edu/class/cs224n/readings/gradient-notes.pdf)
 
-<br>
 
-### 함수의 종류: input & ouput space 차원에 따라
+
+## 함수의 종류: input & ouput space 차원에 따라
 
 $$
 \begin{align}
@@ -29,9 +29,9 @@ output value가 $\mathbb{R}$인 함수를 **single-valued function**이라고 �
 
 multivariate function이라 함은 보통 input이 $ \mathbb{R}^n $인 함수를 일컫는다.
 
-<br>
 
-### Visualizing functions: seeing connection between input & output space
+
+## Visualizing functions: seeing connection between input & output space
 
 - Graph: input & output space를 한 공간에서 표현한다
   - $ \mathbb{R}\rightarrow\mathbb{R} $ , $\mathbb{R}^2 \rightarrow \mathbb{R}$밖에 표현하지 못함($\mathbb{R}^2 \rightarrow \mathbb{R}$는 잘 안 씀)
@@ -44,9 +44,9 @@ multivariate function이라 함은 보통 input이 $ \mathbb{R}^n $인 함수를
 - Transformation: 하나의 공간에서 다른 공간으로 transform!
   - 차원에 국한되지 않는 표현이 가능하다. 
 
-<br>
 
-#### TODO:
+
+## TODO:
 
 Derivates of multivariable functions
 

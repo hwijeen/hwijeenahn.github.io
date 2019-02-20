@@ -3,19 +3,12 @@ layout: post
 title: "Data parallelism, multi-GPU"
 description: "Pytorch의 nn.parallel 및 nn.DataParallel 사용하기"
 comments: true
-categories: [NLP]
+categories: [개발]
 tags:
-- Pytorch
-
+- Data Parallemism
 ---
 
-> [파이토치 튜토리얼1](https://pytorch.org/tutorials/beginner/blitz/data_parallel_tutorial.html), [튜토리얼2](https://pytorch.org/tutorials/beginner/former_torchies/parallelism_tutorial.html), [transformer 코드](http://nlp.seas.harvard.edu/2018/04/03/attention.html#batches-and-masking), [짱짱 블로그](https://medium.com/huggingface/training-larger-batches-practical-tips-on-1-gpu-multi-gpu-distributed-setups-ec88c3e51255?source=user_profile---------2------------------): 짱짱 블로그 좀 더 보고 공부하기
-
-
-
-## 개념
-
-
+[파이토치 튜토리얼1](https://pytorch.org/tutorials/beginner/blitz/data_parallel_tutorial.html), [튜토리얼2](https://pytorch.org/tutorials/beginner/former_torchies/parallelism_tutorial.html), [transformer 코드](http://nlp.seas.harvard.edu/2018/04/03/attention.html#batches-and-masking), [짱짱 블로그](https://medium.com/huggingface/training-larger-batches-practical-tips-on-1-gpu-multi-gpu-distributed-setups-ec88c3e51255?source=user_profile---------2------------------): 짱짱 블로그 좀 더 보고 공부하기
 
 ## torch.nn.DataParallel
 
@@ -41,6 +34,8 @@ model.to(device=DEVICE)
 
 shell에서 `nvidia-smi`를 실행시켜서 GPU사용량을 확인해보면 병렬처리가 잘 작동하는지 확인할 수 있다.
 
+> nn.utils.rnn.pack_padded_sequence와 nn.DataParallel을 사용할 경우 오류가 날 수 있다. 배치를 쪼개서 각 GPU로 보내는데, 이때 각 배치에 올라가는 텐서들은 max batch len을 모르고 있기에. [Pytorch FAQ](https://pytorch.org/docs/stable/notes/faq.html#pack-rnn-unpack-with-data-parallelism)를 따라하면 오류를 피해갈 수 있다.
+
 
 
 
@@ -56,15 +51,11 @@ shell에서 `nvidia-smi`를 실행시켜서 GPU사용량을 확인해보면 병�
 
 
 
-
-
 ## Example
 
 Havard NLP의 transformer 구현중 일부분이다. `nn.DataParallel`은 물론 사용했고, loss 계산 부분까지 병렬처리를 하고자 아래와 같이 코드를 작성했다. 
 
 `self.criterion`으로 들어가는 것은 loss를 계산하는 클래스이다. `nn.NLLLoss`, `nn.KLDivLoss`등은 `nn.Module`을 상속받아 작성된 객체여서 `replicate`의 인자(module)로 들어갈 수 있다!
-
-
 
 ```python
 class MultiGPULossCompute:

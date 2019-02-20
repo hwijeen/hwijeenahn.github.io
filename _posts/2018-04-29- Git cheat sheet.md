@@ -1,13 +1,38 @@
 ---
 layout: post
-title: "속성 git"
-description: "기본적인 git 사용법, 몇 가지 git 문제상황 및 해결법"
+title: "git cheat sheet"
+description: "헷갈리는 git 사용법, 몇 가지 git 문제상황 및 해결법"
 comments: true
 categories: [개발]
 tags:
 - Git
 - Github
+- Cheat sheet
 ---
+
+
+
+## Git
+
+로컬 폴더에서 git & github을 사용하려면 절차!
+
+서버에서 git을 쓰려니 다른 사용자에게도 영향을 미칠까봐(?) 무서웠는데 폴더 별로 사용자 지정이 가능하다.
+
+```
+1. git init
+
+2. git config user.name "hwijeen"
+   git config user.email "aurorall@naver.com"
+   - --global 옵션을 사용하지 않은 경우 해당 폴더 scope에서 git 사용자 등록 가능
+ 
+# cf) git clone
+3. git remote add origin $address_copied_from_github_repo
+   - 주소에 나온 repository를 origin이라는 이름으로 remote에 등록한다
+   - git remote시 remote 저장소 list 볼 수 있다
+   - http:// 주소를 복사해올 경우 push할 때마다 github ID/password 입력해줘야한다
+   
+4. git add / commit / push 이제 사용 가능!
+```
 
 
 
@@ -81,8 +106,6 @@ git config -l
 ## BTS 혹은 Trello
 
 dev에서 branch를 따와서 그곳에서 작업한다. 그 branch에서 하는 작업에 대한 상세한 설명 써놓고 관리. 커뮤니케이션은 여기서!
-
-
 
 
 

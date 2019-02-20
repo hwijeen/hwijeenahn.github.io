@@ -10,7 +10,13 @@ tags:
 
 
 
-CVAE는 VAE에서 발전된 모델이다. 두 모델 모두 generation 모델이지만, VAE는 무엇을 만들어낼 것이냐를 제어할 수 없다. CVAE는 대화 기록이 주어지고 다음 발화를 생성해라, 문장이 주어지고 paraphrase를 만들어내라와 같이 목적이 있는 문장 생성을 할 수 있다. [VAE 개념 참고 블로그 글](https://jaan.io/what-is-variational-autoencoder-vae-tutorial/), [A Tutorial on Deep Latent Variable Models of Natural Language](https://arxiv.org/abs/1812.06834)에서 VAE의 training & test 과정 및 구조를 알아야 CVAE 이해가 가능하다. 이 포스트에서 정리할 논문들은 아래와 같다.
+## VAE? CVAE? why not seq2seq?
+
+CVAE는 VAE에서 발전된 모델이다. 두 모델 모두 generation 모델이지만, VAE는 무엇을 만들어낼 것이냐를 제어할 수 없다. CVAE는 대화 기록이 주어지고 다음 발화를 생성해라, 문장이 주어지고 paraphrase를 만들어내라와 같이 목적이 있는 문장 생성을 할 수 있다. [VAE 개념 참고 블로그 글](https://jaan.io/what-is-variational-autoencoder-vae-tutorial/), [A Tutorial on Deep Latent Variable Models of Natural Language](https://arxiv.org/abs/1812.06834)에서 VAE의 training & test 과정 및 구조를 알아야 CVAE 이해가 가능하다. 
+
+VAE기반 모델의 장점은 one-to-many mapping이 가능하다는 것이다. 기존의 sequence to sequence 모델은 주어진 입력에 대한 deterministic representation을 만들고 이를 기반으로 디코더가 문장을 생성한다. VAE는 주어진 입력에 대한 representation을 확률분포로 정의하기 때문에, 샘플링을 통해 다양한 문장을 생성할 수 있다. 
+
+이 포스트에서 정리할 논문들은 아래와 같다.
 
 - [Sohn et al., 2015](https://papers.nips.cc/paper/5775-learning-structured-output-representation-using-deep-conditional-generative-models.pdf): CVAE를 처음 제안. 이론적 배경이 탄탄하다.
 - [Bowman et al., 2015](https://arxiv.org/abs/1511.06349): VAE를 NLP에 처음 적용한 논문. Training difficulty에 대한 대한 대처법을 잘 고안했다.
@@ -20,7 +26,7 @@ CVAE는 VAE에서 발전된 모델이다. 두 모델 모두 generation 모델이
 
 
 
-# Learning Discourse-level Diversity for Neural Dialog Models Using Conditional Variational Autoencoders
+## Learning Discourse-level Diversity for Neural Dialog Models Using Conditional Variational Autoencoders
 
 #### WHAT
 

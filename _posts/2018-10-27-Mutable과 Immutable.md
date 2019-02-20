@@ -1,12 +1,11 @@
 ---
 layout: post
-title: "mutable과 immutable"
+title: "Mutable과 immutable"
 description: "Python mutable, immutable 관련 내용"
 comments: true
 categories: [개발]
 tags:
 - Python
-
 ---
 
 

@@ -3,11 +3,10 @@ layout: post
 title: "Information, Entropy, Cross Entropy"
 description: "딥러닝에서 크로스 엔트로피가 나오는 배경은?"
 comments: true
-categories: [NLP]
+categories: [ML, 수학, 통계]
 tags: 
 - Probability
 - Information Theory	
-- Machine Learning Basics
 ---
 
 From Deep Learning Book, Jimin Sun's Blog
@@ -30,17 +29,15 @@ log 를 붙여주는 이유는 엔트로피간 더하기 연산이 가능하게 
 ## Entropy
 
 엔트로피는 **확률변수**에 대해서 정의된다  
-
-<center>
 $$
 \begin{align}
 \ H(X) &= \mathbb{E}_{X \sim p(X)}{[I(x)]} \\
 \ &=  \sum_{i}{-P(x_i)\log{P(x_i)}} \\
 \end{align} \\
 $$
-$$\text{(when X is a discrete variable)} \\$$
-</center>
 이것의 의미는 확률변수 X가 가지는 불확실성의 정도! X가 가지는 값이 뻔할 때 크로스 엔트로피 값은 작도록 설정되어있다. 
+
+
 
 
 ## Cross Entropy
@@ -74,9 +71,11 @@ $$
 KL(P||Q) =\mathbb{E}_{X \sim p(X)}{[\log{\frac{P(x)}{Q(x)})}]}  = \mathbb{E}_{X \sim p(X)}{[\log{P(x)}-\log{Q(x)}]}
 $$
 
-<br>
 
-##### TODO:
+
+
+
+## TODO:
 
 Maximizing likelihood is minimizaing cross entropy
 

@@ -1,17 +1,16 @@
 ---
 layout: post
-title: "Deep Learning Book 2 - Linear Algerbra"
-description: "딥러닝에 필요한 기초 수학 및 기타 이론"
+title: "Linear Algerbra"
+description: "Deep Learning Book 2장"
 comments: true
 categories: [NLP]
 tags:
-- Deep Learning
 - Linear Algebra
 ---
 
 
 
-> Deep Learning Book 2,3,4장은 딥러닝에 필요한 기본적 지식을 다룬다(1장은 역사 등등). 2장 Linear Algebra에서 확실히 알아두어야할 정의 및 개념, 수식의 의미 등을 위주로 다시 정리해둔다.
+Deep Learning Book 2,3,4장은 딥러닝에 필요한 기본적 지식을 다룬다(1장은 역사 등등). 2장 Linear Algebra에서 확실히 알아두어야할 정의 및 개념, 수식의 의미 등을 위주로 다시 정리해둔다.
 
 
 

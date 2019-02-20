@@ -7,6 +7,7 @@ categories: [개발]
 tags:
 - Python
 - Subprocess
+- Linux
 ---
 
 

@@ -1,18 +1,13 @@
 ---
 layout: post
-title: "Deep Learning Book 3장 - Probability and Information Theory"
-description: "딥러닝에 필요한 기초 수학 및 기타 이론"
+title: "Probability and Information Theory"
+description: "Deep Learning Book 3장"
 comments: true
 categories: [NLP]
 tags:
-- Deep Learning
 - Probability
-- Information Theory
+- Information theory
 ---
-
-
-
-> 2장에 이어 3장에선 Probability theory와 Information Theory를 다룬다. 마찬가지로 개념 및 의미를 정리해둔다. 
 
 
 

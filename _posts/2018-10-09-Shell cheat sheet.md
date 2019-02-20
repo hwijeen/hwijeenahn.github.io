@@ -1,12 +1,13 @@
 ---
 layout: post
-title: "Bash shell"
-description: "개념 및 간단한 사용법"
+title: "Shell cheat sheet"
+description: "개념 및 자주 사용하는 기능들"
 comments: true
 categories: [개발]
 tags:
 - Ubuntu
 - Bash
+- Cheat sheet
 ---
 
 

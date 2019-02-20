@@ -3,10 +3,9 @@ layout: post
 title: "Matching Network for One shot Learning"
 description: "Meta-learning 논문 리뷰"
 comments: true
-categories: [NLP]
+categories: [ML, 수학, 통계]
 tags:
 - Meta-learning
-
 ---
 
 

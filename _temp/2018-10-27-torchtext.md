@@ -3,24 +3,19 @@ layout: post
 title: "torchtext 사용법"
 description: "torchtext 사용해서 간편하게 NLP 전처리하기"
 comments: true
-categories: [NLP]
+categories: [개발]
 tags:
 - torchtext
 ---
 
-
-
-> torchtext 소스코드, [공식 문서](https://torchtext.readthedocs.io/en/latest/data.html#tabulardataset), [외국 블로그1](http://anie.me/On-Torchtext/), [외국 블로그2](http://mlexplained.com/2018/02/08/a-comprehensive-tutorial-to-torchtext/) 참고해서 정리한 내용
-
-
-
-
+torchtext 소스코드, [공식 문서](https://torchtext.readthedocs.io/en/latest/data.html#tabulardataset), [외국 블로그1](http://anie.me/On-Torchtext/), [외국 블로그2](http://mlexplained.com/2018/02/08/a-comprehensive-tutorial-to-torchtext/) 참고해서 정리한 내용
 
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
 <title>torchtext_tutorial</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
 
 
 <style type="text/css">

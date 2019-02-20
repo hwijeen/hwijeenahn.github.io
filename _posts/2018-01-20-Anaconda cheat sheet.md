@@ -1,20 +1,25 @@
 ---
 layout: post
-title: "Anaconda 사용법"
+title: "Anaconda cheat sheet"
 comments: true
 description: "자주 쓰는 기능들 정리"
 categories: [개발]
 tags:
 - Anaconda
-- 가상환경
 - 패키지 관리
+- 가상환경
+- Cheat sheet
 ---
 
 
-### - 개념
+
+## 개념
+
 Anaconda는  **패키지 관리** & **가상환경 관리**용 프로그램이다. 	
 
-### - 패키지 관련 명령어
+
+
+## 패키지 관련 명령어
 ```
 conda install $PACKAGE_NAME
 conda install --name $ENVIRONMENT_NAME $PACKAGE_NAME
@@ -24,7 +29,10 @@ conda remove --name $ENVIRONMENT_NAME $PACKAGE_NAME
 conda list --name $ENVIORNMENT_NAME 
 ```
 
-### - 가상환경 관련 명령어
+
+
+## 가상환경 관련 명령어
+
 ```
 conda create --name $ENVIRONMENT_NAME python=3.6 $PACKAGE_NAME
 source activate $ENVIRONMENT_NAME 
@@ -35,7 +43,9 @@ conda env export -n $ENVIORMENT_NAME > environment.yml
 conda env create -f enviornmnet.yml
 ```
 
-### - conda install vs. pip install
+
+
+## conda install vs. pip install
 
 conda install은 conda repository, pip install은 PyPI에 있는 패키지 파일을 설치한다. 같은 내용의 패키지 일지라도 conda repository는 conda package형식으로 패키지를 가지고 있고, PyPI는 wheel 파일 혹은 source 파일 형태로 패키지를 저장하고 있다. 
 

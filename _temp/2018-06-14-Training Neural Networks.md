@@ -3,7 +3,7 @@ layout: post
 title: "Training Neural Networks"
 description: "Practical Tips"
 comments: true
-categories: [NLP]
+categories: [ML, 수학, 통계]
 tags:
 - Machine Learning Basics
 
