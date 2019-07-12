@@ -1,10 +1,10 @@
 ---
 
 layout: post
-title: "Neural Network in Bayesian Framework"
+title: "Neural network in Bayesian framework"
 description: "베이지안 관점에서 뉴럴넷 들여다보기"
 comments: true
-categories: [ML, 수학, 통계]
+categories: [ML/수학/통계]
 tags:
 - Bayesian
 - Regularization 
@@ -91,7 +91,6 @@ $$
    P(\mathbf{w}\|\alpha,M) = \frac{1}{(\sqrt{(2\pi\sigma_w^2)^n})}\exp{(-\frac{E_w}{2\sigma_w^2})} \\
    = \frac{1}{Z_W(\alpha)}\exp{(-\alpha E_W)}
    $$
-   
 
 3. $P(D\|\alpha, \beta, M)$: ~~모델(M)이 주어졌을 때~~ train data(D)의 확률밀도함수. 이 놈의 이름은 evidence이다. 위의 수식에 나와 있듯이, 뉴럴네트워크 학습 과정은 w에 관한 식을 푸는 것이다. 그런데 evidence는 w에 관한 식이 아니다. 즉, 위의 식에서 상수로 취급된다. *나중에 $\alpha, \beta$값을 구할 땐 중요하게 다뤄지긴 하지만.*
 

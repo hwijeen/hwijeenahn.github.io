@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "git cheat sheet"
+title: "Git cheat sheet"
 description: "헷갈리는 git 사용법, 몇 가지 git 문제상황 및 해결법"
 comments: true
 categories: [개발]
@@ -66,6 +66,8 @@ tags:
 git add . --all # --all 옵션으로 '지운 파일'까지 track, stage
 git commit -m "commit message"
 git push origin <BRANCH_NAME>
+
+git rm -r --cached <DIRECTORY_NAME> # remove a folder only from remote area, not local device
 ```
 
 #### branch 만들기
@@ -84,7 +86,7 @@ git merge <BRANCH_NAME> # Head로 <BRANCH_NAME>을 병합하기
 git rebase? # conflict는 손으로 지우고 다시 add해야한다
 ```
 
-#### 원격 저정소 관련
+#### 원격 저장소 관련
 
 ```bash
 git remote 
@@ -101,6 +103,29 @@ git fetch?
 git config -l
 ```
 
+#### 취소하기
+
+```bash
+git reset HEAD <file> # staging area에서 빼기(add 취소)
+
+git reset --soft HEAD^ # commit 취소하고 해당 파일들은 stage상태로 워킹 디렉토리에 보존
+git reset --mixed HEAD^ # commit 취소하고 해당 파일들은 unstage상태로 워킹 디렉토리에 보존
+git reset --hard HEAD^ # commit 취소하고 해당 파일들은 워킹 디렉토리에서 삭제!
+```
+
+[참고 링크](<https://gmlwjd9405.github.io/2018/05/25/git-add-cancle.html>)
+
+
+
+## .gitignore
+
+```bash
+# comment
+*.pyc
+data/
+__pycache__/
+```
+
 
 
 ## BTS 혹은 Trello
@@ -111,7 +136,7 @@ dev에서 branch를 따와서 그곳에서 작업한다. 그 branch에서 하는
 
 ## 참고
 
-[bash prompt에 현재 들어와있는 branch이름 표시하기.](https://coderwall.com/p/fasnya/add-git-branch-name-to-bash-prompt) PS1라는 환경변수가 bash prompt에 나오는 정보를 결정하는 모양인데, 거기에 git branch를 추가해주는 방식인 거 같다. 시간날 때 색갈도 바꿔봐야겠다.
+[bash prompt에 현재 들어와있는 branch이름 표시하기.](https://coderwall.com/p/fasnya/add-git-branch-name-to-bash-prompt) PS1라는 환경변수가 bash prompt에 나오는 정보를 결정하는 모양인데, 거기에 git branch를 추가해주는 방식인 거 같다. 
 
 
 

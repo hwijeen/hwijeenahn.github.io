@@ -3,7 +3,7 @@ layout: post
 title: "Quadratic Function의 모양"
 description: "수식으로 주어진 함수의 모양 파악하기"
 comments: true
-categories: [ML, 수학, 통계]
+categories: [ML/수학/통계]
 tags:
 - Quadratic Function
 ---

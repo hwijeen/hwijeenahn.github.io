@@ -19,6 +19,7 @@ tags:
 4. InputArgs 설치
 
    - build 이후에 argument 받을 수 있도록 해준다
+5. BracketHighlighter
 
 <br>
 

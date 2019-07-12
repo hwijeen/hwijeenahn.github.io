@@ -8,15 +8,11 @@ tags:
 - Autograd
 ---
 
-
-
-# Pytorch autograd
-
 Pytorch 기본개념으로써 tensor, computational graph, autograd 등을 잘 설명해놓은 [링크](https://www.kdnuggets.com/2018/04/getting-started-pytorch-understanding-automatic-differentiation.html). 대충 듣던 단어들에 대해서 쉽고 자세하게 얘기해주는 글이다.
 
 
 
-#### Tensors 
+## Tensors 
 
 딥러닝이 인기 몰이를 하기 전에는 배열 자료구조를 표현하기 위해 Numpy를 많이 썼다. Numpy는 주요 기능을 C로 구현해놨기에 Python의 list보다 빠르게 가볍다는 장점이 있지만, GPU에 올릴 수 없다는 치명적인 단점이 있다. GPU는 연산을 병렬적으로 처리하는 데 특화되어있는데, 엄청나게 많은 FLOP을 골자로 하는 딥러닝을 위해선 GPU에 올릴 수 있는 배열, Tensor가 필요하다. 
 
@@ -26,7 +22,7 @@ Pytorch tensor class의 대표적인 attribute는 data, grad, grad_fn이다. **d
 
 
 
-#### Computation Graphs
+## Computation Graphs
 
 Computation graph는 이름에서 알 수 있듯이 계산 과정을 표현하는 하나의 자료구조이다. 다른 방식으로도 계산 과정을 표현할 수 있겠지만 효율적으로 chain rule을 적용하는데 특화된 건 computation graph이다. 
 

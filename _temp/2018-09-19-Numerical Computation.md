@@ -3,7 +3,7 @@ layout: post
 title: "Numerical computation"
 description: "Deep Learning Book 4장"
 comments: true
-categories: [ML, 수학, 통계]
+categories: [ML/수학/통계]
 tags:
 - Numerical computation
 ---

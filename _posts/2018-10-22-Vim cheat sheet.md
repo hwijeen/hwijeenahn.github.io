@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "vim cheat sheet"
+title: "Vim cheat sheet"
 description: "자꾸 까먹는 단축키, .vimrc, buffer/window/tab 사용 관련"
 comments: true
 categories: [개발]
@@ -25,9 +25,14 @@ tags:
 이 파일로 vim 환경 설정을 한다. [vim-bootstrap](https://vim-bootstrap.com/)에서 .vimrc파일을 다운받으면 왠만한 건 다 깔려있다. 하나하나 파악하며 깔다간 정신 건강이 나빠진다.. Plugin manager은 [vim-plug](https://github.com/junegunn/vim-plug)를 쓴다. 아래는 내가 추가한 단축키.
 
 ```bash
+set mouse=a
+
 "vim-conda
 cnoreabbrev conda CondaChangeEnv
 let g:conda_startup_msg_suppress = 1
+
+"" Close buffer
+noremap <leader>c :bd<CR>
 
 "buffer navigate
 nmap <leader>l :bnext<CR>

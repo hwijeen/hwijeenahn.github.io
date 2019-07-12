@@ -3,7 +3,7 @@ layout: post
 title: "Multivariate functions"
 description: "Multivariate functions 기본 지식 및 표현 방법" 
 comments: true
-categories: [ML, 수학, 통계]
+categories: [ML/수학/통계]
 tags:
 - Multivariate calculus
 ---

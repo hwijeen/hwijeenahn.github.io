@@ -1,16 +1,14 @@
 ---
 layout: post
-title: "Matching Network for One shot Learning"
-description: "Meta-learning 논문 리뷰"
+title: "Matching Network for One Shot Learning"
+description: "Meta-learning 관련 논문 리뷰"
 comments: true
-categories: [ML, 수학, 통계]
+categories: [논문 리뷰]
 tags:
 - Meta-learning
 ---
 
-
-
-Matching Networks for One shot Learning by Vinayls et al., 2016. NIPS.
+Matching Networks for One shot Learning , Vinayls et al., NIPS 2016. [paper](https://arxiv.org/abs/1606.04080)
 
 
 

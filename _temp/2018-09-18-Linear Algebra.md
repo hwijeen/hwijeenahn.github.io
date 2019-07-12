@@ -3,7 +3,7 @@ layout: post
 title: "Linear Algerbra"
 description: "Deep Learning Book 2장"
 comments: true
-categories: [NLP]
+categories: [ML/수학/통계]
 tags:
 - Linear Algebra
 ---

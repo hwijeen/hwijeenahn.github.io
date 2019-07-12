@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Information, Entropy, Cross Entropy"
+title: "Information, entropy, cross Entropy"
 description: "딥러닝에서 크로스 엔트로피가 나오는 배경은?"
 comments: true
-categories: [ML, 수학, 통계]
+categories: [ML/수학/통계]
 tags: 
 - Probability
 - Information Theory	
@@ -77,7 +77,11 @@ $$
 
 ## TODO:
 
-Maximizing likelihood is minimizaing cross entropy
+MLE is minimizing KL div between model dist and empirical dist - > minimizing negative log likeihood
+
+Minimizing KL is minimizing cross entropy.
+
+Therefore, minimizing NLL is same as minimizing crossentropy
 
 [참고](https://taeoh-kim.github.io/blog/cross-entropy의-정확한-확률적-의미/)
 
