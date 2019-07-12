@@ -1,0 +1,75 @@
+/* SCSS Variables */
+
+/*--------------
+  Font
+  -------------- */
+$base-font: 'Avenir Next', 'proxima-nova', 'Spoqa Han Sans', 'Source Sans Pro', Apple SD Gothic Neo, Nanum Barun Gothic, Nanum Gothic, Verdana, Arial, Dotum, sans-serif;
+$code-font: Menlo, 'Ubuntu Mono', Monaco, 'Spoqa Han Sans', monospace;
+$code-gist-font: Menlo, 'Ubuntu Mono', Monaco, 'Spoqa Han Sans', monospace;
+
+$base-font-size: 16px;
+$base-font-size-sm: 14px;
+
+$mobile-font-size: 16px;
+
+
+/*--------------
+  Color
+  -------------- */
+$base-color: $oc-gray-8;
+$base-lighten-color: $oc-gray-6;
+
+$background-color: $oc-white;
+$background-over-color: $oc-gray-1;
+
+$text-color: $oc-gray-8;
+$link-color: $oc-blue-8;
+$code-color: $oc-indigo-9;
+$code-background-color: $oc-gray-1;
+$table-border-color: $oc-gray-2;
+$table-background-color: $oc-gray-1;
+
+$divider-color: $oc-gray-1;
+
+/* syntax highlighting (base16) */
+$base00: #263238 !default;
+$base01: #2e3c43 !default;
+$base02: #314549 !default;
+$base03: #546e7a !default;
+$base04: #b2ccd6 !default;
+$base05: #eeffff !default;
+$base06: #eeffff !default;
+$base07: #ffffff !default;
+$base08: #f07178 !default;
+$base09: #f78c6c !default;
+$base0a: #ffcb6b !default;
+$base0b: #c3e88d !default;
+$base0c: #89ddff !default;
+$base0d: #82aaff !default;
+$base0e: #c792ea !default;
+$base0f: #ff5370 !default;
+
+
+/*--------------
+  List
+  -------------- */
+
+$li-bottom-space: 0.4em;
+$li-bullets-width: 1.7em;
+$li-line-height: 1.55;
+
+$ul-bullets-font: inherit;
+$ul-bullets-font-size: 1.2em;
+$ul-bullets-font-line-height: inherit;
+$ul-bullets-right-space: 0.65em;
+
+$ol-bullets-font: inherit;
+$ol-bullets-font-size: 1em;
+$ol-bullets-font-line-height: inherit;
+$ol-bullets-right-space: 0.65em;
+
+$li-child-size-ratio: 0.95;
+
+$dt-width: 180px;
+$dt-dd-space: 20px;
+$dd-position: $dt-width+$dt-dd-space

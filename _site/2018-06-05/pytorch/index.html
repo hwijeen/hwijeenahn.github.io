@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pytorch</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+  <!-- Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for Hwijeen Ahn" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Pytorch | Hwijeen Ahn</title>
+<meta name="generator" content="Jekyll v3.8.0" />
+<meta property="og:title" content="Pytorch" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="헷갈리는 것들 정리" />
+<meta property="og:description" content="헷갈리는 것들 정리" />
+<link rel="canonical" href="http://localhost:4000/2018-06-05/pytorch/" />
+<meta property="og:url" content="http://localhost:4000/2018-06-05/pytorch/" />
+<meta property="og:site_name" content="Hwijeen Ahn" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-06-05T00:00:00+09:00" />
+<script type="application/ld+json">
+{"headline":"Pytorch","dateModified":"2018-06-05T00:00:00+09:00","datePublished":"2018-06-05T00:00:00+09:00","description":"헷갈리는 것들 정리","url":"http://localhost:4000/2018-06-05/pytorch/","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018-06-05/pytorch/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="http://localhost:4000/logo.png">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="http://localhost:4000/logo.png">
+
+  <!-- Google Analytics -->
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-112068488-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+<body>
+  <div class="content-container">
+    
+
+
+<header>
+  <div class="header-small">
+    <a href="http://localhost:4000">Hwijeen Ahn</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">Pytorch</div>
+  <span class="post-date">
+    <time>05 Jun 2018</time>
+  </span>
+
+  
+    <span class="post-minute"> 
+     1 minute read
+    </span>
+  
+
+
+  <div class="post-tag">
+    <ul>
+      
+      <li>
+        <a href="http://localhost:4000/tags#Pytorch">
+          <span>Pytorch</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+
+  <p><br /></p>
+
+<h3 id="casting">Casting</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="nb">type</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="nb">long</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="weight-initialization">Weight Initialization</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># nn.module을 상속받은 class 안에서</span>
+<span class="k">def</span> <span class="nf">weights_init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">modules</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">):</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="torchnn-vs-torchnnfunctional">torch.nn vs. torch.nn.Functional</h3>
+
+<p>중복되는 함수가 꽤 있는 것 같은데, 어디서 무슨 함수를 사용할지는 다음 기준이 좋은 거 같다</p>
+
+<ul>
+  <li>parameter를 갖는 layer의 경우, torch.nn을 사용하고</li>
+  <li>단순 연산인 경우 torch.nn.Functional을 사용한다</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">FC</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">module</span><span class="p">):</span>
+	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>    
+	<span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">linear</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">linear</span><span class="p">(</span><span class="nb">input</span><span class="p">))</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">LogSoftmax</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">output</span>
+</code></pre></div></div>
+
+<h3 id="indexing">Indexing</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># np index과 동일하다</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">a_col</span> <span class="o">=</span> <span class="n">a</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">a_row</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c"># or a[0,:]</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">3.6</span><span class="p">])</span>
+<span class="n">b_value</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>    <span class="c"># python number 3.6</span>
+</code></pre></div></div>
+
+<h3 id="gru--lstm-input--output">GRU &amp; LSTM input &amp; output</h3>
+
+<ul>
+  <li>input: (seq_len, batch, input_size)
+    <ul>
+      <li>예시에서 (1,1,50)</li>
+      <li>seq_len은 한 번에 넣는 input 개수</li>
+    </ul>
+  </li>
+  <li>hidden : (num_layers*num_directions, batch, hidden_size)
+    <ul>
+      <li>예시에서 (1,1,30)</li>
+    </ul>
+  </li>
+  <li>output: (seq_len, batch, hidden_size*num_directions)</li>
+  <li>h_n: (num_layers*num_directions, batch, hidden_size)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># GRU</span>
+<span class="n">gru</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GRU</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>    <span class="c"># input_size, hidden_size</span>
+
+<span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span> 
+<span class="n">hidden</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="c"># 방법1</span>
+<span class="c"># unrolled version</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">inputs</span><span class="p">:</span>
+	<span class="n">output</span><span class="p">,</span> <span class="n">hidden</span> <span class="o">=</span> <span class="n">gru</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">hidden</span><span class="p">)</span>
+
+
+<span class="c"># 방법2</span>
+<span class="c"># input 여러 개를 한 번에 넣기! 따라서 seq_len을 조정해줘야한다.</span>
+<span class="n">output</span><span class="p">,</span> <span class="n">hidden</span> <span class="o">=</span> <span class="n">gru</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">inputs</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">hidden</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><a href="https://stackoverflow.com/questions/48302810/whats-the-difference-between-hidden-and-output-in-pytorch-lstm?utm_medium=organic&amp;utm_source=google_rich_qa&amp;utm_campaign=google_rich_qa">이미지 출처</a></p>
+
+<p><img src="../assets/img/torchlstm.png" alt="lstm" /></p>
+
+<ul>
+  <li>instantiate할 때 인자로 input_size와 hidden_size를 넘긴다.</li>
+</ul>
+
+<p>차이점:</p>
+
+<ul>
+  <li>함수 <em>사용시?</em> GRU는 hidden값을 하나만 받고, LSTM은 두 개를 받는다.</li>
+</ul>
+
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</div>
+
+  <!-- Disqus -->
+
+<div id="disqus_thread"></div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hwijeen-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <!--<div class="post-disqus">
+      <section id="disqus_thread"></section>
+      <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hwijeen-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>-->
+
+
+<div class="relatedPosts">
+
+  <h3>Related Posts</h3>
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+</div>
+
+<div class="recentPosts">
+
+  <h3>Recent Posts</h3>
+
+  
+  
+
+    
+      
+      <div class="post ml2">
+        <a href="/2018-10-27/torchtext/" class="post-link">
+          torchtext 사용법
+          <small class="archive-list-post-date">27 Oct 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-10-22/vim-%E1%84%8A%E1%85%B3%E1%84%80%E1%85%B5/" class="post-link">
+          vim 쓰기
+          <small class="archive-list-post-date">22 Oct 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-10-20/Python-Subprocess-%E1%84%86%E1%85%A9%E1%84%83%E1%85%B2%E1%86%AF/" class="post-link">
+          Python subprocess 모듈
+          <small class="archive-list-post-date">20 Oct 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-10-09/Ubuntu-&-Bash/" class="post-link">
+          Bash shell
+          <small class="archive-list-post-date">09 Oct 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-10-09/Python-%E1%84%86%E1%85%A9%E1%84%83%E1%85%B2%E1%86%AF-%E1%84%80%E1%85%AA%E1%86%AB%E1%84%85%E1%85%A7%E1%86%AB/" class="post-link">
+          Python module 관련
+          <small class="archive-list-post-date">09 Oct 2018</small>
+        </a>
+      </div>
+      
+    
+      
+        
+
+</div>
+
+
+    <!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    
+	
+	
+	
+	
+
+    
+
+    
+    <a href="https://github.com/hwijeen"><i class="fa fa-github" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+
+    
+
+    
+
+    
+    <a href="mailto:aurorall@naver.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </div>
+  © 2018 Hwijeen Ahn. All rights reserved.
+</div>
+
+  </div>
+</body>
+</html>

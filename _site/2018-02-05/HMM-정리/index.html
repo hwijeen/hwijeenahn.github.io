@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HMM 정리</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+  <!-- Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for Hwijeen Ahn" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>HMM 정리 | Hwijeen Ahn</title>
+<meta name="generator" content="Jekyll v3.8.0" />
+<meta property="og:title" content="HMM 정리" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="문일철 교수님 HMM 강의 정리" />
+<meta property="og:description" content="문일철 교수님 HMM 강의 정리" />
+<link rel="canonical" href="http://localhost:4000/2018-02-05/HMM-%EC%A0%95%EB%A6%AC/" />
+<meta property="og:url" content="http://localhost:4000/2018-02-05/HMM-%EC%A0%95%EB%A6%AC/" />
+<meta property="og:site_name" content="Hwijeen Ahn" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-02-05T00:00:00+09:00" />
+<script type="application/ld+json">
+{"headline":"HMM 정리","dateModified":"2018-02-05T00:00:00+09:00","datePublished":"2018-02-05T00:00:00+09:00","description":"문일철 교수님 HMM 강의 정리","url":"http://localhost:4000/2018-02-05/HMM-%EC%A0%95%EB%A6%AC/","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018-02-05/HMM-%EC%A0%95%EB%A6%AC/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="http://localhost:4000/logo.png">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="http://localhost:4000/logo.png">
+
+  <!-- Google Analytics -->
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-112068488-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+<body>
+  <div class="content-container">
+    
+
+
+<header>
+  <div class="header-small">
+    <a href="http://localhost:4000">Hwijeen Ahn</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">HMM 정리</div>
+  <span class="post-date">
+    <time>05 Feb 2018</time>
+  </span>
+
+  
+    <span class="post-minute"> 
+     1 minute read
+    </span>
+  
+
+
+  <div class="post-tag">
+    <ul>
+      
+      <li>
+        <a href="http://localhost:4000/tags#HMM">
+          <span>HMM</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#Machine Learning">
+          <span>Machine Learning</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+
+  <p>문일철 HMM 강의 Objectives:</p>
+
+<ol>
+  <li>
+    <p>Learn hidden Markov model<br />
+ 1-1. Transition from the static clustering to the dynamic clustering<br />
+ 1-2. Understand the difference of the graphical model</p>
+  </li>
+  <li>
+    <p>Know and albe to answer the three major questions of HMM<br />
+ 2-1. Know how to solve the evaluation question<br />
+ 2-2. Know how to solve the decoding question<br />
+ 2-3. Know how to solve the learning question</p>
+  </li>
+  <li>
+    <p>Link to the previous lectures<br />
+ 3-1. Link the forward-backward algorithm to the message passing<br />
+ 3-2. Link the baum-welch algorithm to the EM algorithm</p>
+  </li>
+</ol>
+
+<p><br />
+<br />
+1-1. Dynamic clustering</p>
+<p style="text-align:center;"><img src="/assets/img/latent variable.png" width="550" alt="latentvariable" align="middle" /><font size="3" color="grey"><br />HMM in graphical notation</font></p>
+<ul>
+  <li>‘시간’이라는 요소를 넣어서 모델링한다는 점에서 ‘dynamic’이라는 용어가 붙었다.</li>
+  <li>‘시간’ 요소가 더해짐에 따라, data points는 더이상 서로 독립이 아니고 temporal relation을 갖는다.</li>
+  <li>즉, t+1 시점의 data는 t시점의 영향을 받는다.</li>
+  <li>이때, 다음 시점에 영향을 주는 건 개별 데이터가 아닌 latent factor다.</li>
+  <li>각 시점마다 잠재적인 동력(latent variable)이 있다. 각 시점에서 관측된 data는 그 잠재 동력의 발현일 뿐이다. HMM은 이런 생각을 담은 모델이다.</li>
+  <li>대표적인 예시는 HMM을 활용한 POS tagging. <script type="math/tex">x_k</script>를 단어, <script type="math/tex">z_k</script>를 품사로 생각한다.</li>
+</ul>
+
+<p><br />
+<br />
+1-2. Properties of HMM</p>
+<ul>
+  <li><script type="math/tex">x_k</script>, <script type="math/tex">z_k</script>는 확률 변수. 어떤 분포를 가정하냐에 따라 continuous할 수도, discrete할 수도 있다.</li>
+  <li>여기서 <script type="math/tex">x_k</script>, <script type="math/tex">z_k</script>는 multinomial distribution을 따른다고 가정한다. 즉, discrete 변수.</li>
+  <li>Initial state probability는 첫 시점의 latent variable z값을 설정해주는 확률. 첫 시점은 ‘이전’이 없기에 따로 설정해주어야한다.</li>
+</ul>
+
+<script type="math/tex; mode=display">P(z_1) \text{~} Mult(\pi_1, \dots, \pi_k)</script>
+
+<ul>
+  <li>Transition probability는 다음 시점으로 ‘넘어갈 때’의 확률. 지금 latent variable이 <script type="math/tex">i</script>로 주어질 때 다음 latent variable이 j일 확률.</li>
+</ul>
+
+<script type="math/tex; mode=display">P(z_t^j =1 \mid z_{t-1}^i = 1) = a_{i,j}</script>
+
+<ul>
+  <li>Emission Probability는 현 시점 latent varialbe이 그 data를 ‘뱉어낼’ 확률. 지금 이 시점엔 명사가 올텐데, 사과라는 단어일 확률은?</li>
+</ul>
+
+<script type="math/tex; mode=display">P(x_t^j = 1 \mid z_t^i = 1) = b_{i,j}</script>
+
+<ul>
+  <li><script type="math/tex">x</script>가 <script type="math/tex">z</script>를 ‘따르는’ 걸 정확하게 뭐라하지?</li>
+</ul>
+
+<p><br />
+<br />
+2-1. Evaluation question</p>
+<ul>
+  <li><script type="math/tex">P(X \mid M, \pi, a, b)</script>를 찾는 문제. trained model에서 주어진 데이터가 관측될 확률은?</li>
+  <li>learning question을 통해 <script type="math/tex">\pi, a, b</script>를 다 추정하고 나서야 이 문제들을 풀 수 있다.</li>
+  <li>X &amp; Z라는 labeled training data를 가지고 있다면 쉽게 구할 수 있다.</li>
+</ul>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+P(X,Z) &= P(x_1, \dots, x_t, z_1, \dots, z_t) \\  
+		&= P(z_1)P(x_1 \mid z_1)P(z2 \mid z1) \dots P(z_t \mid z_{t-1})P(x_t \mid z_t) \\
+		&= \pi_{z1} b_{z1,x1} a_{z1,z2} \dots a_{z_{t-1},z_t} b_{z_t, x_t}
+
+\end{align} %]]></script>
+
+<ul>
+  <li>이 식은 <script type="math/tex">Z</script>값을 다 알고 있을 때나 써먹을 수 있다. 게다가 <script type="math/tex">Z</script>값의 조합에 따라 <script type="math/tex">P(X,Z)</script>값을 각각 계산해줘야한다는 단점이 있다.</li>
+  <li>그래서 대안으로 나온 게 forward probability.</li>
+  <li>forward probability를 사용하면 <script type="math/tex">Z</script>없이도 evaluation question 답을 찾을 수 있다.</li>
+  <li>방법은 <script type="math/tex">P(x_1, \dots, x_t, z_t^k=1)</script>이라는 식을 derive하고, 이후에 <script type="math/tex">z_t^k</script>를 marginalize out하자는 것.</li>
+</ul>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+&P(x_1, \dots, x_t, z_t^k=1) = \alpha_t^k \\
+&\alpha_1^k = b_{k,x1} \pi_k \\
+&\alpha_t^k =b_{k,x_t} \sum_{i}\alpha_{t-1}^i a_{i,k} \\
+&RETURN \sum_{i}\alpha_t^i \\
+&\because \sum_{i}\alpha_t^i = \sum_{i}P(x_1, \dots, x_t, z_t^i) = P(x_1, \dots, x_t)
+\end{align} %]]></script>
+
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</div>
+
+  <!-- Disqus -->
+
+<div id="disqus_thread"></div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hwijeen-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <!--<div class="post-disqus">
+      <section id="disqus_thread"></section>
+      <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hwijeen-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>-->
+
+
+<div class="relatedPosts">
+
+  <h3>Related Posts</h3>
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+</div>
+
+<div class="recentPosts">
+
+  <h3>Recent Posts</h3>
+
+  
+  
+
+    
+      
+      <div class="post ml2">
+        <a href="/2018-10-27/torchtext/" class="post-link">
+          torchtext 사용법
+          <small class="archive-list-post-date">27 Oct 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-10-22/vim-%E1%84%8A%E1%85%B3%E1%84%80%E1%85%B5/" class="post-link">
+          vim 쓰기
+          <small class="archive-list-post-date">22 Oct 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-10-20/Python-Subprocess-%E1%84%86%E1%85%A9%E1%84%83%E1%85%B2%E1%86%AF/" class="post-link">
+          Python subprocess 모듈
+          <small class="archive-list-post-date">20 Oct 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-10-09/Ubuntu-&-Bash/" class="post-link">
+          Bash shell
+          <small class="archive-list-post-date">09 Oct 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-10-09/Python-%E1%84%86%E1%85%A9%E1%84%83%E1%85%B2%E1%86%AF-%E1%84%80%E1%85%AA%E1%86%AB%E1%84%85%E1%85%A7%E1%86%AB/" class="post-link">
+          Python module 관련
+          <small class="archive-list-post-date">09 Oct 2018</small>
+        </a>
+      </div>
+      
+    
+      
+        
+
+</div>
+
+
+    <!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    
+	
+	
+	
+	
+
+    
+
+    
+    <a href="https://github.com/hwijeen"><i class="fa fa-github" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+
+    
+
+    
+
+    
+    <a href="mailto:aurorall@naver.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </div>
+  © 2018 Hwijeen Ahn. All rights reserved.
+</div>
+
+  </div>
+</body>
+</html>

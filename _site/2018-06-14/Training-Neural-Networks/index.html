@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Training Neural Networks</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+  <!-- Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for Hwijeen Ahn" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Training Neural Networks | Hwijeen Ahn</title>
+<meta name="generator" content="Jekyll v3.8.0" />
+<meta property="og:title" content="Training Neural Networks" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Practical Tips" />
+<meta property="og:description" content="Practical Tips" />
+<link rel="canonical" href="http://localhost:4000/2018-06-14/Training-Neural-Networks/" />
+<meta property="og:url" content="http://localhost:4000/2018-06-14/Training-Neural-Networks/" />
+<meta property="og:site_name" content="Hwijeen Ahn" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-06-14T00:00:00+09:00" />
+<script type="application/ld+json">
+{"headline":"Training Neural Networks","dateModified":"2018-06-14T00:00:00+09:00","datePublished":"2018-06-14T00:00:00+09:00","description":"Practical Tips","url":"http://localhost:4000/2018-06-14/Training-Neural-Networks/","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018-06-14/Training-Neural-Networks/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="http://localhost:4000/logo.png">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="http://localhost:4000/logo.png">
+
+  <!-- Google Analytics -->
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-112068488-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+<body>
+  <div class="content-container">
+    
+
+
+<header>
+  <div class="header-small">
+    <a href="http://localhost:4000">Hwijeen Ahn</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">Training Neural Networks</div>
+  <span class="post-date">
+    <time>14 Jun 2018</time>
+  </span>
+
+  
+    <span class="post-minute"> 
+     1 minute read
+    </span>
+  
+
+
+  <div class="post-tag">
+    <ul>
+      
+      <li>
+        <a href="http://localhost:4000/tags#Machine Learning Basics">
+          <span>Machine Learning Basics</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+
+  <p>From CS231n lecture note &amp; assignments, Neural Network Design, Cho’s lecture</p>
+
+<h1 id="preprocessing">Preprocessing</h1>
+
+<ol>
+  <li>Data Split</li>
+</ol>
+
+<h1 id="training">Training</h1>
+
+<p><u>Hypothesis Set을 설정하고, 그 안에서 최적의 model을 찾는 과정</u>. Hyperparameter을 조정하는 것도 하나의 hypothesis set을 만드는 것과 동일하다. Training을 통해 최적의 model, 즉 최적의 parameter을 찾는 과정이 필요하다.</p>
+
+<ol>
+  <li>모델 architecture
+    <ul>
+      <li>Problem specific. Always consider <em>information flow!</em></li>
+      <li>A bunch of <strong>Hyperparameters</strong> associated with the model.</li>
+    </ul>
+  </li>
+  <li>Weight Initialization
+    <ul>
+      <li>Small random numbers from Gaussian or Uniform distribution.</li>
+      <li>Consider using <strong>Batch Normalization</strong>(or its variation) for more robust weight initialization.</li>
+    </ul>
+  </li>
+  <li>Rugularization
+    <ul>
+      <li><strong>Dropout</strong> or its variants.</li>
+      <li><strong>Gradient Clipping</strong>.</li>
+    </ul>
+  </li>
+  <li>Loss function
+    <ul>
+      <li>If the output of a network is a distribution(multinomial, via Softmax function<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>) natural choice is to use <strong>Negative Loss Likelihood</strong>.</li>
+    </ul>
+  </li>
+  <li>Optimization algorithm
+    <ul>
+      <li>Adaptive Learning rate algorithm is typically preferred(<strong>Adam</strong>, etc).</li>
+      <li>Use <strong>Stochastic</strong> update rule<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>, using mini-batch.</li>
+    </ul>
+  </li>
+  <li>Stopping Criteria
+    <ul>
+      <li>Early stopping with <strong>Validation Set</strong> performance. Validation performance is occasionally measured.</li>
+    </ul>
+  </li>
+  <li>Ensemble
+    <ul>
+      <li>Performance boost with more computational cost.</li>
+    </ul>
+  </li>
+</ol>
+
+<h1 id="visualization">Visualization</h1>
+
+<ol>
+  <li>Attention</li>
+</ol>
+
+<hr />
+
+<h3 id="todo">TODO:</h3>
+
+<ul>
+  <li>분류 문제에서 MSE 못 쓰는 이유?</li>
+  <li>다항분포에서  likelihood 전개하기</li>
+  <li>Validation measure하는 주기</li>
+</ul>
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <table>
+        <tbody>
+          <tr>
+            <td>네트워크가 distribution을 뱉어내게 하면서, <script type="math/tex">f_\theta(x) = ?</script>을 찾는 머신러닝 문제가 $$ P(y=y’</td>
+            <td>x) = ?$$를 찾는 문제로 전환된다. 즉 함수를 찾는 문제에서 확률밀도함수를 찾는 문제로 바꾸는 것! 이렇게 되면 확률에 관한 각종 도구를 쓸 수 있다는 장점이 있다.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>mini-batch의 stochasticity 덕에 regularization이라는 부수적인 효과를 얻을 수도 있다. <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</div>
+
+  <!-- Disqus -->
+
+<div id="disqus_thread"></div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hwijeen-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <!--<div class="post-disqus">
+      <section id="disqus_thread"></section>
+      <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hwijeen-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>-->
+
+
+<div class="relatedPosts">
+
+  <h3>Related Posts</h3>
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+      <div>
+      <a href="/2018-05-18/Information,-Entropy,-Cross-Entropy/">Information, Entropy, Cross Entropy</a>
+      </div>
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+    
+      <div>
+      <a href="/2018-05-10/Neural-Network-in-Bayesian-Framework/">Neural Network in Bayesian Framework</a>
+      </div>
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+</div>
+
+<div class="recentPosts">
+
+  <h3>Recent Posts</h3>
+
+  
+  
+
+    
+      
+      <div class="post ml2">
+        <a href="/2018-10-27/torchtext/" class="post-link">
+          torchtext 사용법
+          <small class="archive-list-post-date">27 Oct 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-10-22/vim-%E1%84%8A%E1%85%B3%E1%84%80%E1%85%B5/" class="post-link">
+          vim 쓰기
+          <small class="archive-list-post-date">22 Oct 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-10-20/Python-Subprocess-%E1%84%86%E1%85%A9%E1%84%83%E1%85%B2%E1%86%AF/" class="post-link">
+          Python subprocess 모듈
+          <small class="archive-list-post-date">20 Oct 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-10-09/Ubuntu-&-Bash/" class="post-link">
+          Bash shell
+          <small class="archive-list-post-date">09 Oct 2018</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2018-10-09/Python-%E1%84%86%E1%85%A9%E1%84%83%E1%85%B2%E1%86%AF-%E1%84%80%E1%85%AA%E1%86%AB%E1%84%85%E1%85%A7%E1%86%AB/" class="post-link">
+          Python module 관련
+          <small class="archive-list-post-date">09 Oct 2018</small>
+        </a>
+      </div>
+      
+    
+      
+        
+
+</div>
+
+
+    <!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    
+	
+	
+	
+	
+
+    
+
+    
+    <a href="https://github.com/hwijeen"><i class="fa fa-github" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+
+    
+
+    
+
+    
+    <a href="mailto:aurorall@naver.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </div>
+  © 2018 Hwijeen Ahn. All rights reserved.
+</div>
+
+  </div>
+</body>
+</html>
