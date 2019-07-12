@@ -2,7 +2,7 @@
 layout: post
 title: "Anaconda cheat sheet"
 comments: true
-description: "자주 쓰는 기능들 정리"
+description: "패키지 관리, 가상환경 관리"
 categories: [개발]
 tags:
 - Anaconda

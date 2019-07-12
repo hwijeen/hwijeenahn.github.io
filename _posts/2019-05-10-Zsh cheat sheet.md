@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Zsh 사용"
-description: "Zsh 설치 따라하기"
+title: "Zsh Cheat sheet"
+description: "설치, 설정파일"
 comments: true
 categories: [개발]
 tags:

@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "서버 이용하기"
-description: "리눅스 및 서버에 익숙해지기"
+title: "Jupyter notebook cheat sheet"
+description: "서버에서 사용, 커스터마이징"
 comments: true
 categories: [개발]
 tags:

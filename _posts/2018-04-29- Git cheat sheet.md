@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Git cheat sheet"
-description: "헷갈리는 git 사용법, 몇 가지 git 문제상황 및 해결법"
+description: "명령어, 브랜치 관리"
 comments: true
 categories: [개발]
 tags:
