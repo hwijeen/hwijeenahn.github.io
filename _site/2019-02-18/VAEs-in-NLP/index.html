@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VAEs in NLP</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+  <!-- Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for Hwijeen Ahn" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>VAEs in NLP | Hwijeen Ahn</title>
+<meta name="generator" content="Jekyll v3.8.0" />
+<meta property="og:title" content="VAEs in NLP" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="NLP에서 VAE기반 모델을 사용하는 논문들" />
+<meta property="og:description" content="NLP에서 VAE기반 모델을 사용하는 논문들" />
+<link rel="canonical" href="http://localhost:4000/2019-02-18/VAEs-in-NLP/" />
+<meta property="og:url" content="http://localhost:4000/2019-02-18/VAEs-in-NLP/" />
+<meta property="og:site_name" content="Hwijeen Ahn" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-02-18T00:00:00+09:00" />
+<script type="application/ld+json">
+{"headline":"VAEs in NLP","dateModified":"2019-02-18T00:00:00+09:00","datePublished":"2019-02-18T00:00:00+09:00","description":"NLP에서 VAE기반 모델을 사용하는 논문들","url":"http://localhost:4000/2019-02-18/VAEs-in-NLP/","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2019-02-18/VAEs-in-NLP/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="http://localhost:4000/logo.png">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="http://localhost:4000/logo.png">
+
+  <!-- Google Analytics -->
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-112068488-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+<body>
+  <div class="content-container">
+    
+
+
+<header>
+  <div class="header-small">
+    <a href="http://localhost:4000">Hwijeen Ahn</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">VAEs in NLP</div>
+  <span class="post-date">
+    <time>18 Feb 2019</time>
+  </span>
+
+  
+    <span class="post-minute"> 
+     3 minute read
+    </span>
+  
+
+
+  <div class="post-tag">
+    <ul>
+      
+      <li>
+        <a href="http://localhost:4000/tags#VAE">
+          <span>VAE</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#CVAE">
+          <span>CVAE</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+
+  <h2 id="vae-cvae-why-not-seq2seq">VAE? CVAE? why not seq2seq?</h2>
+
+<p>VAE기반 모델의 장점은 one-to-many mapping이 가능하다는 것이다. 기존의 sequence to sequence 모델은 주어진 입력에 대한 deterministic representation을 만들고 이를 기반으로 디코더가 문장을 생성한다. VAE는 주어진 입력에 대한 representation을 확률분포로 정의하기 때문에, 샘플링을 통해 다양한 문장을 생성할 수 있다. CVAE는 VAE에서 발전된 모델이다. 두 모델 모두 generation 모델이지만, VAE는 무엇을 만들어낼 것이냐를 제어할 수 없다. CVAE는 대화 기록이 주어지고 다음 발화를 생성해라, 문장이 주어지고 paraphrase를 만들어내라와 같이 목적이 있는 문장 생성을 할 수 있다. <a href="https://jaan.io/what-is-variational-autoencoder-vae-tutorial/">VAE 개념 참고 블로그 글</a>, <a href="https://arxiv.org/abs/1812.06834">A Tutorial on Deep Latent Variable Models of Natural Language</a>, <a href="https://arxiv.org/abs/1606.05908">Tutorial on Variational Autoencoders</a>, <a href="http://ruishu.io/2018/03/14/vae/">매우 잘 정리된 블로그</a>에서 개념을 참고했다.</p>
+
+<p>이 포스트에서 정리할 논문들은 아래와 같다.</p>
+
+<ul>
+  <li><a href="https://papers.nips.cc/paper/5775-learning-structured-output-representation-using-deep-conditional-generative-models.pdf">Sohn et al., 2015</a>: CVAE를 처음 제안. 이론적 배경이 탄탄하다.</li>
+  <li>
+    <p><a href="https://arxiv.org/abs/1511.06349">Bowman et al., 2015</a>: VAE를 NLP에 처음 적용한 논문. Training difficulty에 대한 대한 대처법을 잘 고안했다.</p>
+  </li>
+  <li><a href="https://arxiv.org/abs/1703.10960">Zhao et al., 2017</a>: CVAE를 dialog에 적용했다.</li>
+  <li><a href="https://arxiv.org/abs/1709.05074">Gupta et al., 2018</a>: CVAE를 사용해 paraphrase generation을 했다.</li>
+</ul>
+
+<h2 id="vae-motivations-and-ideas">VAE: motivations and ideas</h2>
+
+<p>Generative 모델은 $p(x)$를 찾는 것을 목표로 한다. $p(x) $를 알고있다면 sampling을 통해 data를 만들어낼 수 있기 때문에 generation model이라고 할 수 있다. 일반적으로 generation model은 1 strong assumption about the structure in data, 2 severe approximation, 3 rely on computationally expesive inference procedure가 단점으로 꼽힌다. VAE의 장점은 이러한 단점을 극복하는 generation 모델이라는 것이다. VAE는 data structure에 대한 가정이 적고 backpropagation을 통한 빠른 훈련이 가능하다. VAE도 물론 approximation을 사용하지만 그 error가 적다.</p>
+
+<p>VAE는 latent variable model이다. Latent variable $z​$가 도입된 VAE를 plate notation으로 표현하면 다음과 같다. <a href="">!그림 - x 하나마다 z하나씩 가지고 있음</a>. 이러한 latent variable model은 실제 data를 만들어내는 process를 더 잘 표현할 수 있다는 장점이 있다. 통계적으로 볼땐, 하나의 variable을 표현하는 distribution보다 더 complext한 distribution을 표현할 수 있다.</p>
+
+<blockquote>
+  <p>Maching learning의 궁긍적인 목표는 train data와 test data뿐만 아니라 data 전체를 만들어내는 true data distribution $p^*(x)​$를 찾는 것이다. 그런데 우리가 가진 건 여기서 나온 몇 개의 sample들(train data)뿐이다. 이런 상황에서 우리가 할 수 있는 건 이 sample들이 구성하는 empirical distribution $\hat{p}(x)​$를 찾는 것이다. 찾는다는 것은 여러 개의 후보 distribution set을 구성하고  empirical distribution $\hat{p}(x)​$과 가장 가까운 $p(x)​$를 고르는 과정으로 이해할 수 있다. 가깝다 멀다 기준을 KL divergence로 잡는 경우가 MLE estimation을 하는 것이다.</p>
+</blockquote>
+
+<script type="math/tex; mode=display">p(x) = \int p(x|z;\theta)p(z)dz</script>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Latent variable을 도입해서 likelihood를 위와 같이 전개하면 두 가지 문제를 해결해야한다. 1 $p(z)$를 어떻게 설정해야하나? 2 integral을 어떻게 처리하나? 첫번 째 문제에 대한 VAE의 답은 unit gaussian으로 두자는 것이다. 그 이유는 any d-dimensional distribution can be approximated with a set of sampels from d-dimensional normal distribution. Universal functiona approximator인 neural network를 이용하면 unit gaussian에서 뽑은 sample들을 실제 우리가 필요한 latent variable들로 변환시킬 수 있다(VAE의 decoder $p(x</td>
+      <td>z)​$에서 초기 layer가 이러한 역할을 담당한다고 이해할 수 있다).</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Continuous variable $z$에 대한 integral은 computationally intractable하다. 그렇기 때문에 VAE는 integral을 포함하는 $p(x)$대신 계산 가능한 $p(x)$의 $ELBO$를 optimize하는 approximation방식을 선택한다. $p(x)$를 전개할 때 임의의 분포 $q(z</td>
+      <td>x)$를 도입하면 $ELBO$가 포함된 식을 전개할 수 있다. 이러한 $ELBO$를 optimize하는 과정은 variational inference를 수반한다. $ELBO$ objective를 들여다보면 autoencoder 구조가 녹아있음을 볼 수 있다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <table>
+    <tbody>
+      <tr>
+        <td>space of $z$ from $q(z</td>
+        <td>x)$ should be smaller than that of $z$ from $p(z)$, so that expectation in $\mathbb{E}_{z \sim q(z</td>
+        <td>x)}[p(x</td>
+        <td>z)]$ is easily approximated with a few samples of $z$.</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<ul>
+  <li>ELBO 식 전개</li>
+  <li>Reparameterization(conditional form of parametric distribution 만들기, gradient expectation안으로 넣기)</li>
+</ul>
+
+<h2 id="vae-vs-cvae">VAE vs. CVAE</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td>CVAE와 VAE는 1) variational distribution, 2) prior distribution, 3)decoder network를 어떻게 구성하냐에서 차이를 보인다. CVAE에서 variational distribution은 $q_\phi(z</td>
+      <td>x, y)​$로 표현된다. 이때 $x, y​$는 데이터의 한 쌍을 의미한다. 여기서 중요한 점은 <strong>$z​$에 대한 variational distribution이 $x​$뿐만 아니라 $y​$에까지 conditioning된다는 것</strong>이다. CVAE는 conditional marginal likelihood $p(y</td>
+      <td>x)​$를 최대화하는 방향으로 훈련이되는데, 이는 variatonal distribution $q_\phi(z</td>
+      <td>x, y)​$가 posterior distribution $p(z</td>
+      <td>x, y)​$에 근사되는 결과를 가져온다. 데이터가 $x, y​$  쌍으로 주어졌으니 때 posterior의 condition으로 $x, y​$가 들어가게되고, variational distribution은 posterior을 근사하기 위한 용도이니까 똑같이 $x, y​$에 대해 condition된다고 이해하면 맞는 걸까?</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>CVAE의 decoder network는 $p_\theta(y</td>
+      <td>z, x)$로 표현되고, VAE와의 차이는 <strong>decoder network가 original sentence $x$에 대해서도 conditioning된다는 것</strong>이다. 이 차이 덕분에 test time때 input specific한 generation이 가능해지는 것이다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="todo">TODO</h2>
+
+<ul>
+  <li>VAE 식 전개</li>
+  <li>What is bayesian in VAE?</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>cs231n이 설명하는 VAE에서 p(z</td>
+          <td>x)를 고려하는 이유?</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>test time때 p(z)에서 sampling하는 것의 근거?</li>
+</ul>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</div>
+
+  <!-- Disqus -->
+
+<div id="disqus_thread"></div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hwijeen-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <!--<div class="post-disqus">
+      <section id="disqus_thread"></section>
+      <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hwijeen-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>-->
+
+
+<div class="relatedPosts">
+
+  <h3>Related Posts</h3>
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+      <div>
+      <a href="/2019-02-20/A-Deep-Generative-Framework-for-Paraphrase-Generation/">A Deep Generative Framework for Paraphrase Genertion</a>
+      </div>
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+    
+      <div>
+      <a href="/2019-02-19/Learning-Discourse-level-Diversity-for-Neural-Dialog-Models-Using-Conditional-Variational-Autoencoders/">Learning Discourse-level Diversity for Neural Dialog Models Using Conditional Variational Autoencoders</a>
+      </div>
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+</div>
+
+<div class="recentPosts">
+
+  <h3>Recent Posts</h3>
+
+  
+  
+
+    
+      
+      <div class="post ml2">
+        <a href="/2019-07-10/Data-to-Text-Generation-with-Content-Selection-and-Planning/" class="post-link">
+          Data-to-Text Generation with Content Selection and Planning
+          <small class="archive-list-post-date">10 Jul 2019</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2019-07-10/Challenges-in-Data-to-Document-Generation/" class="post-link">
+          Challenges in Data-to-Document Generation
+          <small class="archive-list-post-date">10 Jul 2019</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2019-05-10/Zsh-cheat-sheet/" class="post-link">
+          Zsh 사용
+          <small class="archive-list-post-date">10 May 2019</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2019-02-23/Dataloading-with-torchtext/" class="post-link">
+          Dataloading with torchtext
+          <small class="archive-list-post-date">23 Feb 2019</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2019-02-20/A-Deep-Generative-Framework-for-Paraphrase-Generation/" class="post-link">
+          A Deep Generative Framework for Paraphrase Genertion
+          <small class="archive-list-post-date">20 Feb 2019</small>
+        </a>
+      </div>
+      
+    
+      
+        
+
+</div>
+
+
+    <!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    
+	
+	
+	
+	
+
+    
+
+    
+    <a href="https://github.com/hwijeen"><i class="fa fa-github" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+
+    
+
+    
+
+    
+    <a href="mailto:aurorall@naver.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </div>
+  © 2018 Hwijeen Ahn. All rights reserved.
+</div>
+
+  </div>
+</body>
+</html>

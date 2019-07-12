@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data-to-Text Generation with Content Selection and Planning</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+  <!-- Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for Hwijeen Ahn" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Data-to-Text Generation with Content Selection and Planning | Hwijeen Ahn</title>
+<meta name="generator" content="Jekyll v3.8.0" />
+<meta property="og:title" content="Data-to-Text Generation with Content Selection and Planning" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Data-to-Text 관련 논문 리뷰" />
+<meta property="og:description" content="Data-to-Text 관련 논문 리뷰" />
+<link rel="canonical" href="http://localhost:4000/2019-07-10/Data-to-Text-Generation-with-Content-Selection-and-Planning/" />
+<meta property="og:url" content="http://localhost:4000/2019-07-10/Data-to-Text-Generation-with-Content-Selection-and-Planning/" />
+<meta property="og:site_name" content="Hwijeen Ahn" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-07-10T00:00:00+09:00" />
+<script type="application/ld+json">
+{"headline":"Data-to-Text Generation with Content Selection and Planning","dateModified":"2019-07-10T00:00:00+09:00","datePublished":"2019-07-10T00:00:00+09:00","description":"Data-to-Text 관련 논문 리뷰","url":"http://localhost:4000/2019-07-10/Data-to-Text-Generation-with-Content-Selection-and-Planning/","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2019-07-10/Data-to-Text-Generation-with-Content-Selection-and-Planning/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="http://localhost:4000/logo.png">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="http://localhost:4000/logo.png">
+
+  <!-- Google Analytics -->
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-112068488-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+<body>
+  <div class="content-container">
+    
+
+
+<header>
+  <div class="header-small">
+    <a href="http://localhost:4000">Hwijeen Ahn</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">Data-to-Text Generation with Content Selection and Planning</div>
+  <span class="post-date">
+    <time>10 Jul 2019</time>
+  </span>
+
+  
+    <span class="post-minute"> 
+     2 minute read
+    </span>
+  
+
+
+  <div class="post-tag">
+    <ul>
+      
+      <li>
+        <a href="http://localhost:4000/tags#Data-to-text">
+          <span>Data-to-text</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#Rotowires">
+          <span>Rotowires</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+
+  <p>Data-to-Text Generation with Content Selection and Planning., AAAI 2019. <a href="https://arxiv.org/abs/1809.00582">paper</a></p>
+
+<ul>
+  <li>
+    <h2 id="idea">Idea</h2>
+    <p>이 논문은 RotoWire dataset을 이용한 data-to-text task 성능을 높이기 위한 새로운 모델을 제시한다. 저자는 data-to-task를 1) content plan과 2) text generation 두 부분으로 세분화해서 접근한다. 제안 모델도 unordered record로부터 content plan을 만드는 부분과 주어진 content plan에 기반해 자연어 summary를 만들어내는 부분으로 구성된다. 두 개의 submodule로 접근하는 전통적인 방법을 neural network를 사용한 end-to-end 학습에 적용한 것이다.</p>
+
+    <h2 id="model">Model</h2>
+    <p><script type="math/tex">p(y|r) = \sum_z p(y,z|r) = \sum_z p(z|r) p(y|r,z)</script></p>
+
+    <table>
+      <tbody>
+        <tr>
+          <td>Records $r$에 따른 summary $y$의 확률 모델은 $p(z</td>
+          <td>r)$과 $p(y</td>
+          <td>r,z)$ 두 부분으로 쪼개진다. 각각의 확률 분포는 Encoder-Decoder로 모델링된다.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 id="1-pzr">1. $p(z|r)$</h3>
+
+    <p><strong><em>Encoder-Decoder</em></strong>{
+    <strong><em>Embedding</em></strong>:  simple lookup table + <em>self-attention(?)</em><br />
+    <strong><em>Encoder</em></strong>: 별다른 처리 없이 embedding을 쌓아두기<br />
+    <strong><em>Decoder</em></strong>:  RNN<br />
+    <strong><em>Generator</em></strong>:  Pointer network<br />
+    }</p>
+
+    <h4 id="record-encoder">Record Encoder</h4>
+
+    <script type="math/tex; mode=display">\mathbf{r}_j = ReLU(W_r[r_{j,1}; r_{j,2}; r_{j,3}; r_{j,4}])</script>
+
+    <p>Raw text를 input으로 받아서 이에 대한 vector representation $r_j$을 만들어준다. record에 포함된 type, entity, value, home/away 네 가지 항목을 simple lookup-table을 통해 임베딩 한 뒤 MLP을 거쳐 하나의 벡터로 합친다.</p>
+
+    <h4 id="content-selection-gate">Content Selection Gate</h4>
+
+    <p>하나의 record representation $r_j$를 만들 때 주변 record $r_{i \neq{j} }$를 고려하면 더 풍부한 정보를 담을 수 있다는 아이디어다. 예를 들어, ‘한 선수(entity)가 고(value)득점(type)을 했다’는 record의 표현을 만들 때 이 선수의 rebound정보, 3점슛 개수 등을 반영하면 summary를 만들 때 더 도움이 된다는 것이다. Self-attention mechanism 활용해서 주변 정보를 반영한다.
+<script type="math/tex">\alpha_{j,k} \propto exp(r_j^\intercal W_a r_k) \\
+c_j = \sum_{k \neq j} \alpha_{j,k} r_k \\
+r_j^{att} = W_g[r_j; c_j]</script>
+$r_j^{att}$에는 j번 째 record에 대한 정보($r_j$)와 주변 정보($c_j$)가 모두 담겨있다. 우리가 원하는 건 전체 record에 대한 정보가 아니라 j번 째 record에 대한 representation고, 이때 context정보를 일정부분 고려하자는 것이다. 이를 위해 context mechanism을 활용한다.
+<script type="math/tex">g_j = sigmoid(r_j^{att}) \\
+r_j^{cs} = g_j \odot r_j</script>
+$r_j^{cs}$가 j번 째 record에 대한 최종 representation, 즉 $p(z|r)$ 모델의 인코더의 output이다.</p>
+
+    <h4 id="content-planning">Content Planning</h4>
+
+    <script type="math/tex; mode=display">% <![CDATA[
+p(z|r) = \prod_{k=1}^{|z|} p(z_k | z_{<k}, r) %]]></script>
+
+    <p>$p(z|r)$모델의 디코더로서, 인코딩된 record representation을 입력으로 받아서 content sequence에 대한 확률 분포를 autoregressive한 방식으로 내뱉는다. 이때 content($z_k$) sequence는 input으로 들어온 여러 개의 record에 순서를 부여한 것이다. 매 time step에서 source side에 입력으로 들어온 여러 record중 하나의 record를 고르는데 pointer network가 사용된다. 
+<script type="math/tex">% <![CDATA[
+p(z_k= r_j|z_{<k}, r) \propto exp(h_k^{\intercal} W_c r_j^{cs}) %]]></script></p>
+
+    <ul>
+      <li>
+        <p>first hidden으로는$r_j^{cs}$의 평균을 사용한다.</p>
+      </li>
+      <li>
+        <p>이와 같은 모델을 훈련하려면 정답 planning sequence가 필요한데, 이는 별도의 information extraction module을 통해서 얻어낸다.</p>
+      </li>
+    </ul>
+
+    <h3 id="2-pyrz">2. $p(y|r,z)$</h3>
+
+    <p><strong>Encoder-Decoder</strong><em>{
+    <strong>*Embedding</strong></em>:  simple look-up table<br />
+    <strong><em>Encoder</em></strong>: Bidirectional RNN
+    <strong><em>Decoder</em></strong>:  RNN<br />
+    <strong><em>Generator</em></strong>:  Copy mechanism(joint copy or conditional copy)
+    }</p>
+
+    <h4 id="text-generation">Text Generation</h4>
+
+    <p>$p(z|r)$ 모듈을 통해 content plan sequence가 만들어졌으면, 이에 condition해서 자연어 text를 만들어낸다. Encoder-decoder모델의 source side(bidrectional LSTM)에 input으로 들어가는 것은 순서가 정해진 record sequence이며, decoder는 autogressive한 방식으로 텍스트를 만들어낸다. Attention mechanism과 copy mechanism을 통해 성능을 향상시켰다. 
+<script type="math/tex">% <![CDATA[
+\beta_{t,k} \propto exp(d_t^{\intercal}W_be_k) \\
+q_t = \sum_{k} \beta_{t,k} e_k \\
+d_t^{att} = tanh(W_d[d_t;q_t]) \\
+p_{gen}(y_t|y_{<t}, z, r) = \sum_{u_t \in\left\{0, 1\right\}}p(y_t, u_t | y_{<t}, z, r) %]]></script></p>
+
+    <h2 id="experiment">Experiment</h2>
+    <p><img src="/assets/img/puduppully_result.png" alt="result" /></p>
+
+    <h2 id="issue">Issue</h2>
+
+    <ul>
+      <li>Content Selection gate에서 사용하는 게 Self-attention 맞습니까?</li>
+      <li>Pointer network를 통해 source side에 대한 distribution을 만들텐데, 이후에 source token중에서 하나로 특정하는 건 argmax? sampling?</li>
+    </ul>
+  </li>
+</ul>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</div>
+
+  <!-- Disqus -->
+
+<div id="disqus_thread"></div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hwijeen-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <!--<div class="post-disqus">
+      <section id="disqus_thread"></section>
+      <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hwijeen-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>-->
+
+
+<div class="relatedPosts">
+
+  <h3>Related Posts</h3>
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+      <div>
+      <a href="/2019-07-10/Challenges-in-Data-to-Document-Generation/">Challenges in Data-to-Document Generation</a>
+      </div>
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+</div>
+
+<div class="recentPosts">
+
+  <h3>Recent Posts</h3>
+
+  
+  
+
+    
+      
+      <div class="post ml2">
+        <a href="/2019-07-10/Challenges-in-Data-to-Document-Generation/" class="post-link">
+          Challenges in Data-to-Document Generation
+          <small class="archive-list-post-date">10 Jul 2019</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2019-05-10/Zsh-cheat-sheet/" class="post-link">
+          Zsh 사용
+          <small class="archive-list-post-date">10 May 2019</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2019-02-23/Dataloading-with-torchtext/" class="post-link">
+          Dataloading with torchtext
+          <small class="archive-list-post-date">23 Feb 2019</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2019-02-20/A-Deep-Generative-Framework-for-Paraphrase-Generation/" class="post-link">
+          A Deep Generative Framework for Paraphrase Genertion
+          <small class="archive-list-post-date">20 Feb 2019</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2019-02-19/Learning-Discourse-level-Diversity-for-Neural-Dialog-Models-Using-Conditional-Variational-Autoencoders/" class="post-link">
+          Learning Discourse-level Diversity for Neural Dialog Models Using Conditional Variational Autoencoders
+          <small class="archive-list-post-date">19 Feb 2019</small>
+        </a>
+      </div>
+      
+    
+      
+        
+
+</div>
+
+
+    <!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    
+	
+	
+	
+	
+
+    
+
+    
+    <a href="https://github.com/hwijeen"><i class="fa fa-github" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+
+    
+
+    
+
+    
+    <a href="mailto:aurorall@naver.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </div>
+  © 2018 Hwijeen Ahn. All rights reserved.
+</div>
+
+  </div>
+</body>
+</html>

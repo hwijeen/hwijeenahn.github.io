@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Challenges in Data-to-Document Generation"
-description: "VAE 관련 논문 리뷰"
+title: "Data-to-Text Generation with Content Selection and Planning"
+description: "Data-to-Text 관련 논문 리뷰"
 comments: true
 categories: [논문 리뷰]
 tags:
-- VAE
-- CVAE
+- Data-to-text
+- Rotowires
 ---
 
 Data-to-Text Generation with Content Selection and Planning., AAAI 2019. [paper](https://arxiv.org/abs/1809.00582)
@@ -89,12 +89,12 @@ Data-to-Text Generation with Content Selection and Planning., AAAI 2019. [paper]
   #### Text Generation
 
   $p(z|r)$ 모듈을 통해 content plan sequence가 만들어졌으면, 이에 condition해서 자연어 text를 만들어낸다. Encoder-decoder모델의 source side(bidrectional LSTM)에 input으로 들어가는 것은 순서가 정해진 record sequence이며, decoder는 autogressive한 방식으로 텍스트를 만들어낸다. Attention mechanism과 copy mechanism을 통해 성능을 향상시켰다. 
-  $$
+$$
   \beta_{t,k} \propto exp(d_t^{\intercal}W_be_k) \\
   q_t = \sum_{k} \beta_{t,k} e_k \\
   d_t^{att} = tanh(W_d[d_t;q_t]) \\
   p_{gen}(y_t|y_{<t}, z, r) = \sum_{u_t \in\left\{0, 1\right\}}p(y_t, u_t | y_{<t}, z, r)
-  $$
+$$
 
   
 

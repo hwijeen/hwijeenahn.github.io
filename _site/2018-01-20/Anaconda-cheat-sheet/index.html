@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>인코딩 지옥</title>
+  <title>Anaconda cheat sheet</title>
 
   <!-- CSS -->
   <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
@@ -13,19 +13,19 @@
   <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
   <link rel="alternate" type="application/rss+xml" title="RSS Feed for Hwijeen Ahn" href="/feed.xml" />
   <!-- Begin Jekyll SEO tag v2.4.0 -->
-<title>인코딩 지옥 | Hwijeen Ahn</title>
+<title>Anaconda cheat sheet | Hwijeen Ahn</title>
 <meta name="generator" content="Jekyll v3.8.0" />
-<meta property="og:title" content="인코딩 지옥" />
+<meta property="og:title" content="Anaconda cheat sheet" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="인코딩 개념과 문제 해결법" />
-<meta property="og:description" content="인코딩 개념과 문제 해결법" />
-<link rel="canonical" href="http://localhost:4000/2018-04-25/%EC%9D%B8%EC%BD%94%EB%94%A9-%EC%A7%80%EC%98%A5/" />
-<meta property="og:url" content="http://localhost:4000/2018-04-25/%EC%9D%B8%EC%BD%94%EB%94%A9-%EC%A7%80%EC%98%A5/" />
+<meta name="description" content="자주 쓰는 기능들 정리" />
+<meta property="og:description" content="자주 쓰는 기능들 정리" />
+<link rel="canonical" href="http://localhost:4000/2018-01-20/Anaconda-cheat-sheet/" />
+<meta property="og:url" content="http://localhost:4000/2018-01-20/Anaconda-cheat-sheet/" />
 <meta property="og:site_name" content="Hwijeen Ahn" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-04-25T00:00:00+09:00" />
+<meta property="article:published_time" content="2018-01-20T00:00:00+09:00" />
 <script type="application/ld+json">
-{"headline":"인코딩 지옥","dateModified":"2018-04-25T00:00:00+09:00","datePublished":"2018-04-25T00:00:00+09:00","description":"인코딩 개념과 문제 해결법","url":"http://localhost:4000/2018-04-25/%EC%9D%B8%EC%BD%94%EB%94%A9-%EC%A7%80%EC%98%A5/","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018-04-25/%EC%9D%B8%EC%BD%94%EB%94%A9-%EC%A7%80%EC%98%A5/"},"@context":"http://schema.org"}</script>
+{"headline":"Anaconda cheat sheet","dateModified":"2018-01-20T00:00:00+09:00","datePublished":"2018-01-20T00:00:00+09:00","description":"자주 쓰는 기능들 정리","url":"http://localhost:4000/2018-01-20/Anaconda-cheat-sheet/","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018-01-20/Anaconda-cheat-sheet/"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -63,9 +63,9 @@ ga('send', 'pageview');
   </div>
 </header>
 <div class="post">
-  <div class="post-title">인코딩 지옥</div>
+  <div class="post-title">Anaconda cheat sheet</div>
   <span class="post-date">
-    <time>25 Apr 2018</time>
+    <time>20 Jan 2018</time>
   </span>
 
   
@@ -79,8 +79,29 @@ ga('send', 'pageview');
     <ul>
       
       <li>
-        <a href="http://localhost:4000/tags#Encoding">
-          <span>Encoding</span>
+        <a href="http://localhost:4000/tags#Anaconda">
+          <span>Anaconda</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#패키지 관리">
+          <span>패키지 관리</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#가상환경">
+          <span>가상환경</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#Cheat sheet">
+          <span>Cheat sheet</span>
         </a>
       </li>
       
@@ -88,95 +109,36 @@ ga('send', 'pageview');
     </ul>
   </div>
 
-  <h2 id="unicode">Unicode</h2>
+  <h2 id="개념">개념</h2>
 
-<p>인코딩이 아니고 ! <strong>문자 - 코드(숫자)의 매핑</strong>일 뿐이다. 전 세계 모든 문자에 대한 숫자 매핑이 있는 게 특징!</p>
+<p>Anaconda는  <strong>패키지 관리</strong> &amp; <strong>가상환경 관리</strong>용 프로그램이다.</p>
 
-<p>그러니까 ASCII 코드표랑 같은 개념이라고 보면 된다. ASCII는 한글 등 다양한 문자를 표현하지 못하기에, 확장판인 유니코드가 나온 격!</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">char</th>
-      <th style="text-align: center">Unicode</th>
-      <th style="text-align: center">ASCII</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">A</td>
-      <td style="text-align: center">U+0041</td>
-      <td style="text-align: center">65</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">가</td>
-      <td style="text-align: center">U+AC00</td>
-      <td style="text-align: center">N/A</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="encoding">Encoding</h2>
-
-<p>인코딩은 <strong>코드를 저장하는 방식</strong>이다! 같은 유니코드라 하더라도, 컴퓨터에 저장할 땐 다양한 방식으로 저장할 수 있다. 어떤 인코딩 방식은 ‘ㄱ’를 e18480으로 저장하고, 어떤 인코딩은 feff11a8로 저장한다.  즉, 유니코드를 바이트로 변환 혹은 암호화?하는 방식.</p>
-
-<p>여러 인코딩 방식이 있는 이유는, “내가 더 많은 양의 자료를 효과적으로 저장할 수 있어!”, “알파벳이 많은 자료라면 내가 더 효과적이야!”라는 식으로 각자의 장점이 있기 때문…</p>
-
-<p>텍스트 파일은 <strong>특정 인코딩 방식으로 저장되어 있다.</strong> 따라서 그 파일을 읽으려면 그 방식대로 <strong>decoding</strong> 해줘야한다. 다른 방식으로 파일을 읽을 경우 !@#!@#!@# 같이 파일이 깨진다.</p>
-
-<h2 id="utf-8-utf-16-euc-kr-cp494">UTF-8? UTF-16? EUC-KR? CP494?</h2>
-
-<p>이런 것들이 다 여러가지 인코딩 방식의  종류들이다. 각자의 특징이 있으나, UTF-8을 쓰면 탈날 일은 없다! 호환성이 좋다는 장점이 있단다. 별일 없으면 UTF-8을 쓰자.</p>
-
-<h2 id="대처방법">대처방법</h2>
-
-<h3 id="vi로-txt파일을-열었는데-깨진다">vi로 .txt파일을 열었는데 깨진다?</h3>
-
-<ul>
-  <li>linux에서 .txt파일을 열었는데 문자가(특히 한글) 다 깨진다</li>
-  <li>문자는 안 깨지는데 문장의 끝마다 ^M같이 보기 싫은 문자가 있다</li>
-</ul>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># reload a file using different encoding</span>
-<span class="c"># utf-8자리에 이 파일의 인코딩을 써줘야한다</span>
-:e ++enc<span class="o">=</span>utf-8
-
-<span class="c"># get rid of broken new line symbol</span>
-<span class="c"># :1,$s/[Control]+v+m//g</span>
-:<span class="nv">$s</span>/^M//g 
-
+<h2 id="패키지-관련-명령어">패키지 관련 명령어</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda install $PACKAGE_NAME
+conda install --name $ENVIRONMENT_NAME $PACKAGE_NAME
+conda update --name $ENVIRONMENT_NAME $PACKAGE_NAME
+conda update conda
+conda remove --name $ENVIRONMENT_NAME $PACKAGE_NAME
+conda list --name $ENVIORNMENT_NAME 
 </code></pre></div></div>
 
-<h3 id="python-소스코드가-깨진다">python 소스코드가 깨진다?</h3>
+<h2 id="가상환경-관련-명령어">가상환경 관련 명령어</h2>
 
-<ul>
-  <li>소스코드에서 한글 주석 등이 다 깨진다.</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 소스 코드 맨 위에 주석 달아주기</span>
-<span class="c">#-*- coding utf-8-*-</span>
-
-<span class="c"># 저것도 안 되면!</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="nb">reload</span><span class="p">(</span><span class="n">sys</span><span class="p">)</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">setdefaultencoding</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda create --name $ENVIRONMENT_NAME python=3.6 $PACKAGE_NAME
+source activate $ENVIRONMENT_NAME 
+source deactivate
+conda env remove --name $ENVIRONMENT_NAME
+conda info --envs
+conda env export -n $ENVIORMENT_NAME &gt; environment.yml
+conda env create -f enviornmnet.yml
 </code></pre></div></div>
 
-<p><a href="https://libsora.so/posts/python-hangul/">이유가 궁금하다면</a></p>
+<h2 id="conda-install-vs-pip-install">conda install vs. pip install</h2>
 
-<h2 id="파이썬-2">파이썬 2</h2>
+<p>conda install은 conda repository, pip install은 PyPI에 있는 패키지 파일을 설치한다. 같은 내용의 패키지 일지라도 conda repository는 conda package형식으로 패키지를 가지고 있고, PyPI는 wheel 파일 혹은 source 파일 형태로 패키지를 저장하고 있다.</p>
 
-<p>파일을 불러오는 즉시 Unicode로 바꿔주는 게 상책. 즉 decode(‘인코딩방식’)을 해준다. 이후 스크립트에서는 모든 걸 unicode로 처리한다. 마지막 단계에서 파일을 저장할 때, encode해서 그걸 저장한다!</p>
+<p>conda를 이용해서 가상환경을 만들시 환경 내에 기본적으로 pip도 같이 설치된다. 간혹 conda install $PACKAGE_NAME을 했는데 패키지를 찾을 수 없다고 나오는 경우(conda repository에 없어서) pip install을 통해 패키지 설치를 하면 된다. 주의할 점은 <strong>가상환경 내의 pip</strong>를 써야한다는 것. 커맨드 라인에 pip install을 치면 global version이 실행될 수도 있다. <a href="https://www.puzzlr.org/install-packages-pip-conda-environment/">가상환경 내의 pip 경로를 직접 잡아서 실행시켜줘야한다</a>. <code class="highlighter-rouge">which pip</code>명령어를 통해 내가 무슨 pip를 사용하고 있는지 확인하자.</p>
 
-<h2 id="기타">기타</h2>
-
-<p>json.dumps할 때 ensure_ascii=False해주는 것 잊지 말기</p>
-
-<p><strong>TODO:</strong></p>
-
-<ul>
-  <li>Binary file? Text file?</li>
-</ul>
 
   
   <script type="text/x-mathjax-config">
@@ -281,14 +243,11 @@ s.setAttribute('data-timestamp', +new Date());
     
 
     
-
-  
-
-    
-    
-
-    
-
+      <div>
+      <a href="/2019-05-10/Zsh-cheat-sheet/">Zsh 사용</a>
+      </div>
+      
+      
     
 
   
@@ -380,6 +339,36 @@ s.setAttribute('data-timestamp', +new Date());
     
 
     
+      <div>
+      <a href="/2018-10-22/Vim-cheat-sheet/">Vim cheat sheet</a>
+      </div>
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+      <div>
+      <a href="/2018-10-09/Shell-cheat-sheet/">Shell cheat sheet</a>
+      </div>
+      
+      
+    
 
   
 
@@ -416,14 +405,11 @@ s.setAttribute('data-timestamp', +new Date());
     
 
     
-
-  
-
-    
-    
-
-    
-
+      <div>
+      <a href="/2018-04-29/Git-cheat-sheet/">Git cheat sheet</a>
+      </div>
+      
+      
     
 
   

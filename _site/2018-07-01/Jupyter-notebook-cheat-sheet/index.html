@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>인코딩 지옥</title>
+  <title>서버 이용하기</title>
 
   <!-- CSS -->
   <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
@@ -13,19 +13,19 @@
   <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
   <link rel="alternate" type="application/rss+xml" title="RSS Feed for Hwijeen Ahn" href="/feed.xml" />
   <!-- Begin Jekyll SEO tag v2.4.0 -->
-<title>인코딩 지옥 | Hwijeen Ahn</title>
+<title>서버 이용하기 | Hwijeen Ahn</title>
 <meta name="generator" content="Jekyll v3.8.0" />
-<meta property="og:title" content="인코딩 지옥" />
+<meta property="og:title" content="서버 이용하기" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="인코딩 개념과 문제 해결법" />
-<meta property="og:description" content="인코딩 개념과 문제 해결법" />
-<link rel="canonical" href="http://localhost:4000/2018-04-25/%EC%9D%B8%EC%BD%94%EB%94%A9-%EC%A7%80%EC%98%A5/" />
-<meta property="og:url" content="http://localhost:4000/2018-04-25/%EC%9D%B8%EC%BD%94%EB%94%A9-%EC%A7%80%EC%98%A5/" />
+<meta name="description" content="리눅스 및 서버에 익숙해지기" />
+<meta property="og:description" content="리눅스 및 서버에 익숙해지기" />
+<link rel="canonical" href="http://localhost:4000/2018-07-01/Jupyter-notebook-cheat-sheet/" />
+<meta property="og:url" content="http://localhost:4000/2018-07-01/Jupyter-notebook-cheat-sheet/" />
 <meta property="og:site_name" content="Hwijeen Ahn" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-04-25T00:00:00+09:00" />
+<meta property="article:published_time" content="2018-07-01T00:00:00+09:00" />
 <script type="application/ld+json">
-{"headline":"인코딩 지옥","dateModified":"2018-04-25T00:00:00+09:00","datePublished":"2018-04-25T00:00:00+09:00","description":"인코딩 개념과 문제 해결법","url":"http://localhost:4000/2018-04-25/%EC%9D%B8%EC%BD%94%EB%94%A9-%EC%A7%80%EC%98%A5/","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018-04-25/%EC%9D%B8%EC%BD%94%EB%94%A9-%EC%A7%80%EC%98%A5/"},"@context":"http://schema.org"}</script>
+{"headline":"서버 이용하기","dateModified":"2018-07-01T00:00:00+09:00","datePublished":"2018-07-01T00:00:00+09:00","description":"리눅스 및 서버에 익숙해지기","url":"http://localhost:4000/2018-07-01/Jupyter-notebook-cheat-sheet/","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018-07-01/Jupyter-notebook-cheat-sheet/"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -63,9 +63,9 @@ ga('send', 'pageview');
   </div>
 </header>
 <div class="post">
-  <div class="post-title">인코딩 지옥</div>
+  <div class="post-title">서버 이용하기</div>
   <span class="post-date">
-    <time>25 Apr 2018</time>
+    <time>01 Jul 2018</time>
   </span>
 
   
@@ -79,8 +79,8 @@ ga('send', 'pageview');
     <ul>
       
       <li>
-        <a href="http://localhost:4000/tags#Encoding">
-          <span>Encoding</span>
+        <a href="http://localhost:4000/tags#서버">
+          <span>서버</span>
         </a>
       </li>
       
@@ -88,95 +88,42 @@ ga('send', 'pageview');
     </ul>
   </div>
 
-  <h2 id="unicode">Unicode</h2>
+  <h2 id="주피터-노트북에서-서버-연결하기">주피터 노트북에서 서버 연결하기</h2>
 
-<p>인코딩이 아니고 ! <strong>문자 - 코드(숫자)의 매핑</strong>일 뿐이다. 전 세계 모든 문자에 대한 숫자 매핑이 있는 게 특징!</p>
+<p><a href="https://coderwall.com/p/ohk6cg/remote-access-to-ipython-notebooks-via-ssh">일단 여기를 따라하면 된다</a></p>
 
-<p>그러니까 ASCII 코드표랑 같은 개념이라고 보면 된다. ASCII는 한글 등 다양한 문자를 표현하지 못하기에, 확장판인 유니코드가 나온 격!</p>
+<p>그런데 Windows cmd에서 ‘ssh ~’를 치면 안 된다. openssh라는 패키지가 안 깔려 있기에. 나는 Cygwin이라는 걸 먼저 깔았다. Cygwin은 위도우에서 리눅스 프로그램/유틸리티를 사용 가능하게 해 준다. 이 걸 깔고 가능해지는 것 중 하나가 ls, cd 등 리눅스 기반 명령어를 사용할 수 있는 거. 깔면서 openssh라는 패키지도 같이 깔았다. openssh는 ssh client인듯.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">char</th>
-      <th style="text-align: center">Unicode</th>
-      <th style="text-align: center">ASCII</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">A</td>
-      <td style="text-align: center">U+0041</td>
-      <td style="text-align: center">65</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">가</td>
-      <td style="text-align: center">U+AC00</td>
-      <td style="text-align: center">N/A</td>
-    </tr>
-  </tbody>
-</table>
+<p>만약 MobaXTerm을 사용한다면 위 과정을 다 스킵해도 된다! MobaXTerm 자체가 Cygwin기반으로 만든 프로그램이고, ssh client기능도 제공한다. 게다가, MobaXTerm을 사용한다면 모니터가 없는 서버에서 jupyter notebook을 실행시켜도 local컴퓨터에서 화면을 볼 수 있게 해준다. 그러니까 위 링크를 따라할 필요가 없다..</p>
 
-<h2 id="encoding">Encoding</h2>
+<p>MobaXTerm의 모니터 보여주기 기능(?)을 이용하지 않고 Port Forwarding 기능을 이용하고 싶다면 위에 링크 따라하면 된다.</p>
 
-<p>인코딩은 <strong>코드를 저장하는 방식</strong>이다! 같은 유니코드라 하더라도, 컴퓨터에 저장할 땐 다양한 방식으로 저장할 수 있다. 어떤 인코딩 방식은 ‘ㄱ’를 e18480으로 저장하고, 어떤 인코딩은 feff11a8로 저장한다.  즉, 유니코드를 바이트로 변환 혹은 암호화?하는 방식.</p>
+<p>몇 가지 주피터 명령어:</p>
 
-<p>여러 인코딩 방식이 있는 이유는, “내가 더 많은 양의 자료를 효과적으로 저장할 수 있어!”, “알파벳이 많은 자료라면 내가 더 효과적이야!”라는 식으로 각자의 장점이 있기 때문…</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># shows list of jupyter notebook servers
+jupyter notebook list
 
-<p>텍스트 파일은 <strong>특정 인코딩 방식으로 저장되어 있다.</strong> 따라서 그 파일을 읽으려면 그 방식대로 <strong>decoding</strong> 해줘야한다. 다른 방식으로 파일을 읽을 경우 !@#!@#!@# 같이 파일이 깨진다.</p>
-
-<h2 id="utf-8-utf-16-euc-kr-cp494">UTF-8? UTF-16? EUC-KR? CP494?</h2>
-
-<p>이런 것들이 다 여러가지 인코딩 방식의  종류들이다. 각자의 특징이 있으나, UTF-8을 쓰면 탈날 일은 없다! 호환성이 좋다는 장점이 있단다. 별일 없으면 UTF-8을 쓰자.</p>
-
-<h2 id="대처방법">대처방법</h2>
-
-<h3 id="vi로-txt파일을-열었는데-깨진다">vi로 .txt파일을 열었는데 깨진다?</h3>
-
-<ul>
-  <li>linux에서 .txt파일을 열었는데 문자가(특히 한글) 다 깨진다</li>
-  <li>문자는 안 깨지는데 문장의 끝마다 ^M같이 보기 싫은 문자가 있다</li>
-</ul>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># reload a file using different encoding</span>
-<span class="c"># utf-8자리에 이 파일의 인코딩을 써줘야한다</span>
-:e ++enc<span class="o">=</span>utf-8
-
-<span class="c"># get rid of broken new line symbol</span>
-<span class="c"># :1,$s/[Control]+v+m//g</span>
-:<span class="nv">$s</span>/^M//g 
-
+# stops localhost:8888
+# available on notebook version 5.1.0 or after
+jupyter notebook stop 8888
 </code></pre></div></div>
 
-<h3 id="python-소스코드가-깨진다">python 소스코드가 깨진다?</h3>
+<p>jupyter notebook list 상에 많은 서버가 켜져있더라도, 컴퓨터 <strong>재부팅</strong>이후엔 싹 다 꺼진다.</p>
 
-<ul>
-  <li>소스코드에서 한글 주석 등이 다 깨진다.</li>
-</ul>
+<h2 id="주피터-노트북-링크로-접속하기">주피터 노트북 링크로 접속하기</h2>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 소스 코드 맨 위에 주석 달아주기</span>
-<span class="c">#-*- coding utf-8-*-</span>
+<p><a href="https://light-tree.tistory.com/111">링크 1</a>를 따라하되 <strong>2. 서버 비밀번호 생성</strong>부분은 <a href="https://stackoverflow.com/questions/42848130/why-i-cant-access-remote-jupyter-notebook-server">링크 2</a> step 4를 따라하고 <strong>3.주피터 서버 환경설정하기</strong>에서 <code class="highlighter-rouge">c=getconfig()</code>를 지우면 된다</p>
 
-<span class="c"># 저것도 안 되면!</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="nb">reload</span><span class="p">(</span><span class="n">sys</span><span class="p">)</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">setdefaultencoding</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+<h2 id="display">Display</h2>
+
+<p>이 노트북에 한해서 cell width 100%로 늘려주는 <a href="https://stackoverflow.com/a/34058270">방법</a></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s">"&lt;style&gt;.container { width:100</span><span class="si">% </span><span class="s">!important; }&lt;/style&gt;"</span><span class="p">))</span>
 </code></pre></div></div>
 
-<p><a href="https://libsora.so/posts/python-hangul/">이유가 궁금하다면</a></p>
+<p>###</p>
 
-<h2 id="파이썬-2">파이썬 2</h2>
-
-<p>파일을 불러오는 즉시 Unicode로 바꿔주는 게 상책. 즉 decode(‘인코딩방식’)을 해준다. 이후 스크립트에서는 모든 걸 unicode로 처리한다. 마지막 단계에서 파일을 저장할 때, encode해서 그걸 저장한다!</p>
-
-<h2 id="기타">기타</h2>
-
-<p>json.dumps할 때 ensure_ascii=False해주는 것 잊지 말기</p>
-
-<p><strong>TODO:</strong></p>
-
-<ul>
-  <li>Binary file? Text file?</li>
-</ul>
 
   
   <script type="text/x-mathjax-config">

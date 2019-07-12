@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git cheat sheet</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+  <!-- Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for Hwijeen Ahn" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Git cheat sheet | Hwijeen Ahn</title>
+<meta name="generator" content="Jekyll v3.8.0" />
+<meta property="og:title" content="Git cheat sheet" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="헷갈리는 git 사용법, 몇 가지 git 문제상황 및 해결법" />
+<meta property="og:description" content="헷갈리는 git 사용법, 몇 가지 git 문제상황 및 해결법" />
+<link rel="canonical" href="http://localhost:4000/2018-04-29/Git-cheat-sheet/" />
+<meta property="og:url" content="http://localhost:4000/2018-04-29/Git-cheat-sheet/" />
+<meta property="og:site_name" content="Hwijeen Ahn" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-04-29T00:00:00+09:00" />
+<script type="application/ld+json">
+{"headline":"Git cheat sheet","dateModified":"2018-04-29T00:00:00+09:00","datePublished":"2018-04-29T00:00:00+09:00","description":"헷갈리는 git 사용법, 몇 가지 git 문제상황 및 해결법","url":"http://localhost:4000/2018-04-29/Git-cheat-sheet/","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018-04-29/Git-cheat-sheet/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="http://localhost:4000/logo.png">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="http://localhost:4000/logo.png">
+
+  <!-- Google Analytics -->
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-112068488-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+<body>
+  <div class="content-container">
+    
+
+
+<header>
+  <div class="header-small">
+    <a href="http://localhost:4000">Hwijeen Ahn</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">Git cheat sheet</div>
+  <span class="post-date">
+    <time>29 Apr 2018</time>
+  </span>
+
+  
+    <span class="post-minute"> 
+     2 minute read
+    </span>
+  
+
+
+  <div class="post-tag">
+    <ul>
+      
+      <li>
+        <a href="http://localhost:4000/tags#Git">
+          <span>Git</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#Github">
+          <span>Github</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#Cheat sheet">
+          <span>Cheat sheet</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+
+  <h2 id="git">Git</h2>
+
+<p>로컬 폴더에서 git &amp; github을 사용하려면 절차!</p>
+
+<p>서버에서 git을 쓰려니 다른 사용자에게도 영향을 미칠까봐(?) 무서웠는데 폴더 별로 사용자 지정이 가능하다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. git init
+
+2. git config user.name "hwijeen"
+   git config user.email "aurorall@naver.com"
+   - --global 옵션을 사용하지 않은 경우 해당 폴더 scope에서 git 사용자 등록 가능
+ 
+# cf) git clone
+3. git remote add origin $address_copied_from_github_repo
+   - 주소에 나온 repository를 origin이라는 이름으로 remote에 등록한다
+   - git remote시 remote 저장소 list 볼 수 있다
+   - http:// 주소를 복사해올 경우 push할 때마다 github ID/password 입력해줘야한다
+   
+4. git add / commit / push 이제 사용 가능!
+</code></pre></div></div>
+
+<h2 id="브랜치-관리-정책">브랜치 관리 정책</h2>
+
+<ol>
+  <li>
+    <p>master branch:</p>
+
+    <ul>
+      <li>완전한 코드</li>
+      <li>버전 단위로 관리한다</li>
+    </ul>
+  </li>
+  <li>
+    <p>dev branch:</p>
+
+    <ul>
+      <li>
+        <p>stable하지만 개발중인 브랜치</p>
+      </li>
+      <li>협업할 때 각자의 브랜치에서 작업한 내용 local의 dev로 merge한 뒤, 그 브랜치를 github의 dev로 push한다.</li>
+      <li>이 브랜치의 내용 자주 확인할 필요 있다. merge &amp; pull을 통해</li>
+    </ul>
+  </li>
+  <li>
+    <p>임의의 작업 branch</p>
+
+    <ul>
+      <li>내가 지정한 단위의 작업을 하는 브랜치</li>
+      <li>여기서 commit은 내 맘대로</li>
+      <li>지정한 단위의 작업이 다 끝나고 test까지 완료되면 local의 dev branch로 merge</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="명령어">명령어</h2>
+
+<h4 id="기본-명령어">기본 명령어</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nb">.</span> <span class="nt">--all</span> <span class="c"># --all 옵션으로 '지운 파일'까지 track, stage</span>
+git commit <span class="nt">-m</span> <span class="s2">"commit message"</span>
+git push origin &lt;BRANCH_NAME&gt;
+
+git <span class="nb">rm</span> <span class="nt">-r</span> <span class="nt">--cached</span> &lt;DIRECTORY_NAME&gt; <span class="c"># remove a folder only from remote area, not local device</span>
+</code></pre></div></div>
+
+<h4 id="branch-만들기">branch 만들기</h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git branch <span class="c"># branch list 보여주기</span>
+git branch <span class="nt">-n</span> &lt;BRANCH_NAME&gt; <span class="c"># 만들고 checkout까지</span>
+git branch <span class="nt">-d</span> &lt;BRANCH_NAME&gt; <span class="c"># 삭제</span>
+git checkout <span class="c"># 해당 branch로 이동하기</span>
+</code></pre></div></div>
+
+<h4 id="병합하기">병합하기</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git merge &lt;BRANCH_NAME&gt; <span class="c"># Head로 &lt;BRANCH_NAME&gt;을 병합하기 </span>
+git rebase? <span class="c"># conflict는 손으로 지우고 다시 add해야한다</span>
+</code></pre></div></div>
+
+<h4 id="원격-저장소-관련">원격 저장소 관련</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote 
+git remote add &lt;URL&gt;
+git push origin master <span class="c"># origin이라는 원격 저장소로 master이라는 로컬 저장소의 내용을 push한다</span>
+git pull
+
+git fetch?
+</code></pre></div></div>
+
+<h4 id="기타">기타</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">-l</span>
+</code></pre></div></div>
+
+<h4 id="취소하기">취소하기</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reset HEAD &lt;file&gt; <span class="c"># staging area에서 빼기(add 취소)</span>
+
+git reset <span class="nt">--soft</span> HEAD^ <span class="c"># commit 취소하고 해당 파일들은 stage상태로 워킹 디렉토리에 보존</span>
+git reset <span class="nt">--mixed</span> HEAD^ <span class="c"># commit 취소하고 해당 파일들은 unstage상태로 워킹 디렉토리에 보존</span>
+git reset <span class="nt">--hard</span> HEAD^ <span class="c"># commit 취소하고 해당 파일들은 워킹 디렉토리에서 삭제!</span>
+</code></pre></div></div>
+
+<p><a href="https://gmlwjd9405.github.io/2018/05/25/git-add-cancle.html">참고 링크</a></p>
+
+<h2 id="gitignore">.gitignore</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># comment</span>
+<span class="k">*</span>.pyc
+data/
+__pycache__/
+</code></pre></div></div>
+
+<h2 id="bts-혹은-trello">BTS 혹은 Trello</h2>
+
+<p>dev에서 branch를 따와서 그곳에서 작업한다. 그 branch에서 하는 작업에 대한 상세한 설명 써놓고 관리. 커뮤니케이션은 여기서!</p>
+
+<h2 id="참고">참고</h2>
+
+<ul>
+  <li><a href="https://coderwall.com/p/fasnya/add-git-branch-name-to-bash-prompt">bash prompt에 현재 들어와있는 branch이름 표시하기.</a> PS1라는 환경변수가 bash prompt에 나오는 정보를 결정하는 모양인데, 거기에 git branch를 추가해주는 방식인 거 같다.</li>
+  <li>Mac에서 git이 한국어를 하는 경우 <a href="https://stackoverflow.com/a/54574337">영어로 바꾸기</a></li>
+</ul>
+
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</div>
+
+  <!-- Disqus -->
+
+<div id="disqus_thread"></div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hwijeen-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <!--<div class="post-disqus">
+      <section id="disqus_thread"></section>
+      <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hwijeen-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>-->
+
+
+<div class="relatedPosts">
+
+  <h3>Related Posts</h3>
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+      <div>
+      <a href="/2019-05-10/Zsh-cheat-sheet/">Zsh 사용</a>
+      </div>
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+      <div>
+      <a href="/2018-10-22/Vim-cheat-sheet/">Vim cheat sheet</a>
+      </div>
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+      <div>
+      <a href="/2018-10-09/Shell-cheat-sheet/">Shell cheat sheet</a>
+      </div>
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+      <div>
+      <a href="/2018-01-20/Anaconda-cheat-sheet/">Anaconda cheat sheet</a>
+      </div>
+      
+      
+    
+
+  
+
+</div>
+
+<div class="recentPosts">
+
+  <h3>Recent Posts</h3>
+
+  
+  
+
+    
+      
+      <div class="post ml2">
+        <a href="/2019-07-10/Data-to-Text-Generation-with-Content-Selection-and-Planning/" class="post-link">
+          Data-to-Text Generation with Content Selection and Planning
+          <small class="archive-list-post-date">10 Jul 2019</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2019-07-10/Challenges-in-Data-to-Document-Generation/" class="post-link">
+          Challenges in Data-to-Document Generation
+          <small class="archive-list-post-date">10 Jul 2019</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2019-05-10/Zsh-cheat-sheet/" class="post-link">
+          Zsh 사용
+          <small class="archive-list-post-date">10 May 2019</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2019-02-23/Dataloading-with-torchtext/" class="post-link">
+          Dataloading with torchtext
+          <small class="archive-list-post-date">23 Feb 2019</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2019-02-20/A-Deep-Generative-Framework-for-Paraphrase-Generation/" class="post-link">
+          A Deep Generative Framework for Paraphrase Genertion
+          <small class="archive-list-post-date">20 Feb 2019</small>
+        </a>
+      </div>
+      
+    
+      
+        
+
+</div>
+
+
+    <!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    
+	
+	
+	
+	
+
+    
+
+    
+    <a href="https://github.com/hwijeen"><i class="fa fa-github" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+
+    
+
+    
+
+    
+    <a href="mailto:aurorall@naver.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </div>
+  © 2018 Hwijeen Ahn. All rights reserved.
+</div>
+
+  </div>
+</body>
+</html>

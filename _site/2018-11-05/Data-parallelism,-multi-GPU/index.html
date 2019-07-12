@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data parallelism, multi-GPU</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+  <!-- Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for Hwijeen Ahn" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Data parallelism, multi-GPU | Hwijeen Ahn</title>
+<meta name="generator" content="Jekyll v3.8.0" />
+<meta property="og:title" content="Data parallelism, multi-GPU" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Pytorch의 nn.parallel 및 nn.DataParallel 사용하기" />
+<meta property="og:description" content="Pytorch의 nn.parallel 및 nn.DataParallel 사용하기" />
+<link rel="canonical" href="http://localhost:4000/2018-11-05/Data-parallelism,-multi-GPU/" />
+<meta property="og:url" content="http://localhost:4000/2018-11-05/Data-parallelism,-multi-GPU/" />
+<meta property="og:site_name" content="Hwijeen Ahn" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-11-05T00:00:00+09:00" />
+<script type="application/ld+json">
+{"headline":"Data parallelism, multi-GPU","dateModified":"2018-11-05T00:00:00+09:00","datePublished":"2018-11-05T00:00:00+09:00","description":"Pytorch의 nn.parallel 및 nn.DataParallel 사용하기","url":"http://localhost:4000/2018-11-05/Data-parallelism,-multi-GPU/","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018-11-05/Data-parallelism,-multi-GPU/"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="http://localhost:4000/logo.png">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="http://localhost:4000/logo.png">
+
+  <!-- Google Analytics -->
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-112068488-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+<body>
+  <div class="content-container">
+    
+
+
+<header>
+  <div class="header-small">
+    <a href="http://localhost:4000">Hwijeen Ahn</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">Data parallelism, multi-GPU</div>
+  <span class="post-date">
+    <time>05 Nov 2018</time>
+  </span>
+
+  
+    <span class="post-minute"> 
+     2 minute read
+    </span>
+  
+
+
+  <div class="post-tag">
+    <ul>
+      
+      <li>
+        <a href="http://localhost:4000/tags#Data Parallemism">
+          <span>Data Parallemism</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+
+  <p><a href="https://pytorch.org/tutorials/beginner/blitz/data_parallel_tutorial.html">파이토치 튜토리얼1</a>, <a href="https://pytorch.org/tutorials/beginner/former_torchies/parallelism_tutorial.html">튜토리얼2</a>, <a href="http://nlp.seas.harvard.edu/2018/04/03/attention.html#batches-and-masking">transformer 코드</a>, <a href="https://medium.com/huggingface/training-larger-batches-practical-tips-on-1-gpu-multi-gpu-distributed-setups-ec88c3e51255?source=user_profile---------2------------------">짱짱 블로그</a>: 짱짱 블로그 좀 더 보고 공부하기</p>
+
+<h2 id="torchnndataparallel">torch.nn.DataParallel</h2>
+
+<p><code class="highlighter-rouge">nn.DataParallel</code> <a href="https://pytorch.org/docs/stable/nn.html?highlight=dataparallel#torch.nn.DataParallel">implements data parallelism at the module level.</a> 여기서 말하는 모듈은 <code class="highlighter-rouge">nn.Module</code> 을 의미한다. Pytorch로 구현하는 딥러닝 모델은 보통 <code class="highlighter-rouge">nn.Module</code>에서 상속을 받기 때문에, DataParallel을 통해 간단하게 여러 대의 GPU를 사용할 수 있다. 아래 코드 예시에 나와있듯이, 모듈 레벨에서 data parallelism을 하기 위해서는 한 줄 의 코드만 더하면 된다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="n">nn</span>
+
+<span class="n">DEVICE</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s">'cuda'</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s">'cpu'</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Model</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_size</span><span class="p">,</span> <span class="n">output_size</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linear</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">input_size</span><span class="p">,</span> <span class="n">output_size</span><span class="p">)</span> <span class="c"># arbitrary layer</span>
+     
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    
+<span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span> <span class="c"># instantiate a model as usual</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">DataParallel</span><span class="p">(</span><span class="n">model</span><span class="p">)</span> <span class="c"># as simple as this!</span>
+<span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">DEVICE</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>shell에서 <code class="highlighter-rouge">nvidia-smi</code>를 실행시켜서 GPU사용량을 확인해보면 병렬처리가 잘 작동하는지 확인할 수 있다.</p>
+
+<blockquote>
+  <p>nn.utils.rnn.pack_padded_sequence와 nn.DataParallel을 사용할 경우 오류가 날 수 있다. 배치를 쪼개서 각 GPU로 보내는데, 이때 각 배치에 올라가는 텐서들은 max batch len을 모르고 있기에. <a href="https://pytorch.org/docs/stable/notes/faq.html#pack-rnn-unpack-with-data-parallelism">Pytorch FAQ</a>를 따라하면 오류를 피해갈 수 있다.</p>
+</blockquote>
+
+<h2 id="nnparallel">nn.parallel</h2>
+
+<p><code class="highlighter-rouge">nn.DataParallel</code>은 내부적으로 nn.parallel 모듈에 정의되어 있는<code class="highlighter-rouge">replicate</code>,  <code class="highlighter-rouge">scatter</code>, <code class="highlighter-rouge">parallel_apply</code>, <code class="highlighter-rouge">parallel_gather</code>함수를 사용한다. nn.DataParallel을 사용해서 간단히 여러 대의 GPU를 사용할 수 있지만, 여러 부분에서(예를 들어 loss computation 부분) 병렬 처리를 하고 싶으면 이 함수들도 익혀둘 필요가 있다. 각각의 역할을 말로 하면 다음과 같다.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">replicate(nn.Module:module, list:devices_ids)</code> : 인자로 주어진 모듈을 <strong>복사</strong>해서 device_ids로 받은 GPU에 할당한다. 즉, 하나의 모델을 여러 GPU에 올린다. 이 함수는 복사된 모듈이 담긴 리스트를 반환한다.</li>
+  <li><code class="highlighter-rouge">scatter(torch.Tensor:input, list:device_ids)</code>: 인자로 주어진 텐서를 <strong>쪼개서</strong> 여러 GPU로 보낸다. 텐서를 쪼갠다는 것의 의미는 한 batch내에 있는 여러 개의 example을 device_ids로 주어진 GPU 개수로 나눈다는 것이다. 이 함수는 쪼갠 example들의 tuple을 반환한다.</li>
+  <li><code class="highlighter-rouge">parallel_apply(replicated_modules, scatterd_input)</code>: 실제로 병렬 연산을 해주는 부분이다. 쪼개진 데이터(subset of batch)는 각각 모델에 들어가서 결과값을 낸다. 반환되는 것은 결과값이 담긴 list다.</li>
+  <li><code class="highlighter-rouge">gather(parallel_apply_output, target_device)</code>: 병렬 처리된 결과값들을 하나의 텐서로 합쳐주는 부분이다. target_device인자로 넘겨준 GPU에 최종 결과가 안착(?)하게 된다.</li>
+</ul>
+
+<h2 id="example">Example</h2>
+
+<p>Havard NLP의 transformer 구현중 일부분이다. <code class="highlighter-rouge">nn.DataParallel</code>은 물론 사용했고, loss 계산 부분까지 병렬처리를 하고자 아래와 같이 코드를 작성했다.</p>
+
+<p><code class="highlighter-rouge">self.criterion</code>으로 들어가는 것은 loss를 계산하는 클래스이다. <code class="highlighter-rouge">nn.NLLLoss</code>, <code class="highlighter-rouge">nn.KLDivLoss</code>등은 <code class="highlighter-rouge">nn.Module</code>을 상속받아 작성된 객체여서 <code class="highlighter-rouge">replicate</code>의 인자(module)로 들어갈 수 있다!</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MultiGPULossCompute</span><span class="p">:</span>
+    <span class="s">"A multi-gpu loss compute and train function."</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">generator</span><span class="p">,</span> <span class="n">criterion</span><span class="p">,</span> <span class="n">devices</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">chunk_size</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+        <span class="c"># Send out to different gpus.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">generator</span> <span class="o">=</span> <span class="n">generator</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">parallel</span><span class="o">.</span><span class="n">replicate</span><span class="p">(</span><span class="n">criterion</span><span class="p">,</span> 
+                                               <span class="n">devices</span><span class="o">=</span><span class="n">devices</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">opt</span> <span class="o">=</span> <span class="n">opt</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">devices</span> <span class="o">=</span> <span class="n">devices</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">chunk_size</span> <span class="o">=</span> <span class="n">chunk_size</span>
+        
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">normalize</span><span class="p">):</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">generator</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">parallel</span><span class="o">.</span><span class="n">replicate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">generator</span><span class="p">,</span> 
+                                                <span class="n">devices</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">devices</span><span class="p">)</span>
+        <span class="n">out_scatter</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">parallel</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> 
+                                          <span class="n">target_gpus</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">devices</span><span class="p">)</span>
+        <span class="n">out_grad</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">out_scatter</span><span class="p">]</span>
+        <span class="n">targets</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">parallel</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">targets</span><span class="p">,</span> 
+                                      <span class="n">target_gpus</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">devices</span><span class="p">)</span>
+
+        <span class="c"># Divide generating into chunks.</span>
+        <span class="n">chunk_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_size</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">out_scatter</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">chunk_size</span><span class="p">):</span>
+            <span class="c"># Predict distributions</span>
+            <span class="n">out_column</span> <span class="o">=</span> <span class="p">[[</span><span class="n">Variable</span><span class="p">(</span><span class="n">o</span><span class="p">[:,</span> <span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">chunk_size</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> 
+                                    <span class="n">requires_grad</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">opt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">)]</span> 
+                           <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">out_scatter</span><span class="p">]</span>
+            <span class="n">gen</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">parallel</span><span class="o">.</span><span class="n">parallel_apply</span><span class="p">(</span><span class="n">generator</span><span class="p">,</span> <span class="n">out_column</span><span class="p">)</span>
+
+            <span class="c"># Compute loss. </span>
+            <span class="n">y</span> <span class="o">=</span> <span class="p">[(</span><span class="n">g</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">g</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)),</span> 
+                  <span class="n">t</span><span class="p">[:,</span> <span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">chunk_size</span><span class="p">]</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> 
+                 <span class="k">for</span> <span class="n">g</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">gen</span><span class="p">,</span> <span class="n">targets</span><span class="p">)]</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">parallel</span><span class="o">.</span><span class="n">parallel_apply</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">criterion</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+            <span class="c"># Sum and normalize loss</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">parallel</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> 
+                                   <span class="n">target_device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="nb">sum</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">normalize</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="n">l</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="c"># Backprop loss to output of transformer</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">opt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">l</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">loss</span><span class="p">):</span>
+                    <span class="n">out_grad</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">out_column</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">clone</span><span class="p">())</span>
+
+        <span class="c"># Backprop all loss through transformer.            </span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">opt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">out_grad</span> <span class="o">=</span> <span class="p">[</span><span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">og</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span> <span class="k">for</span> <span class="n">og</span> <span class="ow">in</span> <span class="n">out_grad</span><span class="p">]</span>
+            <span class="n">o1</span> <span class="o">=</span> <span class="n">out</span>
+            <span class="n">o2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">parallel</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">out_grad</span><span class="p">,</span> 
+                                    <span class="n">target_device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">o1</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">gradient</span><span class="o">=</span><span class="n">o2</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">opt</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">opt</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">total</span> <span class="o">*</span> <span class="n">normalize</span>
+</code></pre></div></div>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</div>
+
+  <!-- Disqus -->
+
+<div id="disqus_thread"></div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hwijeen-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <!--<div class="post-disqus">
+      <section id="disqus_thread"></section>
+      <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hwijeen-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>-->
+
+
+<div class="relatedPosts">
+
+  <h3>Related Posts</h3>
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+</div>
+
+<div class="recentPosts">
+
+  <h3>Recent Posts</h3>
+
+  
+  
+
+    
+      
+      <div class="post ml2">
+        <a href="/2019-07-10/Data-to-Text-Generation-with-Content-Selection-and-Planning/" class="post-link">
+          Data-to-Text Generation with Content Selection and Planning
+          <small class="archive-list-post-date">10 Jul 2019</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2019-07-10/Challenges-in-Data-to-Document-Generation/" class="post-link">
+          Challenges in Data-to-Document Generation
+          <small class="archive-list-post-date">10 Jul 2019</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2019-05-10/Zsh-cheat-sheet/" class="post-link">
+          Zsh 사용
+          <small class="archive-list-post-date">10 May 2019</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2019-02-23/Dataloading-with-torchtext/" class="post-link">
+          Dataloading with torchtext
+          <small class="archive-list-post-date">23 Feb 2019</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2019-02-20/A-Deep-Generative-Framework-for-Paraphrase-Generation/" class="post-link">
+          A Deep Generative Framework for Paraphrase Genertion
+          <small class="archive-list-post-date">20 Feb 2019</small>
+        </a>
+      </div>
+      
+    
+      
+        
+
+</div>
+
+
+    <!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    
+	
+	
+	
+	
+
+    
+
+    
+    <a href="https://github.com/hwijeen"><i class="fa fa-github" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+
+    
+
+    
+
+    
+    <a href="mailto:aurorall@naver.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </div>
+  © 2018 Hwijeen Ahn. All rights reserved.
+</div>
+
+  </div>
+</body>
+</html>

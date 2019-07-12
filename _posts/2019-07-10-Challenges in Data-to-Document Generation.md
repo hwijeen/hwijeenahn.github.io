@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "Challenges in Data-to-Document Generation"
-description: "VAE 관련 논문 리뷰"
+description: "Data-to-Text 관련 논문 리뷰"
 comments: true
 categories: [논문 리뷰]
 tags:
-- VAE
-- CVAE
+- Data-to-text
+- Rotowire
 ---
 
 Challenges in Data-to-Document Generation, Wiseman et al., EMNLP 2017. [paper](https://arxiv.org/abs/1707.08052)

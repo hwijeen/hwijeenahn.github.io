@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>인코딩 지옥</title>
+  <title>Zsh 사용</title>
 
   <!-- CSS -->
   <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
@@ -13,19 +13,19 @@
   <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
   <link rel="alternate" type="application/rss+xml" title="RSS Feed for Hwijeen Ahn" href="/feed.xml" />
   <!-- Begin Jekyll SEO tag v2.4.0 -->
-<title>인코딩 지옥 | Hwijeen Ahn</title>
+<title>Zsh 사용 | Hwijeen Ahn</title>
 <meta name="generator" content="Jekyll v3.8.0" />
-<meta property="og:title" content="인코딩 지옥" />
+<meta property="og:title" content="Zsh 사용" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="인코딩 개념과 문제 해결법" />
-<meta property="og:description" content="인코딩 개념과 문제 해결법" />
-<link rel="canonical" href="http://localhost:4000/2018-04-25/%EC%9D%B8%EC%BD%94%EB%94%A9-%EC%A7%80%EC%98%A5/" />
-<meta property="og:url" content="http://localhost:4000/2018-04-25/%EC%9D%B8%EC%BD%94%EB%94%A9-%EC%A7%80%EC%98%A5/" />
+<meta name="description" content="Zsh 설치 따라하기" />
+<meta property="og:description" content="Zsh 설치 따라하기" />
+<link rel="canonical" href="http://localhost:4000/2019-05-10/Zsh-cheat-sheet/" />
+<meta property="og:url" content="http://localhost:4000/2019-05-10/Zsh-cheat-sheet/" />
 <meta property="og:site_name" content="Hwijeen Ahn" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-04-25T00:00:00+09:00" />
+<meta property="article:published_time" content="2019-05-10T00:00:00+09:00" />
 <script type="application/ld+json">
-{"headline":"인코딩 지옥","dateModified":"2018-04-25T00:00:00+09:00","datePublished":"2018-04-25T00:00:00+09:00","description":"인코딩 개념과 문제 해결법","url":"http://localhost:4000/2018-04-25/%EC%9D%B8%EC%BD%94%EB%94%A9-%EC%A7%80%EC%98%A5/","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018-04-25/%EC%9D%B8%EC%BD%94%EB%94%A9-%EC%A7%80%EC%98%A5/"},"@context":"http://schema.org"}</script>
+{"headline":"Zsh 사용","dateModified":"2019-05-10T00:00:00+09:00","datePublished":"2019-05-10T00:00:00+09:00","description":"Zsh 설치 따라하기","url":"http://localhost:4000/2019-05-10/Zsh-cheat-sheet/","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2019-05-10/Zsh-cheat-sheet/"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -63,9 +63,9 @@ ga('send', 'pageview');
   </div>
 </header>
 <div class="post">
-  <div class="post-title">인코딩 지옥</div>
+  <div class="post-title">Zsh 사용</div>
   <span class="post-date">
-    <time>25 Apr 2018</time>
+    <time>10 May 2019</time>
   </span>
 
   
@@ -79,8 +79,15 @@ ga('send', 'pageview');
     <ul>
       
       <li>
-        <a href="http://localhost:4000/tags#Encoding">
-          <span>Encoding</span>
+        <a href="http://localhost:4000/tags#Zsh">
+          <span>Zsh</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#Cheat sheet">
+          <span>Cheat sheet</span>
         </a>
       </li>
       
@@ -88,94 +95,34 @@ ga('send', 'pageview');
     </ul>
   </div>
 
-  <h2 id="unicode">Unicode</h2>
+  <h2 id="zsh-및-oh-my-zsh-설치">zsh 및 oh-my-zsh 설치</h2>
 
-<p>인코딩이 아니고 ! <strong>문자 - 코드(숫자)의 매핑</strong>일 뿐이다. 전 세계 모든 문자에 대한 숫자 매핑이 있는 게 특징!</p>
+<p><a href="https://wjs890204.tistory.com/886">전체적인 설치 과정</a></p>
 
-<p>그러니까 ASCII 코드표랑 같은 개념이라고 보면 된다. ASCII는 한글 등 다양한 문자를 표현하지 못하기에, 확장판인 유니코드가 나온 격!</p>
+<p><a href="https://blog.funspaces.org/2017/02/13/z-shell-with-oh-my-zsh-config-guide/">zsh 참고</a></p>
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">char</th>
-      <th style="text-align: center">Unicode</th>
-      <th style="text-align: center">ASCII</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">A</td>
-      <td style="text-align: center">U+0041</td>
-      <td style="text-align: center">65</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">가</td>
-      <td style="text-align: center">U+AC00</td>
-      <td style="text-align: center">N/A</td>
-    </tr>
-  </tbody>
-</table>
+<h2 id="fonts">Fonts</h2>
 
-<h2 id="encoding">Encoding</h2>
+<ol>
+  <li><a href="https://github.com/powerline/fonts">Powerline font</a>(Consolas는 <a href="https://github.com/Znuff/consolas-powerline">여기</a>). <a href="https://medium.com/@slmeng/how-to-install-powerline-fonts-in-windows-b2eedecace58">윈도우 설치 가이드</a></li>
+  <li><a href="https://github.com/gabrielelana/awesome-terminal-fonts">Awesome terminal fonts.</a></li>
+</ol>
 
-<p>인코딩은 <strong>코드를 저장하는 방식</strong>이다! 같은 유니코드라 하더라도, 컴퓨터에 저장할 땐 다양한 방식으로 저장할 수 있다. 어떤 인코딩 방식은 ‘ㄱ’를 e18480으로 저장하고, 어떤 인코딩은 feff11a8로 저장한다.  즉, 유니코드를 바이트로 변환 혹은 암호화?하는 방식.</p>
+<p>설치 후 MobaXterm, iTerm2 등에서 폰트를 바꿔준다.</p>
 
-<p>여러 인코딩 방식이 있는 이유는, “내가 더 많은 양의 자료를 효과적으로 저장할 수 있어!”, “알파벳이 많은 자료라면 내가 더 효과적이야!”라는 식으로 각자의 장점이 있기 때문…</p>
+<h2 id="theme">Theme</h2>
 
-<p>텍스트 파일은 <strong>특정 인코딩 방식으로 저장되어 있다.</strong> 따라서 그 파일을 읽으려면 그 방식대로 <strong>decoding</strong> 해줘야한다. 다른 방식으로 파일을 읽을 경우 !@#!@#!@# 같이 파일이 깨진다.</p>
+<p>vim을 열었을 때 보이는 색깔들은 MobaXterm colortheme에 따라 보이는 게 많이 다를 수도!</p>
 
-<h2 id="utf-8-utf-16-euc-kr-cp494">UTF-8? UTF-16? EUC-KR? CP494?</h2>
-
-<p>이런 것들이 다 여러가지 인코딩 방식의  종류들이다. 각자의 특징이 있으나, UTF-8을 쓰면 탈날 일은 없다! 호환성이 좋다는 장점이 있단다. 별일 없으면 UTF-8을 쓰자.</p>
-
-<h2 id="대처방법">대처방법</h2>
-
-<h3 id="vi로-txt파일을-열었는데-깨진다">vi로 .txt파일을 열었는데 깨진다?</h3>
+<p>Powerlevel9K</p>
 
 <ul>
-  <li>linux에서 .txt파일을 열었는데 문자가(특히 한글) 다 깨진다</li>
-  <li>문자는 안 깨지는데 문장의 끝마다 ^M같이 보기 싫은 문자가 있다</li>
-</ul>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># reload a file using different encoding</span>
-<span class="c"># utf-8자리에 이 파일의 인코딩을 써줘야한다</span>
-:e ++enc<span class="o">=</span>utf-8
-
-<span class="c"># get rid of broken new line symbol</span>
-<span class="c"># :1,$s/[Control]+v+m//g</span>
-:<span class="nv">$s</span>/^M//g 
-
-</code></pre></div></div>
-
-<h3 id="python-소스코드가-깨진다">python 소스코드가 깨진다?</h3>
-
-<ul>
-  <li>소스코드에서 한글 주석 등이 다 깨진다.</li>
-</ul>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 소스 코드 맨 위에 주석 달아주기</span>
-<span class="c">#-*- coding utf-8-*-</span>
-
-<span class="c"># 저것도 안 되면!</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="nb">reload</span><span class="p">(</span><span class="n">sys</span><span class="p">)</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">setdefaultencoding</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p><a href="https://libsora.so/posts/python-hangul/">이유가 궁금하다면</a></p>
-
-<h2 id="파이썬-2">파이썬 2</h2>
-
-<p>파일을 불러오는 즉시 Unicode로 바꿔주는 게 상책. 즉 decode(‘인코딩방식’)을 해준다. 이후 스크립트에서는 모든 걸 unicode로 처리한다. 마지막 단계에서 파일을 저장할 때, encode해서 그걸 저장한다!</p>
-
-<h2 id="기타">기타</h2>
-
-<p>json.dumps할 때 ensure_ascii=False해주는 것 잊지 말기</p>
-
-<p><strong>TODO:</strong></p>
-
-<ul>
-  <li>Binary file? Text file?</li>
+  <li>
+    <p>get_icon_names</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/bhilburn/powerlevel9k/blob/master/functions/icons.zsh">icon 코드</a></p>
+  </li>
 </ul>
 
   
@@ -371,6 +318,36 @@ s.setAttribute('data-timestamp', +new Date());
     
 
     
+      <div>
+      <a href="/2018-10-22/Vim-cheat-sheet/">Vim cheat sheet</a>
+      </div>
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+      <div>
+      <a href="/2018-10-09/Shell-cheat-sheet/">Shell cheat sheet</a>
+      </div>
+      
+      
+    
 
   
 
@@ -407,14 +384,11 @@ s.setAttribute('data-timestamp', +new Date());
     
 
     
-
-  
-
-    
-    
-
-    
-
+      <div>
+      <a href="/2018-04-29/Git-cheat-sheet/">Git cheat sheet</a>
+      </div>
+      
+      
     
 
   
@@ -434,14 +408,11 @@ s.setAttribute('data-timestamp', +new Date());
     
 
     
-
-  
-
-    
-    
-
-    
-
+      <div>
+      <a href="/2018-01-20/Anaconda-cheat-sheet/">Anaconda cheat sheet</a>
+      </div>
+      
+      
     
 
   
@@ -476,15 +447,6 @@ s.setAttribute('data-timestamp', +new Date());
     
       
       <div class="post ml2">
-        <a href="/2019-05-10/Zsh-cheat-sheet/" class="post-link">
-          Zsh 사용
-          <small class="archive-list-post-date">10 May 2019</small>
-        </a>
-      </div>
-      
-    
-      
-      <div class="post ml2">
         <a href="/2019-02-23/Dataloading-with-torchtext/" class="post-link">
           Dataloading with torchtext
           <small class="archive-list-post-date">23 Feb 2019</small>
@@ -497,6 +459,15 @@ s.setAttribute('data-timestamp', +new Date());
         <a href="/2019-02-20/A-Deep-Generative-Framework-for-Paraphrase-Generation/" class="post-link">
           A Deep Generative Framework for Paraphrase Genertion
           <small class="archive-list-post-date">20 Feb 2019</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2019-02-19/Learning-Discourse-level-Diversity-for-Neural-Dialog-Models-Using-Conditional-Variational-Autoencoders/" class="post-link">
+          Learning Discourse-level Diversity for Neural Dialog Models Using Conditional Variational Autoencoders
+          <small class="archive-list-post-date">19 Feb 2019</small>
         </a>
       </div>
       
