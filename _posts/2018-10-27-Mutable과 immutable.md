@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Mutable과 immutable"
-description: "Python mutable, immutable 관련 내용"
+description: "Python mutable, immutable"
 comments: true
-categories: [개발]
+categories: [개발 / 환경]
 tags:
 - Python
 ---
@@ -54,6 +54,8 @@ print(append_list(my_list)) # ['hi', 'there', 'end', 'end']
 ```
 
 [더 좋은 정리는 python의 함수는 'call by object reference'를 따른다는 것이다.](https://item4.github.io/2015-07-18/Some-Ambiguousness-in-Python-Tutorial-Call-by-What/)
+
+[global 관련해서 헷갈릴 수 있는 부분](https://stackoverflow.com/questions/31435603/python-modify-global-list-inside-a-function)
 
 
 

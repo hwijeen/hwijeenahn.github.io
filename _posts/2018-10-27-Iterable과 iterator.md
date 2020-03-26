@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Iterable과 iterator"
-description: "Python iterable, iterator 관련 내용"
+description: "Python iterable, iterator"
 comments: true
-categories: [개발]
+categories: [개발 / 환경]
 tags:
 - Python
 ---
@@ -32,7 +32,7 @@ Iterable객체가 `__iter__`함수로 반환하는 것이 이터레이터라고 
 
 ## Generator
 
-제너레이터는 반복자를 만드는 함수이다. 함수의 반환을 나타내는 return대신 yield가 쓰인다는 게 특징이다. yield문을 사용할 경우 파이썬이 함수 내용을 사용해서 제너레이터 객체를 만들어낸다. 직접 이터레이터 프로토콜을 정의하지 않았지만, next()함수를 통해 yield하는 값을 받아올 수 있다. 모든 데이터가 동시에 필요한 상황이 아니라면, 제너레이터를 사용해서 매 시점에 필요한 데이터만을 메모리로 로드하는 효율적인 프로그래밍이 가능하다.
+제너레이터는 이터레이터를 만드는 함수이다. 함수의 반환을 나타내는 return대신 yield가 쓰인다는 게 특징이다. yield문을 사용할 경우 파이썬이 함수 내용을 사용해서 제너레이터 객체를 만들어낸다. 직접 이터레이터 프로토콜을 정의하지 않았지만, next()함수를 통해 yield하는 값을 받아올 수 있다. 모든 데이터가 동시에 필요한 상황이 아니라면, 제너레이터를 사용해서 매 시점에 필요한 데이터만을 메모리로 로드하는 효율적인 프로그래밍이 가능하다.
 
 ```python
 def my_generator(n):

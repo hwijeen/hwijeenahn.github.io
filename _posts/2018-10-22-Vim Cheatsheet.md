@@ -3,7 +3,7 @@ layout: post
 title: "Vim cheat sheet"
 description: "자꾸 까먹는 단축키, .vimrc, buffer/window/tab 사용 관련"
 comments: true
-categories: [개발]
+categories: [개발 / 환경]
 tags:
 - Vim
 - Cheat sheet
@@ -11,12 +11,27 @@ tags:
 
 
 
-## 단축키
+## Misc
 
 ```bash
 :ls # 현재 위치 확인 가능
 :cd # 이걸로 cwd 바꾸기
+
+:%s/$before/$after/g # 파일 전체에서 단어 바꾸기
+:s/$before/$after/g # 현재 라인에서만
+
+:set list # show white spaces
+:set list! # disable
+:set listchars=tab:>>> # display tabs as >>>
+
+:sort u # sort and remove duplicates
+
+:g/$pattern # show lines with pattern
+:g/$pattern/d # delete lines with pattern
+:g!/$pattern/d # delete lines without pattern
 ```
+
+시스템 clipboard에 복사하려면 vim 8.1깔고 vim경로 그걸로 잡아주기
 
 
 
@@ -41,6 +56,8 @@ nmap <leader>T :enew<CR>
 
 "run python
 nmap <F5> :!python %<CR>
+
+syntax sync fromstart " when syntax highlighting is broken
 ```
 
 - Jedi-vim은 안 쓰는 게 나은듯?
@@ -76,3 +93,36 @@ tab은 작업 단위로 분리해서 쓰고, buffer은 파일을 불러와서 �
 
 
 
+## Macro
+
+```shell
+qa # start recording in a
+q # finish recording
+
+@a # run macro a
+@@ # run last macro run
+25@a # run macro a 25 times
+```
+
+
+
+## Jedi-vim
+
+```bash
+<K> # show docstring
+<leader>d # go to definition
+```
+
+
+
+## Misc
+
+[git difftool을 vimdiff로 설정하기](https://stackoverflow.com/a/3713865),  [vimdiff에 대한 간단한 설명]([https://goodtogreate.tistory.com/entry/git-difftool-%EC%82%AC%EC%9A%A9%EB%B2%95](https://goodtogreate.tistory.com/entry/git-difftool-사용법))
+
+```bash
+git config --global diff.tool vimdiff
+git config --global difftool.prompt false
+# git config --global alias.d difftool
+```
+
+use `zR` to unfold all. `zM` to fold all.

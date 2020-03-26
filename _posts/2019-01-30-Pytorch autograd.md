@@ -3,7 +3,7 @@ layout: post
 title: "Pytorch autograd"
 description: "Pytorch autograd, tensor, computation graph등 기본 개념 이해하기"
 comments: true
-categories: [개발]
+categories: [개발 / 환경]
 tags:
 - Autograd
 ---
@@ -42,5 +42,5 @@ Computation graph는 backprop을 하기 위해 필요한 자료구조라고 했�
 
 Pytorch는 dynamic graph 방식, Tensorflow는 static graph 방식이라고들 한다. Dynamic하다는 것은 forward할 때마다 computation 그래프를 새롭게 그린다는 것이다. Model이 있고 거기에 input이 주어질 때마다 forward pass를 할 텐데, 그때마다 다른 computation graph를 그린다. 이런 방식의 장점은 dynamic하게 조작(원한다면 매 forward마다 모델이 다르게 작동하도록 코딩 하기)이 가능하다는 것이다. 디버그도 훨씬 쉽다. Forward때마다 만들어지는 computational graph는 .backward()가 완료될 때 메모리에서 지워진다. Leaf node에 해당하는 weight의 .grad를 계산 및 저장하고 나면 intermediate node의 grad 및 computational graph자체가 지워진다. 그러니까 forward-backward의 반복은 computational graph관점에서는 만들었다 지우기의 반복이다. 
 
-> Torch.autograd.grad함수를 사용하면 ```loss.backward()```가 한정 하는 방식 말고도 좀 더 자유로운 미분을 할 수 있다. 예를 들면 함수를 미분하는데 특정 하나의 변수로만 미분하기 같은 계산! 
+> Torch.autograd.grad함수를 사용하면 ```loss.backward()```가 한정하는 방식 말고도 좀 더 자유로운 미분을 할 수 있다. 예를 들면 함수를 미분하는데 특정 하나의 변수로만 미분하기 같은 계산! 
 
