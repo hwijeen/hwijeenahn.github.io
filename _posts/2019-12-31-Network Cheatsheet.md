@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Network Cheatsheet"
-description: ""
+description: "Random things"
 comments: true
 categories: [Cheatsheet]
 tags:

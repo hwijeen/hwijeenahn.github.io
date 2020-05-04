@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Theory of NP"
-description: "P, NP, NP-complete, NP-hard"
+description: "NP, NP-hard, NP-complete, ..."
 comments: true
 categories: [Misc]
 tags:

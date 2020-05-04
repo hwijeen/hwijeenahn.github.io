@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Shell Cheatsheet"
-description: "까만 창에 하얀 글씨가 편하다면"
+description: "까만 창에 하얀 글씨의 파워"
 comments: true
 categories: [Cheatsheet]
 tags:

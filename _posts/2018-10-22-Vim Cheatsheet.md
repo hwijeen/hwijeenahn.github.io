@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Vim Cheatsheet"
-description: "진짜로 편하다니까요.."
+description: "Random things"
 comments: true
 categories: [Cheatsheet]
 tags:

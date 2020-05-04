@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python Cheatsheet"
-description: "잡다"
+description: "Random things"
 comments: true
 categories: [Cheatsheet]
 tags:

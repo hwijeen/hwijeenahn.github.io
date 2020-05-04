@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Matrix Multiplication"
-description: "Notations and useful identities"
+description: "직관적 이해"
 comments: true
 categories: [Misc]
 tags:

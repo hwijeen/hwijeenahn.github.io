@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "HomeBrew Cheatsheet"
-description: ""
+title: "Homebrew Cheatsheet"
+description: "MacOS용 패키지 관리 프로그램"
 comments: true
 categories: [Cheatsheet]
 tags:

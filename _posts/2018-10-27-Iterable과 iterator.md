@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Iterable and Iterator"
-description: "Python iterable, iterator"
+description: "for문의 내막"
 comments: true
 categories: [Python]
 tags:

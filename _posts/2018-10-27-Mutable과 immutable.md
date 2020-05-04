@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Mutable and Immutable"
-description: "Python mutable, immutable"
+description: "객체의 종류"
 comments: true
 categories: [Python]
 tags:

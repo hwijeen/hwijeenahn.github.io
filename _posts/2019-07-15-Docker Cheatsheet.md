@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Docker Cheatsheet"
-description: "자주 사용하는 명령어"
+description: "컴퓨터 깔끔하게 사용할 때 혹은 프로그램 배포할 때"
 comments: true
 categories: [Cheatsheet]
 tags:
