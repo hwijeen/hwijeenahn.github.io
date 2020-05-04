@@ -3,7 +3,7 @@ layout: post
 title: "Matrix multiplication"
 description: "Notations and useful identities"
 comments: true
-categories: [Math]
+categories: [Misc]
 tags:
 - Matrix multiplication
 ---

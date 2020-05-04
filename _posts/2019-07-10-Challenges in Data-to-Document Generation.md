@@ -3,7 +3,7 @@ layout: post
 title: "Challenges in Data-to-Document Generation"
 description: "Data-to-Text 관련 논문 리뷰"
 comments: true
-categories: [논문 리뷰]
+categories: [Paper]
 tags:
 - Data-to-text
 - Rotowire

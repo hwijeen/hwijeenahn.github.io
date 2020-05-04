@@ -3,7 +3,7 @@ layout: post
 title: "Mutable과 immutable"
 description: "Python mutable, immutable"
 comments: true
-categories: [개발 / 환경]
+categories: [Python]
 tags:
 - Python
 ---

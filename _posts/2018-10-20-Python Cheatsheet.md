@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Python cheat sheet"
+title: "Python Cheatsheet"
 description: "잡다"
 comments: true
-categories: [개발 / 환경]
+categories: [Cheatsheet]
 tags:
 - Python
 ---

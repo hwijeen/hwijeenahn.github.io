@@ -3,7 +3,7 @@ layout: post
 title: "Matching Network for One Shot Learning"
 description: "Meta-learning 관련 논문 리뷰"
 comments: true
-categories: [논문 리뷰]
+categories: [Paper]
 tags:
 - Meta-learning
 ---
@@ -33,7 +33,7 @@ $$
 $$
  즉, test example의 label은 주어진 support set의 label의 조합으로 구성된다. $y_i$는 memory로 본다면 이 과정은 attention augmented memory network로 이해할 수 있다.
 
-Attention은 임베딩된 두 이미지에 대해서 계산된다. Support set의 example에 대한 Embedding function을 $g(x_i)​$로 구성할 경우 support set내 각 이미지들은 서로에 대해 independent하게 벡터로 변환된다. 이로 인한 문제점은 support set사이에 유사하지만 다른 class를 갖는 이미지가 있더라도(e.g. 삽살개, 진돗개) $g​$는 두 이미지에 대해 유사한 벡터값을 부여한다는 것이다. 만약 embedding function을 $g(x_i, S)​$로 구성한다면 이를 해결할 수 있다. 주어진 support set을 고려해서 test example에 대한 임베딩을 만들 필요도 있는데, 이는 $f(\hat{x}, S) =attnLSTM(f'(\hat{x}, g(S), K) ​$와 같은 함수를 통해 실현 가능하다.
+Attention은 임베딩된 두 이미지에 대해서 계산된다. Support set의 example에 대한 Embedding function을 $g(x_i)$로 구성할 경우 support set내 각 이미지들은 서로에 대해 independent하게 벡터로 변환된다. 이로 인한 문제점은 support set사이에 유사하지만 다른 class를 갖는 이미지가 있더라도(e.g. 삽살개, 진돗개) $g$는 두 이미지에 대해 유사한 벡터값을 부여한다는 것이다. 만약 embedding function을 $g(x_i, S)$로 구성한다면 이를 해결할 수 있다. 주어진 support set을 고려해서 test example에 대한 임베딩을 만들 필요도 있는데, 이는 $f(\hat{x}, S) =attnLSTM(f'(\hat{x}, g(S), K) $와 같은 함수를 통해 실현 가능하다.
 
 Train과 test때 동일한 환경을 만들기 위한 목적함수는 아래와 같이 구성된다.
 $$

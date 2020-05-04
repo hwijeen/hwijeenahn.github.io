@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Shell Cheat sheet"
-description: "Basics"
+title: "Shell Cheatsheet"
+description: "까만 창에 하얀 글씨가 편하다면"
 comments: true
-categories: [개발 / 환경]
+categories: [Cheatsheet]
 tags:
 - Shell script
 ---

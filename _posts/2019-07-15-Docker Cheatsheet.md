@@ -3,7 +3,7 @@ layout: post
 title: "Docker cheat sheet"
 description: "자주 사용하는 명령어"
 comments: true
-categories: [개발 / 환경]
+categories: [Cheatsheet]
 tags:
 - Docker
 - Cheat sheet

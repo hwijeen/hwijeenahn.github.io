@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Vim cheat sheet"
-description: "자꾸 까먹는 단축키, .vimrc, buffer/window/tab 사용 관련"
+title: "Vim Cheatsheet"
+description: "진짜로 편하다니까요.."
 comments: true
-categories: [개발 / 환경]
+categories: [Cheatsheet]
 tags:
 - Vim
 - Cheat sheet

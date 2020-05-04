@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Network Cheatheet"
+title: "Network Cheatsheet"
 description: ""
 comments: true
-categories: [개발 / 환경]
+categories: [Cheatsheet]
 tags:
 - Network
 - Cheat sheet

@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Brew Cheatheet"
+title: "HomeBrew Cheatsheet"
 description: ""
 comments: true
-categories: [개발 / 환경]
+categories: [Cheatsheet]
 tags:
 - Docker
 - Cheat sheet

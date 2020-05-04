@@ -3,7 +3,7 @@ layout: post
 title: "Learning Discourse-level Diversity for Neural Dialog Models Using Conditional Variational Autoencoders"
 description: "VAE 관련 논문 리뷰"
 comments: true
-categories: [논문 리뷰]
+categories: [Paper]
 tags:
 - VAE
 - CVAE

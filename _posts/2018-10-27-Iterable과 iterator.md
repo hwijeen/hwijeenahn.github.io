@@ -3,7 +3,7 @@ layout: post
 title: "Iterable과 iterator"
 description: "Python iterable, iterator"
 comments: true
-categories: [개발 / 환경]
+categories: [Python]
 tags:
 - Python
 ---

@@ -3,7 +3,7 @@ layout: post
 title: "Pretraining-Based Natural Language Generation for Text Summarization"
 description: "Pretrained LM을 이용한 generation model"
 comments: true
-categories: [논문 리뷰]
+categories: [Paper]
 tags:
 - Data-to-text
 - Rotowires

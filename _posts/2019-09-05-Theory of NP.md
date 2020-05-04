@@ -3,7 +3,7 @@ layout: post
 title: "Theory of NP"
 description: "P, NP, NP-complete, NP-hard"
 comments: true
-categories: [기타]
+categories: [Misc]
 tags:
 - Algorithm
 ---

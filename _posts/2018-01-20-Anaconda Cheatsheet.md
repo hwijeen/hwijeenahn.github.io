@@ -3,7 +3,7 @@ layout: post
 title: "Anaconda cheat sheet"
 comments: true
 description: "패키지 관리, 가상환경 관리"
-categories: [개발 / 환경]
+categories: [Cheatsheet]
 tags:
 - Anaconda
 - 패키지 관리

@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Jupyter notebook cheat sheet"
+title: "Jupyter notebook Cheatsheet"
 description: "서버에서 사용, 커스터마이징"
 comments: true
-categories: [개발 / 환경]
+categories: [Cheatsheet]
 tags:
 - 서버
 - Jupyter notebook

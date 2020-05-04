@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Linux cheat sheet"
+title: "Linux Cheatsheet"
 description: "개념 및 자주 사용하는 기능"
 comments: true
-categories: [개발 / 환경]
+categories: [Cheatsheet]
 tags:
 - Ubuntu
 - Bash

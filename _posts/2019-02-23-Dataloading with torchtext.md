@@ -3,7 +3,7 @@ layout: post
 title: "Dataloading with torchtext"
 description: "Torchtext 사용하기 - template과 설명"
 comments: true
-categories: [개발]
+categories: [Python]
 tags:
 - torchtext
 ---

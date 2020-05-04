@@ -3,7 +3,7 @@ layout: post
 title: "Data-to-Text Generation with Content Selection and Planning"
 description: "Data-to-Text 관련 논문 리뷰"
 comments: true
-categories: [논문 리뷰]
+categories: [Paper]
 tags:
 - Data-to-text
 - Rotowires

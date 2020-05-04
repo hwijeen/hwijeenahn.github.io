@@ -3,7 +3,7 @@ layout: post
 title: "Git cheat sheet"
 description: "명령어, 브랜치 관리"
 comments: true
-categories: [개발 / 환경]
+categories: [Cheatsheet]
 tags:
 - Git
 - Github/

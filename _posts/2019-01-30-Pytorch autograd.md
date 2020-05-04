@@ -3,7 +3,7 @@ layout: post
 title: "Pytorch autograd"
 description: "Pytorch autograd, tensor, computation graph등 기본 개념 이해하기"
 comments: true
-categories: [개발 / 환경]
+categories: [Python]
 tags:
 - Autograd
 ---

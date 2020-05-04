@@ -3,7 +3,7 @@ layout: post
 title: "CUDA, Cudnn"
 description: "딥러닝에 필요한 cuda, cudnn 설치 및 환경 변수 설정"
 comments: true
-categories: [개발 / 환경]
+categories: [Misc]
 tags:
 - 환경변수
 - Cudnn
