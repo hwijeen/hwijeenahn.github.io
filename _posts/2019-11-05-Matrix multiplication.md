@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Matrix multiplication"
+title: "Matrix Multiplication"
 description: "Notations and useful identities"
 comments: true
 categories: [Misc]

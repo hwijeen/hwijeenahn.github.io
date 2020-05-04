@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Pytorch autograd"
+title: "Pytorch Autograd"
 description: "Pytorch autograd, tensor, computation graph등 기본 개념 이해하기"
 comments: true
 categories: [Python]

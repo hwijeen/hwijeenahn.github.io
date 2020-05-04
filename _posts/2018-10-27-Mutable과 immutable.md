@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Mutable과 immutable"
+title: "Mutable and Immutable"
 description: "Python mutable, immutable"
 comments: true
 categories: [Python]

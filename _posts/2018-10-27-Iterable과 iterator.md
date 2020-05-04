@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Iterable과 iterator"
+title: "Iterable and Iterator"
 description: "Python iterable, iterator"
 comments: true
 categories: [Python]

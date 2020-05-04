@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Jupyter notebook Cheatsheet"
+title: "Jupyter Notebook Cheatsheet"
 description: "서버에서 사용, 커스터마이징"
 comments: true
 categories: [Cheatsheet]

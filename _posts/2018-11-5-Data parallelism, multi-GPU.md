@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Data parallelism, multi-GPU"
+title: "Data Parallelism, Multi-GPU"
 description: "Pytorch의 nn.parallel 및 nn.DataParallel 사용하기"
 comments: true
 categories: [Misc]

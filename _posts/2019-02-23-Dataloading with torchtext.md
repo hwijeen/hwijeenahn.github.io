@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Dataloading with torchtext"
+title: "Dataloading with Torchtext"
 description: "Torchtext 사용하기 - template과 설명"
 comments: true
 categories: [Python]

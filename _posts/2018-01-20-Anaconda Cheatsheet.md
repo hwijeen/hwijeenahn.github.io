@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Anaconda cheat sheet"
+title: "Anaconda Cheatsheet"
 comments: true
 description: "패키지 관리, 가상환경 관리"
 categories: [Cheatsheet]

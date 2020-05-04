@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Git cheat sheet"
+title: "Git Cheatsheet"
 description: "명령어, 브랜치 관리"
 comments: true
 categories: [Cheatsheet]

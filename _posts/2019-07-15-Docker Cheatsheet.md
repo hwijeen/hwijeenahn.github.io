@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Docker cheat sheet"
+title: "Docker Cheatsheet"
 description: "자주 사용하는 명령어"
 comments: true
 categories: [Cheatsheet]
