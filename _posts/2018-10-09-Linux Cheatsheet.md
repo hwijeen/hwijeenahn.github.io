@@ -162,7 +162,7 @@ sudo apt-cache search $KEYWORD
 ```bash
 # Add user
 sudo adduser $USER_NAME
-sudo usermod -aG sudo username # add to sudo group
+sudo usermod -aG sudo $USER_NAME # add to sudo group
 
 # Install anaconda
 wget https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-x86_64.sh

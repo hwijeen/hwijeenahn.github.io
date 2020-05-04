@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Theory of NP</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+  <!-- Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for Hwijeen Ahn" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Theory of NP | Hwijeen Ahn</title>
+<meta name="generator" content="Jekyll v3.8.0" />
+<meta property="og:title" content="Theory of NP" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="P, NP, NP-complete, NP-hard" />
+<meta property="og:description" content="P, NP, NP-complete, NP-hard" />
+<link rel="canonical" href="http://localhost:4000/2019-09-05/Theory-of-NP/" />
+<meta property="og:url" content="http://localhost:4000/2019-09-05/Theory-of-NP/" />
+<meta property="og:site_name" content="Hwijeen Ahn" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-09-05T00:00:00+09:00" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2019-09-05/Theory-of-NP/","headline":"Theory of NP","dateModified":"2019-09-05T00:00:00+09:00","datePublished":"2019-09-05T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2019-09-05/Theory-of-NP/"},"description":"P, NP, NP-complete, NP-hard","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="http://localhost:4000/logo.png">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="http://localhost:4000/logo.png">
+
+  <!-- Google Analytics -->
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-112068488-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+<body>
+  <div class="content-container">
+    
+
+
+<header>
+  <div class="header-small">
+    <a href="http://localhost:4000">Hwijeen Ahn</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">Theory of NP</div>
+  <span class="post-date">
+    <time>05 Sep 2019</time>
+  </span>
+
+  
+    <span class="post-minute"> 
+     5 minute read
+    </span>
+  
+
+
+  <div class="post-tag">
+    <ul>
+      
+      <li>
+        <a href="http://localhost:4000/tags#Algorithm">
+          <span>Algorithm</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+
+  <p>From Foundations of Algorithms by Richard E.Neapolitan.</p>
+
+<h2 id="intractability">Intractability</h2>
+
+<ul>
+  <li><strong>Polynomial-time algorithm</strong> is one whose worst-cast time complexity is bounded by a polynomial function of its input size.</li>
+  <li>A problem is <strong>intractable</strong> if it is impossible to solve it with a polynomial-time algorithm.</li>
+  <li>Three feneral categories of problems as far as intractability is concerned:
+    <ul>
+      <li>Problems for which polynomial-time algorithms have been found</li>
+      <li>Problems that have proven to be intractable</li>
+      <li>Problems that have not been proven to be intractable, but for which polynomial-time algorithms have never been found</li>
+    </ul>
+  </li>
+  <li>
+    <p>All problems that to this date have been proven intractable have also been proven not to be in the set NP.</p>
+  </li>
+  <li>Most problems that appear to be intractable are in the set NP.</li>
+</ul>
+
+<h2 id="theory-of-np">Theory of <em>NP</em></h2>
+
+<ul>
+  <li>We restrict ourselves to decision problems.
+    <ul>
+      <li>Each optimization problem has a corresponding decision problem.</li>
+      <li>A solution to an optimization problem produces a solution to the correspnding decision problem.</li>
+      <li>For many decision problems, it has been shown that a polynomial-time algorithm for the decision problem would yield a polynomial-time algorithm for the corresponding optimization problem.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="the-sets-p-and-np">The sets <em>P</em> and <em>NP</em></h3>
+
+<ul>
+  <li><strong><em>P</em></strong> is the set of all decision problems that can be solved by polynomial-time algorithms.
+    <ul>
+      <li>For some problems, we simply do not know if there exists an polynomial-time algorithm.</li>
+    </ul>
+  </li>
+  <li><strong>Nondeterministic algorithm</strong> simply produces some string S. The string can be though of a guess at a solution to the instance. However, it could just be a string of nonsense.
+    <ul>
+      <li>It is called nondeterministic because unique step-by-step instructions are not specified for it.</li>
+      <li>It is simply a defitional device for the purpose of obtaining the notion of polynomial time verifiability.  It is not a realistic method for solving a decision problem.</li>
+    </ul>
+  </li>
+  <li><strong>Polynomial time verifiability</strong></li>
+  <li><strong>A polynomial-time nondeterminsitic algorithm</strong> is a nondeterministic algorithm whose verification stage is a polynomial-time algorithm.</li>
+  <li><strong><em>NP</em></strong> is the set of all decision problems that can be solved by polynoial-time nondeterministic algorithms.
+    <ul>
+      <li>This does not mean that problems in this set can necessarily be solved in polynomial time.</li>
+      <li>The purpose of introducing the concepts of nondeterministic algorithm and NP is to classify algorithms.</li>
+    </ul>
+  </li>
+  <li>There are thousand of problems that no one has been able to solve with polynomial-time algorithms but that have been proven to be in NP because polynomial-time nondeterministic algorithms have been developed for them.</li>
+  <li>Trivially, every problem in P is also in NP.</li>
+  <li>The only decision problems that have been proven not to be in NP are the same ones that have been proven to be intractable. e.g) Halting problem.</li>
+  <li>No one has ever proven that there is a problem in NP that is not in P. If P = NP, we would have polynomial-time algorithms for most known decision problems (in NP).</li>
+</ul>
+
+<h3 id="np-complete-problems"><em>NP</em>-complete problems</h3>
+
+<ul>
+  <li><strong>CNF-satisfiability problem</strong>
+    <ul>
+      <li>This is NP problem.</li>
+      <li>We do not know if it is in P.</li>
+      <li>If this is in P, then P = NP.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Transfomation algorithm</strong> creates an instance y of problem B from every instance x of problem A such that an algorithm for problem B answers “yes” for y if and only if the answer to problem A is “yes” for x.<img src="/Users/hwii/Library/Application Support/typora-user-images/image-20190904151828561.png" alt="image-20190904151828561" /></p>
+  </li>
+  <li>If there exists a polynomial-time transformation algorithm from decision problem <script type="math/tex">A</script> to decision problem B, problem A is <strong>polynomial-time many-one reducible</strong> to problem <script type="math/tex">B</script>.
+    <ul>
+      <li>If the decision probem B is in P and A <script type="math/tex">\propto</script> B, then decision problem A in in P.</li>
+    </ul>
+  </li>
+  <li>A problem B is called <strong><em>NP</em>-complete</strong> if both of the following are true:
+    <ul>
+      <li>B is in NP.</li>
+      <li>For every other problem in A NP, A <script type="math/tex">\propto</script> B.</li>
+    </ul>
+  </li>
+  <li>If we could show that any NP-complete problem is in P, we could conclude that P = NP.</li>
+  <li>CNF-satisfiabilty problem is proven to be NP-complete.</li>
+  <li>A problem C is NP-complete if both of the following are true:
+    <ul>
+      <li>C is in NP.</li>
+      <li>For some other NP-complete problem B, B <script type="math/tex">\propto</script> C.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="the-state-of-np">The state of NP</h3>
+
+<p><img src="/Users/hwii/Library/Application Support/typora-user-images/image-20190904153207321.png" alt="image-20190904153207321" /></p>
+
+<ul>
+  <li>P is a proper subset of NP. It may be true that they are the same.</li>
+  <li>NP-complete is a subset of NP by definition.</li>
+  <li>A decision problem that is in NP and is not NP-complete is the trivial decision problems that answers “yes” for all instances.
+    <ul>
+      <li>It is not NP-complete because it is not possible to transform a nontrivial decision problem to it.</li>
+    </ul>
+  </li>
+  <li>If P <script type="math/tex">\neq</script> NP, P <script type="math/tex">\cap</script> NP-complete = <script type="math/tex">\emptyset</script>. This is so because if some problem in P were NP-complete, it is implied that we could sove any problem in NP in polynomial time.</li>
+  <li>If P <script type="math/tex">\neq</script> NP, NP - (P <script type="math/tex">\cup</script> NP-compete ) is not empty.</li>
+</ul>
+
+<h3 id="np-hard"><em>NP</em>-Hard</h3>
+
+<ul>
+  <li>If problem A can be solved in polynomial time using a <strong>hypothetical</strong> polynomial time algorithm for problem B, the problem A is <strong>polynomial-time Turing reducible</strong> to problem B.</li>
+  <li>If A <script type="math/tex">\propto</script> B, then A <script type="math/tex">\propto_{T}</script> B.</li>
+  <li>A problem B is called <strong>NP-hard</strong>, if for some NP-complete problem A, A <script type="math/tex">\propto_{T}</script> B.</li>
+  <li>NP problem A <script type="math/tex">\propto_{T}</script> NP-complete problem B <script type="math/tex">\propto_{T}</script> NP-hard problem C.
+    <ul>
+      <li>All problems in NP reduce to any NP-hard problem.</li>
+      <li>If a polynomial-time algorithm exists for any NP-hard problem, then P = NP.</li>
+    </ul>
+  </li>
+  <li>Every NP-complete problem is NP-hard.
+    <ul>
+      <li>The optimization problem corresonding to any NP-complete (decision) problem is NP-hard.</li>
+    </ul>
+  </li>
+  <li>If we were to prove that some problem was not NP-hard, we would be proving that P <script type="math/tex">\neq</script> NP.
+    <ul>
+      <li>If P = NP, all problems in NP can be solved with a polynomial-time algorithm. Then, all problems would be NP-hard.</li>
+    </ul>
+  </li>
+  <li>If we were to prove that some problem for which we had a polynomial-time algorithm was NP-hard, we would be proving the P = NP.
+    <ul>
+      <li>NP <script type="math/tex">\propto_{T}</script> NP-hard이니까 NP 문제를 polynomial time에 풀어버리니까</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/Users/hwii/Library/Application Support/typora-user-images/image-20190904155131859.png" alt="image-20190904155131859" /></p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/P_np_np-complete_np-hard.svg/800px-P_np_np-complete_np-hard.svg.png" alt="File:P np np-complete np-hard.svg" /></p>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</div>
+
+  <!-- Disqus -->
+
+<div id="disqus_thread"></div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hwijeen-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <!--<div class="post-disqus">
+      <section id="disqus_thread"></section>
+      <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hwijeen-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>-->
+
+
+<div class="relatedPosts">
+
+  <h3>Related Posts</h3>
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+</div>
+
+<div class="recentPosts">
+
+  <h3>Recent Posts</h3>
+
+  
+  
+
+    
+      
+      <div class="post ml2">
+        <a href="/2019-12-31/Network-Cheatsheet/" class="post-link">
+          Network Cheatheet
+          <small class="archive-list-post-date">31 Dec 2019</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2019-12-11/HomeBrew-Cheatsheet/" class="post-link">
+          Brew Cheatheet
+          <small class="archive-list-post-date">11 Dec 2019</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2019-11-05/Shell-Cheatsheet/" class="post-link">
+          Shell Cheat sheet
+          <small class="archive-list-post-date">05 Nov 2019</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2019-11-05/Matrix-multiplication/" class="post-link">
+          Matrix multiplication
+          <small class="archive-list-post-date">05 Nov 2019</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2019-07-15/Docker-Cheatsheet/" class="post-link">
+          Docker cheat sheet
+          <small class="archive-list-post-date">15 Jul 2019</small>
+        </a>
+      </div>
+      
+    
+      
+        
+
+</div>
+
+
+    <!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    
+	
+	
+	
+	
+
+    
+
+    
+    <a href="https://github.com/hwijeen"><i class="fa fa-github" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+
+    
+
+    
+
+    
+    <a href="mailto:hwijeen@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </div>
+  © 2018 Hwijeen Ahn. All rights reserved.
+</div>
+
+  </div>
+</body>
+</html>

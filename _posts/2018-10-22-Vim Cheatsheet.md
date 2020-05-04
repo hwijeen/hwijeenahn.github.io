@@ -29,6 +29,10 @@ tags:
 :g/$pattern # show lines with pattern
 :g/$pattern/d # delete lines with pattern
 :g!/$pattern/d # delete lines without pattern
+
+:windo set scrollbind # https://stackoverflow.com/a/2986980
+:windo set cursorbind
+:syntax sync fromstart " when syntax highlighting is broken
 ```
 
 시스템 clipboard에 복사하려면 vim 8.1깔고 vim경로 그걸로 잡아주기
@@ -56,8 +60,6 @@ nmap <leader>T :enew<CR>
 
 "run python
 nmap <F5> :!python %<CR>
-
-syntax sync fromstart " when syntax highlighting is broken
 ```
 
 - Jedi-vim은 안 쓰는 게 나은듯?
@@ -126,3 +128,14 @@ git config --global difftool.prompt false
 ```
 
 use `zR` to unfold all. `zM` to fold all.
+
+
+
+## Install latest vim
+
+```
+sudo add-apt-repository ppa:jonathonf/vim
+sudo apt update
+sudo apt install vim
+```
+

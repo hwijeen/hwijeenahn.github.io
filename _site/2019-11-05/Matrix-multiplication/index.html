@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Zsh 사용</title>
+  <title>Matrix multiplication</title>
 
   <!-- CSS -->
   <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
@@ -13,19 +13,19 @@
   <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
   <link rel="alternate" type="application/rss+xml" title="RSS Feed for Hwijeen Ahn" href="/feed.xml" />
   <!-- Begin Jekyll SEO tag v2.4.0 -->
-<title>Zsh 사용 | Hwijeen Ahn</title>
+<title>Matrix multiplication | Hwijeen Ahn</title>
 <meta name="generator" content="Jekyll v3.8.0" />
-<meta property="og:title" content="Zsh 사용" />
+<meta property="og:title" content="Matrix multiplication" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Zsh 설치 따라하기" />
-<meta property="og:description" content="Zsh 설치 따라하기" />
-<link rel="canonical" href="http://localhost:4000/2019-05-10/Zsh-cheat-sheet/" />
-<meta property="og:url" content="http://localhost:4000/2019-05-10/Zsh-cheat-sheet/" />
+<meta name="description" content="Notations and useful identities" />
+<meta property="og:description" content="Notations and useful identities" />
+<link rel="canonical" href="http://localhost:4000/2019-11-05/Matrix-multiplication/" />
+<meta property="og:url" content="http://localhost:4000/2019-11-05/Matrix-multiplication/" />
 <meta property="og:site_name" content="Hwijeen Ahn" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-05-10T00:00:00+09:00" />
+<meta property="article:published_time" content="2019-11-05T00:00:00+09:00" />
 <script type="application/ld+json">
-{"headline":"Zsh 사용","dateModified":"2019-05-10T00:00:00+09:00","datePublished":"2019-05-10T00:00:00+09:00","description":"Zsh 설치 따라하기","url":"http://localhost:4000/2019-05-10/Zsh-cheat-sheet/","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2019-05-10/Zsh-cheat-sheet/"},"@context":"http://schema.org"}</script>
+{"url":"http://localhost:4000/2019-11-05/Matrix-multiplication/","headline":"Matrix multiplication","dateModified":"2019-11-05T00:00:00+09:00","datePublished":"2019-11-05T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2019-11-05/Matrix-multiplication/"},"description":"Notations and useful identities","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -63,9 +63,9 @@ ga('send', 'pageview');
   </div>
 </header>
 <div class="post">
-  <div class="post-title">Zsh 사용</div>
+  <div class="post-title">Matrix multiplication</div>
   <span class="post-date">
-    <time>10 May 2019</time>
+    <time>05 Nov 2019</time>
   </span>
 
   
@@ -79,15 +79,8 @@ ga('send', 'pageview');
     <ul>
       
       <li>
-        <a href="http://localhost:4000/tags#Zsh">
-          <span>Zsh</span>
-        </a>
-      </li>
-      
-      
-      <li>
-        <a href="http://localhost:4000/tags#Cheat sheet">
-          <span>Cheat sheet</span>
+        <a href="http://localhost:4000/tags#Matrix multiplication">
+          <span>Matrix multiplication</span>
         </a>
       </li>
       
@@ -95,35 +88,104 @@ ga('send', 'pageview');
     </ul>
   </div>
 
-  <h2 id="zsh-및-oh-my-zsh-설치">zsh 및 oh-my-zsh 설치</h2>
+  <p>From <a href="https://twlab.tistory.com/10">Learn Again!</a> and <a href="http://nyc.lti.cs.cmu.edu/classes/11-741/f19/index.html">11-741</a>.</p>
 
-<p><a href="https://wjs890204.tistory.com/886">전체적인 설치 과정</a></p>
+<h2 id="matrix-vector-multiplication">Matrix-vector multiplication</h2>
 
-<p><a href="https://blog.funspaces.org/2017/02/13/z-shell-with-oh-my-zsh-config-guide/">zsh 참고</a></p>
+<p>###Weighted sum of columns</p>
 
-<h2 id="fonts">Fonts</h2>
-
-<ol>
-  <li><a href="https://github.com/powerline/fonts">Powerline font</a>(Consolas는 <a href="https://github.com/Znuff/consolas-powerline">여기</a>). <a href="https://medium.com/@slmeng/how-to-install-powerline-fonts-in-windows-b2eedecace58">윈도우 설치 가이드</a></li>
-  <li><a href="https://github.com/gabrielelana/awesome-terminal-fonts">Awesome terminal fonts.</a></li>
-</ol>
-
-<p>설치 후 MobaXterm, iTerm2 등에서 폰트를 바꿔준다.</p>
-
-<h2 id="theme">Theme</h2>
-
-<p>vim을 열었을 때 보이는 색깔들은 MobaXterm colortheme에 따라 보이는 게 많이 다를 수도!</p>
-
-<p>Powerlevel9K</p>
+<p><img src="/Users/hwii/Library/Application Support/typora-user-images/image-20191105155704012.png" alt="image-20191105155704012" /></p>
 
 <ul>
-  <li>
-    <p>get_icon_names</p>
-  </li>
-  <li>
-    <p><a href="https://github.com/bhilburn/powerlevel9k/blob/master/functions/icons.zsh">icon 코드</a></p>
-  </li>
+  <li>$Ax$ is linear combination of columns of $A$.</li>
+  <li>The weights are given by the elements of $x$.</li>
 </ul>
+
+<h3 id="weighted-sum-of-rows">Weighted sum of rows</h3>
+
+<p><img src="file:///Users/hwii/Library/Application%20Support/typora-user-images/image-20191105153615011.png?lastModify=1572986243" alt="image-20191105153615011" /></p>
+
+<ul>
+  <li>$x^TA$ is linear combination of rows of $A$.</li>
+  <li>The weights are given by the elements of $x^T$.</li>
+</ul>
+
+<h2 id="matrix-diagonal-matrix-multiplication">Matrix-diagonal matrix multiplication</h2>
+
+<h3 id="weights-on-columns">Weights on columns</h3>
+
+<p><img src="/Users/hwii/Library/Application Support/typora-user-images/image-20191105155257809.png" alt="image-20191105155257809" /></p>
+
+<ul>
+  <li>A column in $A\Lambda$ = a column of $A$ multiplied by the weight.</li>
+  <li>The weights are given by the diagonal elements.</li>
+</ul>
+
+<h3 id="weights-on-rows">Weights on rows</h3>
+
+<p><img src="/Users/hwii/Library/Application Support/typora-user-images/image-20191105155310859.png" alt="image-20191105155310859" /></p>
+
+<ul>
+  <li>A row in $\Lambda B$ = a row of $B$ multiplied by the weight.</li>
+  <li>The weights are given by the diagonal elements.</li>
+</ul>
+
+<h2 id="matrix-matrix-multiplication">Matrix-matrix multiplication</h2>
+
+<script type="math/tex; mode=display">AB = C</script>
+
+<h3 id="row--column">Row * column</h3>
+
+<script type="math/tex; mode=display">C_{i,j} = \sum \limits_{k} A_{i,k}B_{k,i}</script>
+
+<ul>
+  <li>A element in C = inner product of a row in A and a column in B.</li>
+</ul>
+
+<h3 id="column--row">Column * row</h3>
+
+<script type="math/tex; mode=display">C = \sum\limits_{i} a_ib_i^T</script>
+
+<ul>
+  <li>C is a sum of outer product of columns in A and rows in B.</li>
+</ul>
+
+<p>###Column-wise</p>
+
+<p><img src="/Users/hwii/Library/Application Support/typora-user-images/image-20191105154505379.png" alt="image-20191105154505379" /></p>
+
+<ul>
+  <li>A column in C = a weighted combination of the columns of A.</li>
+  <li>The weights are given by a columns in B.</li>
+</ul>
+
+<p>###Row-wise</p>
+
+<p><img src="/Users/hwii/Library/Application Support/typora-user-images/image-20191105154442420.png" alt="image-20191105154442420" /></p>
+
+<ul>
+  <li>A row in C = a weighted combination of the rows in B</li>
+  <li>The weights are given by a row in A.</li>
+</ul>
+
+<h2 id="useful-identities">Useful identities</h2>
+
+<script type="math/tex; mode=display">VV^T = \sum \limits_i^n v_iv_i^T \\
+V \Lambda V^T = \sum_i^n \lambda_i v_i v_i^T \\</script>
+
+<script type="math/tex; mode=display">Z^TLZ =</script>
+
+<p><img src="/Users/hwii/Library/Application Support/typora-user-images/image-20191118221843468.png" alt="image-20191118221843468" /></p>
+
+<ul>
+  <li>Notation for a vector and a scalar can be confusing here.</li>
+</ul>
+
+<script type="math/tex; mode=display">(V^TV)_{i,j} = v_i^Tv_j \\</script>
+
+<script type="math/tex; mode=display">u^T \Lambda u = \sum \limits_i \lambda_i u_iu_i\\
+u^TAu = \sum_i \sum_j u_i u_j A_{i,j} \\</script>
+
 
   
   <script type="text/x-mathjax-config">
@@ -318,12 +380,6 @@ s.setAttribute('data-timestamp', +new Date());
     
 
     
-      <div>
-      <a href="/2018-10-22/Vim-cheat-sheet/">Vim cheat sheet</a>
-      </div>
-      
-      
-    
 
   
 
@@ -332,21 +388,6 @@ s.setAttribute('data-timestamp', +new Date());
 
     
 
-    
-
-  
-
-    
-    
-
-    
-
-    
-      <div>
-      <a href="/2018-10-09/Shell-cheat-sheet/">Shell cheat sheet</a>
-      </div>
-      
-      
     
 
   
@@ -384,11 +425,23 @@ s.setAttribute('data-timestamp', +new Date());
     
 
     
-      <div>
-      <a href="/2018-04-29/Git-cheat-sheet/">Git cheat sheet</a>
-      </div>
-      
-      
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
     
 
   
@@ -408,11 +461,41 @@ s.setAttribute('data-timestamp', +new Date());
     
 
     
-      <div>
-      <a href="/2018-01-20/Anaconda-cheat-sheet/">Anaconda cheat sheet</a>
-      </div>
-      
-      
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
     
 
   
@@ -429,45 +512,45 @@ s.setAttribute('data-timestamp', +new Date());
     
       
       <div class="post ml2">
-        <a href="/2019-07-10/Data-to-Text-Generation-with-Content-Selection-and-Planning/" class="post-link">
-          Data-to-Text Generation with Content Selection and Planning
-          <small class="archive-list-post-date">10 Jul 2019</small>
+        <a href="/2019-12-31/Network-Cheatsheet/" class="post-link">
+          Network Cheatheet
+          <small class="archive-list-post-date">31 Dec 2019</small>
         </a>
       </div>
       
     
       
       <div class="post ml2">
-        <a href="/2019-07-10/Challenges-in-Data-to-Document-Generation/" class="post-link">
-          Challenges in Data-to-Document Generation
-          <small class="archive-list-post-date">10 Jul 2019</small>
+        <a href="/2019-12-11/HomeBrew-Cheatsheet/" class="post-link">
+          Brew Cheatheet
+          <small class="archive-list-post-date">11 Dec 2019</small>
         </a>
       </div>
       
     
       
       <div class="post ml2">
-        <a href="/2019-02-23/Dataloading-with-torchtext/" class="post-link">
-          Dataloading with torchtext
-          <small class="archive-list-post-date">23 Feb 2019</small>
+        <a href="/2019-11-05/Shell-Cheatsheet/" class="post-link">
+          Shell Cheat sheet
+          <small class="archive-list-post-date">05 Nov 2019</small>
         </a>
       </div>
       
     
       
       <div class="post ml2">
-        <a href="/2019-02-20/A-Deep-Generative-Framework-for-Paraphrase-Generation/" class="post-link">
-          A Deep Generative Framework for Paraphrase Genertion
-          <small class="archive-list-post-date">20 Feb 2019</small>
+        <a href="/2019-09-05/Theory-of-NP/" class="post-link">
+          Theory of NP
+          <small class="archive-list-post-date">05 Sep 2019</small>
         </a>
       </div>
       
     
       
       <div class="post ml2">
-        <a href="/2019-02-19/Learning-Discourse-level-Diversity-for-Neural-Dialog-Models-Using-Conditional-Variational-Autoencoders/" class="post-link">
-          Learning Discourse-level Diversity for Neural Dialog Models Using Conditional Variational Autoencoders
-          <small class="archive-list-post-date">19 Feb 2019</small>
+        <a href="/2019-07-15/Docker-Cheatsheet/" class="post-link">
+          Docker cheat sheet
+          <small class="archive-list-post-date">15 Jul 2019</small>
         </a>
       </div>
       
@@ -513,7 +596,7 @@ s.setAttribute('data-timestamp', +new Date());
     
 
     
-    <a href="mailto:aurorall@naver.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    <a href="mailto:hwijeen@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
     
 
   </div>

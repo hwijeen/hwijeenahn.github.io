@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Anaconda cheat sheet</title>
+  <title>Shell Cheat sheet</title>
 
   <!-- CSS -->
   <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
@@ -13,19 +13,19 @@
   <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
   <link rel="alternate" type="application/rss+xml" title="RSS Feed for Hwijeen Ahn" href="/feed.xml" />
   <!-- Begin Jekyll SEO tag v2.4.0 -->
-<title>Anaconda cheat sheet | Hwijeen Ahn</title>
+<title>Shell Cheat sheet | Hwijeen Ahn</title>
 <meta name="generator" content="Jekyll v3.8.0" />
-<meta property="og:title" content="Anaconda cheat sheet" />
+<meta property="og:title" content="Shell Cheat sheet" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="자주 쓰는 기능들 정리" />
-<meta property="og:description" content="자주 쓰는 기능들 정리" />
-<link rel="canonical" href="http://localhost:4000/2018-01-20/Anaconda-cheat-sheet/" />
-<meta property="og:url" content="http://localhost:4000/2018-01-20/Anaconda-cheat-sheet/" />
+<meta name="description" content="Basics" />
+<meta property="og:description" content="Basics" />
+<link rel="canonical" href="http://localhost:4000/2019-11-05/Shell-Cheatsheet/" />
+<meta property="og:url" content="http://localhost:4000/2019-11-05/Shell-Cheatsheet/" />
 <meta property="og:site_name" content="Hwijeen Ahn" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-01-20T00:00:00+09:00" />
+<meta property="article:published_time" content="2019-11-05T00:00:00+09:00" />
 <script type="application/ld+json">
-{"headline":"Anaconda cheat sheet","dateModified":"2018-01-20T00:00:00+09:00","datePublished":"2018-01-20T00:00:00+09:00","description":"자주 쓰는 기능들 정리","url":"http://localhost:4000/2018-01-20/Anaconda-cheat-sheet/","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018-01-20/Anaconda-cheat-sheet/"},"@context":"http://schema.org"}</script>
+{"url":"http://localhost:4000/2019-11-05/Shell-Cheatsheet/","headline":"Shell Cheat sheet","dateModified":"2019-11-05T00:00:00+09:00","datePublished":"2019-11-05T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2019-11-05/Shell-Cheatsheet/"},"description":"Basics","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -63,9 +63,9 @@ ga('send', 'pageview');
   </div>
 </header>
 <div class="post">
-  <div class="post-title">Anaconda cheat sheet</div>
+  <div class="post-title">Shell Cheat sheet</div>
   <span class="post-date">
-    <time>20 Jan 2018</time>
+    <time>05 Nov 2019</time>
   </span>
 
   
@@ -79,29 +79,8 @@ ga('send', 'pageview');
     <ul>
       
       <li>
-        <a href="http://localhost:4000/tags#Anaconda">
-          <span>Anaconda</span>
-        </a>
-      </li>
-      
-      
-      <li>
-        <a href="http://localhost:4000/tags#패키지 관리">
-          <span>패키지 관리</span>
-        </a>
-      </li>
-      
-      
-      <li>
-        <a href="http://localhost:4000/tags#가상환경">
-          <span>가상환경</span>
-        </a>
-      </li>
-      
-      
-      <li>
-        <a href="http://localhost:4000/tags#Cheat sheet">
-          <span>Cheat sheet</span>
+        <a href="http://localhost:4000/tags#Shell script">
+          <span>Shell script</span>
         </a>
       </li>
       
@@ -109,35 +88,43 @@ ga('send', 'pageview');
     </ul>
   </div>
 
-  <h2 id="개념">개념</h2>
+  <p>From <a href="https://devhints.io/bash">cheatsheet</a>, <a href="https://www.cyberciti.biz/faq/bash-for-loop/">for loop</a>.</p>
 
-<p>Anaconda는  <strong>패키지 관리</strong> &amp; <strong>가상환경 관리</strong>용 프로그램이다.</p>
+<h2 id="variables">Variables</h2>
 
-<h2 id="패키지-관련-명령어">패키지 관련 명령어</h2>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda install $PACKAGE_NAME
-conda install --name $ENVIRONMENT_NAME $PACKAGE_NAME
-conda update --name $ENVIRONMENT_NAME $PACKAGE_NAME
-conda update conda
-conda remove --name $ENVIRONMENT_NAME $PACKAGE_NAME
-conda list --name $ENVIORNMENT_NAME 
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">A</span><span class="o">=</span><span class="s2">"Hi"</span>
+<span class="nb">echo</span> <span class="nv">$A</span>
+
+<span class="nv">a</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span> <span class="c"># command substitution</span>
+<span class="nb">echo</span> <span class="k">$(</span>python <span class="nt">-c</span> <span class="s2">"print(1)"</span><span class="k">)</span> <span class="c"># $()은 우선적으로 evaluate하라는 의미(shell execution)</span>
+ctags <span class="nt">-R</span> <span class="nb">.</span> <span class="k">$(</span>python <span class="nt">-c</span> <span class="s2">"import sys; print(sys.path)"</span><span class="k">)</span> <span class="c"># python 실행 결과가 커맨드로 입력됨</span>
 </code></pre></div></div>
 
-<h2 id="가상환경-관련-명령어">가상환경 관련 명령어</h2>
+<h2 id="for-loops">For loops</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda create --name $ENVIRONMENT_NAME python=3.6 $PACKAGE_NAME
-source activate $ENVIRONMENT_NAME 
-source deactivate
-conda env remove --name $ENVIRONMENT_NAME
-conda info --envs
-conda env export -n $ENVIORMENT_NAME &gt; environment.yml
-conda env create -f enviornmnet.yml
+<h2 id="some-bash-commands">Some bash commands</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find <span class="nb">.</span> <span class="nt">-name</span> <span class="s1">'*keyword*'</span>
+find <span class="nb">.</span> <span class="nt">-name</span> <span class="s1">'.*'</span> <span class="nt">-delete</span> <span class="c"># recursively delete all the hidden files</span>
+<span class="nb">grep</span> <span class="nt">-r</span> <span class="nt">-n</span> <span class="nt">-i</span> <span class="nt">--exclude-dir</span><span class="o">=</span>data/ <span class="s1">'keyword'</span> <span class="nb">.</span> <span class="c"># -i 대소문자 구별 안 함 -n line number</span>
+
+scp <span class="nt">-r</span> <span class="nv">$localfolder</span> hwijeen@163.239.199.230:<span class="nv">$remotefolder</span>/ <span class="c"># from to</span>
+
+<span class="nb">cd </span>folder <span class="o">&amp;&amp;</span> <span class="nb">ls</span> <span class="c"># second commnad executed only if the first succeeds</span>
+<span class="nb">cd </span>folder<span class="p">;</span> <span class="nb">ls</span> <span class="c"># just two independent commands</span>
+
+<span class="nb">sort</span> <span class="nt">-R</span> input | <span class="nb">head</span> <span class="nt">-n</span> 100 <span class="o">&gt;</span>output <span class="c"># randomly select sentences</span>
+
+<span class="nb">date</span><span class="p">;</span> python program.py<span class="p">;</span> <span class="nb">date</span> <span class="c"># to check runtime</span>
+
+<span class="nb">tail</span> <span class="nt">-n</span> +2 <span class="nv">$filename</span> <span class="c"># from 2nd line to last(skip header)</span>
+
+<span class="nb">awk</span> <span class="s1">'{T+= NF} END { print T/NR}'</span> <span class="nv">$FILE</span> <span class="c"># average length of tokens </span>
+<span class="nb">awk</span> <span class="s1">'{print NF}'</span> | <span class="nb">sort</span> <span class="nt">-n</span> | <span class="nb">tail</span> <span class="c"># lengths of longest lines</span>
+
+<span class="nb">cut</span> <span class="nt">-d</span> <span class="s1">'.'</span> <span class="nt">-f3-</span> <span class="nv">$filename</span> <span class="c"># cut 3rd fields to the end</span>
+<span class="nb">sed</span> <span class="nt">-e</span> <span class="s1">'s/^"//'</span> <span class="nt">-e</span> <span class="s1">'s/"$//'</span> <span class="nv">$filename</span> <span class="c"># delete heading and trailing "</span>
 </code></pre></div></div>
-
-<h2 id="conda-install-vs-pip-install">conda install vs. pip install</h2>
-
-<p>conda install은 conda repository, pip install은 PyPI에 있는 패키지 파일을 설치한다. 같은 내용의 패키지 일지라도 conda repository는 conda package형식으로 패키지를 가지고 있고, PyPI는 wheel 파일 혹은 source 파일 형태로 패키지를 저장하고 있다.</p>
-
-<p>conda를 이용해서 가상환경을 만들시 환경 내에 기본적으로 pip도 같이 설치된다. 간혹 conda install $PACKAGE_NAME을 했는데 패키지를 찾을 수 없다고 나오는 경우(conda repository에 없어서) pip install을 통해 패키지 설치를 하면 된다. 주의할 점은 <strong>가상환경 내의 pip</strong>를 써야한다는 것. 커맨드 라인에 pip install을 치면 global version이 실행될 수도 있다. <a href="https://www.puzzlr.org/install-packages-pip-conda-environment/">가상환경 내의 pip 경로를 직접 잡아서 실행시켜줘야한다</a>. <code class="highlighter-rouge">which pip</code>명령어를 통해 내가 무슨 pip를 사용하고 있는지 확인하자.</p>
 
 
   
@@ -243,11 +230,95 @@ s.setAttribute('data-timestamp', +new Date());
     
 
     
-      <div>
-      <a href="/2019-05-10/Zsh-cheat-sheet/">Zsh 사용</a>
-      </div>
-      
-      
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
     
 
   
@@ -339,12 +410,6 @@ s.setAttribute('data-timestamp', +new Date());
     
 
     
-      <div>
-      <a href="/2018-10-22/Vim-cheat-sheet/">Vim cheat sheet</a>
-      </div>
-      
-      
-    
 
   
 
@@ -353,63 +418,6 @@ s.setAttribute('data-timestamp', +new Date());
 
     
 
-    
-
-  
-
-    
-    
-
-    
-
-    
-      <div>
-      <a href="/2018-10-09/Shell-cheat-sheet/">Shell cheat sheet</a>
-      </div>
-      
-      
-    
-
-  
-
-    
-    
-
-    
-
-    
-
-  
-
-    
-    
-
-    
-
-    
-
-  
-
-    
-    
-
-    
-
-    
-
-  
-
-    
-    
-
-    
-
-    
-      <div>
-      <a href="/2018-04-29/Git-cheat-sheet/">Git cheat sheet</a>
-      </div>
-      
-      
     
 
   
@@ -444,45 +452,45 @@ s.setAttribute('data-timestamp', +new Date());
     
       
       <div class="post ml2">
-        <a href="/2019-07-10/Data-to-Text-Generation-with-Content-Selection-and-Planning/" class="post-link">
-          Data-to-Text Generation with Content Selection and Planning
-          <small class="archive-list-post-date">10 Jul 2019</small>
+        <a href="/2019-12-31/Network-Cheatsheet/" class="post-link">
+          Network Cheatheet
+          <small class="archive-list-post-date">31 Dec 2019</small>
         </a>
       </div>
       
     
       
       <div class="post ml2">
-        <a href="/2019-07-10/Challenges-in-Data-to-Document-Generation/" class="post-link">
-          Challenges in Data-to-Document Generation
-          <small class="archive-list-post-date">10 Jul 2019</small>
+        <a href="/2019-12-11/HomeBrew-Cheatsheet/" class="post-link">
+          Brew Cheatheet
+          <small class="archive-list-post-date">11 Dec 2019</small>
         </a>
       </div>
       
     
       
       <div class="post ml2">
-        <a href="/2019-05-10/Zsh-cheat-sheet/" class="post-link">
-          Zsh 사용
-          <small class="archive-list-post-date">10 May 2019</small>
+        <a href="/2019-11-05/Matrix-multiplication/" class="post-link">
+          Matrix multiplication
+          <small class="archive-list-post-date">05 Nov 2019</small>
         </a>
       </div>
       
     
       
       <div class="post ml2">
-        <a href="/2019-02-23/Dataloading-with-torchtext/" class="post-link">
-          Dataloading with torchtext
-          <small class="archive-list-post-date">23 Feb 2019</small>
+        <a href="/2019-09-05/Theory-of-NP/" class="post-link">
+          Theory of NP
+          <small class="archive-list-post-date">05 Sep 2019</small>
         </a>
       </div>
       
     
       
       <div class="post ml2">
-        <a href="/2019-02-20/A-Deep-Generative-Framework-for-Paraphrase-Generation/" class="post-link">
-          A Deep Generative Framework for Paraphrase Genertion
-          <small class="archive-list-post-date">20 Feb 2019</small>
+        <a href="/2019-07-15/Docker-Cheatsheet/" class="post-link">
+          Docker cheat sheet
+          <small class="archive-list-post-date">15 Jul 2019</small>
         </a>
       </div>
       
@@ -528,7 +536,7 @@ s.setAttribute('data-timestamp', +new Date());
     
 
     
-    <a href="mailto:aurorall@naver.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    <a href="mailto:hwijeen@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
     
 
   </div>

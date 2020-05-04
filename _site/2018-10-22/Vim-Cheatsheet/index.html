@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vim cheat sheet</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+  <!-- Font -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for Hwijeen Ahn" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>Vim cheat sheet | Hwijeen Ahn</title>
+<meta name="generator" content="Jekyll v3.8.0" />
+<meta property="og:title" content="Vim cheat sheet" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="자꾸 까먹는 단축키, .vimrc, buffer/window/tab 사용 관련" />
+<meta property="og:description" content="자꾸 까먹는 단축키, .vimrc, buffer/window/tab 사용 관련" />
+<link rel="canonical" href="http://localhost:4000/2018-10-22/Vim-Cheatsheet/" />
+<meta property="og:url" content="http://localhost:4000/2018-10-22/Vim-Cheatsheet/" />
+<meta property="og:site_name" content="Hwijeen Ahn" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-10-22T00:00:00+09:00" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2018-10-22/Vim-Cheatsheet/","headline":"Vim cheat sheet","dateModified":"2018-10-22T00:00:00+09:00","datePublished":"2018-10-22T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018-10-22/Vim-Cheatsheet/"},"description":"자꾸 까먹는 단축키, .vimrc, buffer/window/tab 사용 관련","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="http://localhost:4000/logo.png">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="http://localhost:4000/logo.png">
+
+  <!-- Google Analytics -->
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-112068488-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+</head>
+
+<body>
+  <div class="content-container">
+    
+
+
+<header>
+  <div class="header-small">
+    <a href="http://localhost:4000">Hwijeen Ahn</a>
+  </div>
+</header>
+<div class="post">
+  <div class="post-title">Vim cheat sheet</div>
+  <span class="post-date">
+    <time>22 Oct 2018</time>
+  </span>
+
+  
+    <span class="post-minute"> 
+     1 minute read
+    </span>
+  
+
+
+  <div class="post-tag">
+    <ul>
+      
+      <li>
+        <a href="http://localhost:4000/tags#Vim">
+          <span>Vim</span>
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="http://localhost:4000/tags#Cheat sheet">
+          <span>Cheat sheet</span>
+        </a>
+      </li>
+      
+      
+    </ul>
+  </div>
+
+  <h2 id="misc">Misc</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:ls <span class="c"># 현재 위치 확인 가능</span>
+:cd <span class="c"># 이걸로 cwd 바꾸기</span>
+
+:%s/<span class="nv">$before</span>/<span class="nv">$after</span>/g <span class="c"># 파일 전체에서 단어 바꾸기</span>
+:s/<span class="nv">$before</span>/<span class="nv">$after</span>/g <span class="c"># 현재 라인에서만</span>
+
+:set list <span class="c"># show white spaces</span>
+:set list! <span class="c"># disable</span>
+:set <span class="nv">listchars</span><span class="o">=</span>tab:&gt;&gt;&gt; <span class="c"># display tabs as &gt;&gt;&gt;</span>
+
+:sort u <span class="c"># sort and remove duplicates</span>
+
+:g/<span class="nv">$pattern</span> <span class="c"># show lines with pattern</span>
+:g/<span class="nv">$pattern</span>/d <span class="c"># delete lines with pattern</span>
+:g!/<span class="nv">$pattern</span>/d <span class="c"># delete lines without pattern</span>
+
+:windo <span class="nb">set </span>scrollbind <span class="c"># https://stackoverflow.com/a/2986980</span>
+:windo <span class="nb">set </span>cursorbind
+:syntax <span class="nb">sync </span>fromstart <span class="s2">" when syntax highlighting is broken
+</span></code></pre></div></div>
+
+<p>시스템 clipboard에 복사하려면 vim 8.1깔고 vim경로 그걸로 잡아주기</p>
+
+<h2 id="vimrc">.vimrc</h2>
+
+<p>이 파일로 vim 환경 설정을 한다. <a href="https://vim-bootstrap.com/">vim-bootstrap</a>에서 .vimrc파일을 다운받으면 왠만한 건 다 깔려있다. 하나하나 파악하며 깔다간 정신 건강이 나빠진다.. Plugin manager은 <a href="https://github.com/junegunn/vim-plug">vim-plug</a>를 쓴다. 아래는 내가 추가한 단축키.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">set </span><span class="nv">mouse</span><span class="o">=</span>a
+
+<span class="s2">"vim-conda
+cnoreabbrev conda CondaChangeEnv
+let g:conda_startup_msg_suppress = 1
+
+"" Close buffer
+noremap &lt;leader&gt;c :bd&lt;CR&gt;
+
+"</span>buffer navigate
+nmap &lt;leader&gt;l :bnext&lt;CR&gt;
+nmap &lt;leader&gt;q :bp&lt;CR&gt;
+nmap &lt;leader&gt;T :enew&lt;CR&gt;
+
+<span class="s2">"run python
+nmap &lt;F5&gt; :!python %&lt;CR&gt;
+</span></code></pre></div></div>
+
+<ul>
+  <li>Jedi-vim은 안 쓰는 게 나은듯?</li>
+</ul>
+
+<h2 id="tab-buffer-window">Tab, buffer, window</h2>
+
+<p>tab은 작업 단위로 분리해서 쓰고, buffer은 파일을 불러와서 들고있는 공간이고, window는 하나의 버퍼를 보여주는 창이다!</p>
+
+<h3 id="buffers">buffers</h3>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:e <span class="c">#edit a file</span>
+:ls <span class="c"># buffer list</span>
+:bn <span class="c"># next buffer on window</span>
+:bp <span class="c"># previous buffer on window</span>
+:badd <span class="c"># add a file to buffer without opening</span>
+:bd &lt;BUFFER NAME&gt; or &lt;BUFFER NUMBER&gt; <span class="c"># delete from buffer</span>
+:vs | &lt;BUFFER NAME&gt; or &lt;BUFFER NUMBER&gt; <span class="c"># to open a buffer in different window</span>
+</code></pre></div></div>
+
+<h3 id="tabs">tabs</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:tabe <span class="c">#edit a file in new tab</span>
+:tabclose <span class="c"># close current tab</span>
+:tabn <span class="c"># same as gt</span>
+:tabp <span class="c"># same as gT</span>
+</code></pre></div></div>
+
+<p><a href="vim.wikia.com/wiki/Using_tab_pages">단축키 관련 참고</a></p>
+
+<h2 id="macro">Macro</h2>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>qa <span class="c"># start recording in a</span>
+q <span class="c"># finish recording</span>
+
+@a <span class="c"># run macro a</span>
+@@ <span class="c"># run last macro run</span>
+25@a <span class="c"># run macro a 25 times</span>
+</code></pre></div></div>
+
+<h2 id="jedi-vim">Jedi-vim</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;K&gt; <span class="c"># show docstring</span>
+&lt;leader&gt;d <span class="c"># go to definition</span>
+</code></pre></div></div>
+
+<h2 id="misc-1">Misc</h2>
+
+<p><a href="https://stackoverflow.com/a/3713865">git difftool을 vimdiff로 설정하기</a>,  <a href="[https://goodtogreate.tistory.com/entry/git-difftool-%EC%82%AC%EC%9A%A9%EB%B2%95](https://goodtogreate.tistory.com/entry/git-difftool-사용법)">vimdiff에 대한 간단한 설명</a></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> diff.tool vimdiff
+git config <span class="nt">--global</span> difftool.prompt <span class="nb">false</span>
+<span class="c"># git config --global alias.d difftool</span>
+</code></pre></div></div>
+
+<p>use <code class="highlighter-rouge">zR</code> to unfold all. <code class="highlighter-rouge">zM</code> to fold all.</p>
+
+<h2 id="install-latest-vim">Install latest vim</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo add-apt-repository ppa:jonathonf/vim
+sudo apt update
+sudo apt install vim
+</code></pre></div></div>
+
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</div>
+
+  <!-- Disqus -->
+
+<div id="disqus_thread"></div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hwijeen-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  <!--<div class="post-disqus">
+      <section id="disqus_thread"></section>
+      <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://hwijeen-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  </div>-->
+
+
+<div class="relatedPosts">
+
+  <h3>Related Posts</h3>
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+    
+    
+
+    
+
+    
+      <div>
+      <a href="/2019-12-31/Network-Cheatsheet/">Network Cheatheet</a>
+      </div>
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+    
+      <div>
+      <a href="/2019-12-11/HomeBrew-Cheatsheet/">Brew Cheatheet</a>
+      </div>
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+      <div>
+      <a href="/2019-07-15/Docker-Cheatsheet/">Docker cheat sheet</a>
+      </div>
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+      <div>
+      <a href="/2018-10-09/Linux-Cheatsheet/">Linux cheat sheet</a>
+      </div>
+      
+      
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+
+  
+
+    
+    
+
+    
+
+    
+      <div>
+      <a href="/2018-04-29/Git-Cheatsheet/">Git cheat sheet</a>
+      </div>
+      
+      
+        
+
+</div>
+
+<div class="recentPosts">
+
+  <h3>Recent Posts</h3>
+
+  
+  
+
+    
+      
+      <div class="post ml2">
+        <a href="/2019-12-31/Network-Cheatsheet/" class="post-link">
+          Network Cheatheet
+          <small class="archive-list-post-date">31 Dec 2019</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2019-12-11/HomeBrew-Cheatsheet/" class="post-link">
+          Brew Cheatheet
+          <small class="archive-list-post-date">11 Dec 2019</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2019-11-05/Shell-Cheatsheet/" class="post-link">
+          Shell Cheat sheet
+          <small class="archive-list-post-date">05 Nov 2019</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2019-11-05/Matrix-multiplication/" class="post-link">
+          Matrix multiplication
+          <small class="archive-list-post-date">05 Nov 2019</small>
+        </a>
+      </div>
+      
+    
+      
+      <div class="post ml2">
+        <a href="/2019-09-05/Theory-of-NP/" class="post-link">
+          Theory of NP
+          <small class="archive-list-post-date">05 Sep 2019</small>
+        </a>
+      </div>
+      
+    
+      
+        
+
+</div>
+
+
+    <!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    
+	
+	
+	
+	
+
+    
+
+    
+    <a href="https://github.com/hwijeen"><i class="fa fa-github" aria-hidden="true"></i></a>
+    
+	
+	
+	
+	
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+
+    
+
+    
+
+    
+    <a href="mailto:hwijeen@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    
+
+  </div>
+  © 2018 Hwijeen Ahn. All rights reserved.
+</div>
+
+  </div>
+</body>
+</html>
