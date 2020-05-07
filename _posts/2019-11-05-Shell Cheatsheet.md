@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Shell Cheatsheet"
-description: "까만 창에 하얀 글씨의 파워"
+description: "간단한 데이터 처리, 실험 관리용"
 comments: true
 categories: [Cheatsheet]
 tags:

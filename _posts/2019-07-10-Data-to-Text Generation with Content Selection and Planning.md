@@ -25,12 +25,11 @@ Records $r$에 따른 summary $y$의 확률 모델은 $p(z|r)$과 $p(y|r,z)$ 두
 
 ### 1. $p(z|r)$
 
-***Encoder-Decoder***{
+***Encoder-Decoder***
     ***Embedding***:  simple lookup table + *self-attention(?)*  
     ***Encoder***: 별다른 처리 없이 embedding을 쌓아두기  
     ***Decoder***:  RNN  
     ***Generator***:  Pointer network  
-    }
 
 #### Record Encoder
 
@@ -79,18 +78,17 @@ $$
 
   ### 2. $p(y|r,z)$
 
-  **Encoder-Decoder**{
+  **Encoder-Decoder**
       ***Embedding***:  simple look-up table  
       ***Encoder***: Bidirectional RNN
       ***Decoder***:  RNN  
       ***Generator***:  Copy mechanism(joint copy or conditional copy)
-      }
 
   #### Text Generation
 
   $p(z|r)$ 모듈을 통해 content plan sequence가 만들어졌으면, 이에 condition해서 자연어 text를 만들어낸다. Encoder-decoder모델의 source side(bidrectional LSTM)에 input으로 들어가는 것은 순서가 정해진 record sequence이며, decoder는 autogressive한 방식으로 텍스트를 만들어낸다. Attention mechanism과 copy mechanism을 통해 성능을 향상시켰다. 
 $$
-  \beta_{t,k} \propto exp(d_t^{\intercal}W_be_k) \\
+\beta_{t,k} \propto exp(d_t^{\intercal}W_be_k) \\
   q_t = \sum_{k} \beta_{t,k} e_k \\
   d_t^{att} = tanh(W_d[d_t;q_t]) \\
   p_{gen}(y_t|y_{<t}, z, r) = \sum_{u_t \in\left\{0, 1\right\}}p(y_t, u_t | y_{<t}, z, r)
