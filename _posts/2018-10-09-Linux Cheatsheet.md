@@ -125,6 +125,16 @@ ssh -N -f -L 8888:localhost:9999 remote_user@remote_server
 
 
 
+## scp
+
+```bash
+scp -o ProxyJump:$JUMP_USER@$JUMP_HOST $REMOTE_USER@$REMOTE_HOST:$REMOTE_DIR
+```
+
+
+
+
+
 ## Foreground, background
 
 ```bash
@@ -184,13 +194,29 @@ curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | 
 
 ## Google drive link wget으로 다운로드
 
-[출처](https://medium.com/@acpanjan/download-google-drive-files-using-wget-3c2c025a8b99)
+[출처](https://medium.com/@acpanjan/download-google-drive-files-using-wget-3c2c025a8b99) / [Big file](https://stackoverflow.com/a/32742700)
 
 ```bash
 #https://drive.google.com/file/d/1UibyVC_C2hoT_XEw15gPEwPW4yFyJFeOEA/view?usp=sharing
 # FIELDID=1UibyVC_C2hoT_XEw15gPEwPW4yFyJFeOEA
 # FILENAME=file.txt
 
-wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=FILEID' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=FILEID" -O FILENAME && rm -rf /tmp/cookies.txt
+# First argument is FIELDID, second is FILENAME
+gdrive(){
+    echo "Downloading gdrive file as $2"
+    # wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=$1' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=$1" -O $2 && rm -rf /tmp/cookies.txt
+    curl -c /tmp/cookies "https://drive.google.com/uc?export=download&id=$1" > /tmp/intermezzo.html
+    curl -L -b /tmp/cookies "https://drive.google.com$(cat /tmp/intermezzo.html | grep -Po 'uc-download-link" [^>]* href="\K[^"]*' | sed 's/\&amp;/\&/g')" > $2
+}
+```
+
+
+
+
+
+## MISC
+
+```bash
+pwdx $PID # path of the process running, https://stackoverflow.com/a/24505530
 ```
 

@@ -1,5 +1,5 @@
 ---
-layout: post
+jlayout: post
 title: "Vim Cheatsheet"
 description: "Random things"
 comments: true
@@ -9,7 +9,7 @@ tags:
 - Cheat sheet
 ---
 
-
+https://vim.rtorr.com/
 
 ## Misc
 
@@ -33,6 +33,10 @@ tags:
 :windo set scrollbind # https://stackoverflow.com/a/2986980
 :windo set cursorbind
 :syntax sync fromstart " when syntax highlighting is broken
+
+" delete trailing whitespaces
+:%s/\s\+$//e
+
 ```
 
 시스템 clipboard에 복사하려면 vim 8.1깔고 vim경로 그걸로 잡아주기
@@ -93,6 +97,14 @@ tab은 작업 단위로 분리해서 쓰고, buffer은 파일을 불러와서 �
 
 [단축키 관련 참고](vim.wikia.com/wiki/Using_tab_pages)
 
+### windows
+
+https://medium.com/usevim/vim-101-quickfix-and-grep-c782cb65e524
+
+```bash
+<C-w> J # move to left window
+```
+
 
 
 ## Macro
@@ -138,4 +150,49 @@ sudo add-apt-repository ppa:jonathonf/vim
 sudo apt update
 sudo apt install vim
 ```
+
+
+
+## About indentation
+
+https://stackoverflow.com/a/21820207
+
+https://stackoverflow.com/a/2360284
+
+
+
+## Quickfix / Location list
+
+Use with `vim.grep` or `syntastic` https://stackoverflow.com/a/1747286.
+
+Quickfix is a global to many windows, whereas location is a local to a window.
+
+```bash
+:copen " Open the quickfix window
+:ccl   " Close it
+:cw    " Open it if there are "errors", close it otherwise (some people prefer this)
+:cn    " Go to the next error in the window
+:cp    " Go to the previous error in the window
+:cnf   " Go to the first error in the next file
+:.cc   " Go to error under cursor (if cursor is in quickfix window)
+```
+
+
+
+## Folds
+
+```bash
+zf # fold selected parts(with visual mode)
+zo # fold open
+```
+
+
+
+## Pylint
+
+pytorch를 사용하다보면 에러가 아닌데 pylint는 에러라고 인식하는 것들이 있다. 무시하라고 해주려면 .pylintrc에 [등록해주면 된다](https://stackoverflow.com/questions/50319943/pytorch-error-message-torch-has-no-member). [pylintrc 만드는 방법](https://docs.microsoft.com/ko-kr/visualstudio/python/linting-python-code?view=vs-2019)
+
+
+
+
 
