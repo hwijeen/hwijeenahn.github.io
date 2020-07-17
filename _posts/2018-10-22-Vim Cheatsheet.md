@@ -186,6 +186,14 @@ zf # fold selected parts(with visual mode)
 zo # fold open
 ```
 
+```Shell
+# vim v8.2 or above
+:term
+:vert term
+```
+
+
+
 
 
 ## Pylint

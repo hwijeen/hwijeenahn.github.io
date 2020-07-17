@@ -31,6 +31,7 @@ tags:
 
 ```bash
 netstat -r # show route table
+netstat -tnlp # show open ports
 lsof -Pn -i4 # show open ports 
 ifconfig 
 traceroute

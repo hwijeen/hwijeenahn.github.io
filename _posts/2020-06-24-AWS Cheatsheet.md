@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Network Cheatsheet"
+title: "AWS Cheatsheet"
 description: "Random things"
 comments: true
 categories: [Cheatsheet]
