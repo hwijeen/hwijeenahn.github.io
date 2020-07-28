@@ -101,3 +101,9 @@ pip install jupyterthemes
 jt -t grade3 -fs 12 -tfs 12 -nfs 11 -ofs 12 -cellw 980 -T -f hack -N
 ```
 
+
+
+## vim-binding
+
+[nbextension](https://github.com/lambdalisue/jupyter-vim-binding)
+

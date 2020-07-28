@@ -70,9 +70,26 @@ def chunks(l, n):
 
 새로운 프로세스를 생성할 때 stdin은 닫힌다. 새로운 프로세스에서 입력을 받으려면 [임의로 stdin을 열어줘야한다](https://stackoverflow.com/a/30149635)!
 
-```bash
 
+
+## pip
+
+``` bash
+pip install numpy # 설치
+pip show numpy # 설치한 패키지에 대한 정보
 ```
 
+위와 같이 pip의 install 명령어를 통해 설치한 패키지는 pip show 명령어로 그 패키지에 대한 정보를 확인할 수 있다. `Location`항목에 써져있는 게 소스코드가 저장된 위치다. 나는 pytorch를 Anaconda를 통해 가상환경 안에서 pip install을 했는데, `~/anaconda3/hwijeen_3.6/lib/python3.6/site-package`안에 저장되어있었다.
 
+
+
+## sys.path
+
+```python
+import sys
+print(sys.path)
+sys.path.append('..')
+```
+
+파이썬 스크립트에서 `import numpy`을 하면 `numpy`라는 모듈을 불러온다([자세한 정보](https://leemendelowitz.github.io/blog/how-does-python-find-packages.html)). 컴퓨터 어딘가에 `numpy` 소스코드가 저장되어 있는데, `import`는 `sys.path`에 저장된 경로들에서 `numpy`를 찾아온다. 만약, `sys.path.append()`를 통해 `sys.path` 변수에 `'..'`(바로 윗 디렉토리)를 추가해준다면, 바로 위 디렉토리에 있는 파일도 불러올 수 있다.
 

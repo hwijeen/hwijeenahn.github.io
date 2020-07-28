@@ -12,7 +12,17 @@ tags:
 ## Class imbalance 
 
 * Batch를 구성할 때 class별로 다른 weight를 적용해서 sampling하기. 데이터가 많은 클래스 instance들로만 batch 구성되지 않는 효과를 낸다. Pytorch에서 제공하는 [WeightedRandomSampler](https://pytorch.org/docs/stable/data.html#torch.utils.data.WeightedRandomSampler)을 사용하면 되고, weight을 만드는 방법은 [pytorch discuss](https://discuss.pytorch.org/t/balanced-sampling-between-classes-with-torchvision-dataloader/2703/7)를 참고하기.
+
 * Well classified examples loss에 기여하는 정도가 작아지도록 down weight하는 [focal loss](https://arxiv.org/abs/1708.02002). [Pytorch discuss](https://discuss.pytorch.org/t/focal-loss-for-imbalanced-multi-class-classification-in-pytorch/61289/2)에서 간단한 구현 찾을 수 있음.
+
+  ```python
+  ce_loss = torch.nn.functional.cross_entropy(outputs, targets, reduction='none') # important to add reduction='none' to keep per-batch-item loss
+  pt = torch.exp(-ce_loss)
+  focal_loss = (alpha * (1-pt)**gamma * ce_loss).mean() # mean over the batch
+  ```
+
+  
+
 * Focal loss의 발전된 형태(인 것같은) [dice loss](https://arxiv.org/abs/1911.02855).
 
 

@@ -124,8 +124,6 @@ COPY . ./
 
 
 
-
-
 ## Temporary shell file(example)
 
 - make shell before writing dockerfile

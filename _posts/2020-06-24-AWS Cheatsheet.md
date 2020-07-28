@@ -19,6 +19,8 @@ unzip awscliv2.zip
 sudo ./aws/install
 ```
 
+
+
 ## aws-configure
 
 IAM console에서 볼 수 있는 액세스 키, 비밀 액세스 키를 등록해주기 [링크1](https://docs.aws.amazon.com/ko_kr/IAM/latest/UserGuide/id_credentials_access-keys.html), [링크2](https://aws.amazon.com/ko/blogs/security/wheres-my-secret-access-key/)

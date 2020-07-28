@@ -1,16 +1,14 @@
 ---
 layout: post
-title: "Linux Cheatsheet"
+title: "Shell Cheatsheet"
 description: "개념 및 자주 사용하는 기능"
 comments: true
 categories: [Cheatsheet]
 tags:
 - Ubuntu
-- Bash
+- Shell
 - Cheat sheet
 ---
-
-From paste, [awk](http://www.incodom.kr/Linux/기본명령어/awk)
 
 ## 커널 - 쉘 - 터미널
 
@@ -105,7 +103,7 @@ env
 
 
 
-## Tar
+## tar
 
 ```bash
 tar -cvzf xxx.tar.gz * # 해당 경로의 모든 파일을 압축
@@ -130,8 +128,6 @@ ssh -N -f -L 8888:localhost:9999 remote_user@remote_server
 ```bash
 scp -o ProxyJump:$JUMP_USER@$JUMP_HOST $REMOTE_USER@$REMOTE_HOST:$REMOTE_DIR
 ```
-
-
 
 
 
@@ -182,12 +178,20 @@ zsh --version # check if already installed
 sudo apt-get install zsh
 chsh -s /usr/bin/zsh
 
-# Install Oh My Zsh
+# Install Oh My Zsh and plugins
 curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh 
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting # zsh-syntax-highlighting
+git clone https://github.com/djui/alias-tips.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/alias-tips # alias-tips
+
+# vim version check
+
+# tmux and plugins
 
 # dotfiles
-.zshrc
-.vimrc
+git clone https://github.com/hwijeen/dotfiles ~/.dotfiles
+ln -s ./.dotfiles/.vimrc ~/.vimrc
+ln -s ./.dotfiles/.vimrc ~/.zshrc
+ln -s ./.dotfiles/.vimrc ~/.gitconfig
 ```
 
 
@@ -212,11 +216,51 @@ gdrive(){
 
 
 
-
-
 ## MISC
 
 ```bash
 pwdx $PID # path of the process running, https://stackoverflow.com/a/24505530
+```
+
+
+
+## Variables
+
+```bash
+A="Hi"
+echo $A
+
+a=$(pwd) # command substitution
+echo $(python -c "print(1)") # $()은 우선적으로 evaluate하라는 의미(shell execution)
+ctags -R . $(python -c "import sys; print(sys.path)") # python 실행 결과가 커맨드로 입력됨
+```
+
+From [cheatsheet](https://devhints.io/bash), [for loop](https://www.cyberciti.biz/faq/bash-for-loop/).
+
+
+
+## Some bash commands
+
+```bash
+find . -name '*keyword*'
+find . -name '.*' -delete # recursively delete all the hidden files
+grep -r -n -i --exclude-dir=data/ 'keyword' . # -i 대소문자 구별 안 함 -n line number
+
+scp -r $localfolder hwijeen@163.239.199.230:$remotefolder/ # from to
+
+cd folder && ls # second commnad executed only if the first succeeds
+cd folder; ls # just two independent commands
+
+sort -R input | head -n 100 >output # randomly select sentences
+
+date; python program.py; date # to check runtime
+
+tail -n +2 $filename # from 2nd line to last(skip header)
+
+awk '{T+= NF} END { print T/NR}' $FILE # average length of tokens 
+awk '{print NF}' | sort -n | tail # lengths of longest lines
+
+cut -d '.' -f3- $filename # cut 3rd fields to the end
+sed -e 's/^"//' -e 's/"$//' $filename # delete heading and trailing "
 ```
 

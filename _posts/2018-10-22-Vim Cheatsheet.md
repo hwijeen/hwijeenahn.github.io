@@ -194,7 +194,24 @@ zo # fold open
 
 
 
+## Nerdtree에서 상대경로 복사하기
 
+```bash
+call NERDTreeAddKeyMap({
+    	\ 'key': 'yy',
+    	\ 'callback': 'NERDTreeYankCurrentNode',
+    	\ 'quickhelpText': 'put full path of current node into the default register' })
+
+function! NERDTreeYankCurrentNode()
+    let n = g:NERDTreeFileNode.GetSelected()
+    if n != {}
+    	" call setreg('"', n.path.str())
+    	call setreg('"', fnamemodify(n.path.str(), ':.'))
+    endif
+endfunction
+```
+
+https://stackoverflow.com/a/16378375
 
 ## Pylint
 
