@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Engineering points"
-description: "성능을 끌어올리기 위한 디테일들"
+title: "Tmux Cheatsheet"
+description: "생산성 +1000"
 comments: true
 categories: [Cheatsheet]
 tags:
@@ -24,12 +24,12 @@ tags:
 tmux new-session -s work
 
 # rename
-C-a $          rename the current session
+C-a $          # rename the current session
 
 # navigate
-C-a (          previous session
-C-a )          next session
-C-a s          choose a session from a list
+C-a (          # previous session
+C-a )          # next session
+C-a s          # choose a session from a list
 
 # detach
 C-a d
@@ -44,18 +44,18 @@ C-d
 
 ```bash
 # create
-C-a c          create a new window
+C-a c          # create a new window
 
 # rename
-C-a ,          rename the current window
+C-a ,          # rename the current window
 
 # navigate 
-C-a 1 ...      switch to window 1, ..., 9, 0
-C-a p          previous window
-C-a n          next window
+C-a 1 ...      # switch to window 1, ..., 9, 0
+C-a p          # previous window
+C-a n          # next window
 
 # kill
-C-a &          kill the current window
+C-a &          # kill the current window
 C-d
 
 ```
@@ -66,16 +66,16 @@ C-d
 
 ```bash
 # create
-C-a "          split vertically (top/bottom)
-C-a %          split horizontally (left/right)
+C-a "          # split vertically (top/bottom)
+C-a %          # split horizontally (left/right)
 
 # navigate
-C-a left       go to the next pane on the left
-C-a right      (or one of these other directions)
+C-a left       # go to the next pane on the left
+C-a right      # (or one of these other directions)
 C-a up
 C-a down
 
 # kill
-C-a x          kill the current pane
+C-a x          # kill the current pane
 ```
 
