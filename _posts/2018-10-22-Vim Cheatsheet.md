@@ -32,11 +32,16 @@ https://vim.rtorr.com/
 
 :windo set scrollbind # https://stackoverflow.com/a/2986980
 :windo set cursorbind
-:syntax sync fromstart " when syntax highlighting is broken
+:syntax sync fromstart # when syntax highlighting is broken
 
-" delete trailing whitespaces
-:%s/\s\+$//e
+:windo diffthis # http://vimcasts.org/episodes/comparing-buffers-with-vimdiff/
+:windo diffoff
 
+:%s/\s\+$//e # delete trailing whitespaces
+:g/^$/d # delete empty lines
+:v/./d
+
+:g/^.\{0,20}$/c # delete liens shorter than 20 character
 ```
 
 시스템 clipboard에 복사하려면 vim 8.1깔고 vim경로 그걸로 잡아주기

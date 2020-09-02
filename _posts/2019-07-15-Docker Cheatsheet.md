@@ -16,6 +16,12 @@ tags:
 
 
 
+## ETC
+
+[Docker 기본 저장 경로 바꾸기](https://jybaek.tistory.com/797)
+
+
+
 ## Prerequisites
 
 - install [docker]([https://subicura.com/2017/01/19/docker-guide-for-beginners-2.html#%EB%8F%84%EC%BB%A4-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0](https://subicura.com/2017/01/19/docker-guide-for-beginners-2.html#도커-설치하기))
