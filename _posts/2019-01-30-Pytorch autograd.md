@@ -8,17 +8,15 @@ tags:
 - Autograd
 ---
 
-Pytorch 기본개념으로써 tensor, computational graph, autograd 등을 잘 설명해놓은 [링크](https://www.kdnuggets.com/2018/04/getting-started-pytorch-understanding-automatic-differentiation.html). 대충 듣던 단어들에 대해서 쉽고 자세하게 얘기해주는 글이다.
+Pytorch 기본개념으로써 tensor, computational graph, autograd 등을 잘 설명해놓은 [링크](https://www.kdnuggets.com/2018/04/getting-started-pytorch-understanding-automatic-differentiation.html). 우리말로 된 [블로그 글](https://teamdable.github.io/techblog/PyTorch-Autograd). [강의자료](https://www.cs.toronto.edu/~rgrosse/courses/csc321_2018/slides/lec10.pdf)
 
 
 
 ## Tensors 
 
-딥러닝이 인기 몰이를 하기 전에는 배열 자료구조를 표현하기 위해 Numpy를 많이 썼다. Numpy는 주요 기능을 C로 구현해놨기에 Python의 list보다 빠르게 가볍다는 장점이 있지만, GPU에 올릴 수 없다는 치명적인 단점이 있다. GPU는 연산을 병렬적으로 처리하는 데 특화되어있는데, 엄청나게 많은 FLOP을 골자로 하는 딥러닝을 위해선 GPU에 올릴 수 있는 배열, Tensor가 필요하다. 
+딥러닝이 인기 몰이를 하기 전에는 배열 자료구조를 표현하기 위해 Numpy를 많이 썼다. Numpy는 행렬 연산시 Python의 list보다 빠르게 가볍다는 장점이 있지만, GPU에 올릴 수 없다는 치명적인 단점이 있다. GPU는 연산을 병렬적으로 처리하는 데 특화되어있는데, 엄청나게 많은 FLOP을 골자로 하는 딥러닝을 위해선 GPU에 올릴 수 있는 배열, Tensor가 필요하다. 
 
-Pytorch tensor class의 대표적인 attribute는 data, grad, grad_fn이다. **data**에는 배열의 원소에 해당하는 값이 저장되어있다. **grad**는 떤 함수를 이 tensor에 대해서 미분한 뒤 evaluate 된 값을 가지고 있다. Backprop을 하기 전까진 None값이 들어있다. **grad_fn**은 gradient computation 과정에서 호출되는 함수로써, "이 텐서가 무슨 operation을 통해 만들었는지"를 나타낸다.
-
-추가로 알아두어야할 attribute: requires_grad, is_leaf
+Pytorch tensor class의 대표적인 attribute는 data, grad, grad_fn, requires_grad, is_leaf이다. **data**에는 배열의 원소에 해당하는 값이 저장되어있다. **grad**는 어떤 함수를 이 tensor에 대해서 미분한 뒤 evaluate된 값을 가지고 있다. Backprop을 하기 전까진 None값이 들어있다. **grad_fn**은 gradient computation 과정에서 호출되는 함수로써, "이 텐서가 무슨 operation을 통해 만들었는지"를 나타낸다. Gradient를 계산하더라도 그 결과를 항상 저장하지는 않는다. Tensor의 is_leaf가 True이고 required_grad가 True인 경우에만 gard에 값이 저장된다. is_leaf는 requires_grad가 사용자에 의해 True로 설정된 겨우에만 True로 설정이되고, 그렇지 않은 경우엔 False로 설정이 된다.
 
 
 
@@ -26,17 +24,17 @@ Pytorch tensor class의 대표적인 attribute는 data, grad, grad_fn이다. **d
 
 Computation graph는 이름에서 알 수 있듯이 계산 과정을 표현하는 하나의 자료구조이다. 다른 방식으로도 계산 과정을 표현할 수 있겠지만 효율적으로 chain rule을 적용하는데 특화된 건 computation graph이다. 
 
-Pytorch의 computation graph를 그릴 때 각 노드에 실제로 들어가는 것은 tensor의 grad_fn이다. 모든 tensor는 grad_fn을 가지고 있기 때문에 각 노드에 간접적으로 해당하는 tensor가 있다고 생각할 수 있다. 맨날 하는 ```loss.backward()```는 크게 보면 다음과 같이 세 부분으로 구성된다. 
+Pytorch의 computation graph를 그릴 때 각 노드에 실제로 들어가는 것은 tensor의 grad_fn이다(Tensor and Function are interconnected and build up an acyclic graph, that encodes a complete history of computation). 모든 tensor는 grad_fn을 가지고 있기 때문에 각 노드에 간접적으로 해당하는 tensor가 있다고 생각할 수 있다. 맨날 하는 ```loss.backward()```는 크게 보면 다음과 같이 세 부분으로 구성된다. 
 
-1. 해당 node에서  grad_fn을 이용해 local gradient 계산 
+1. 해당 node에서 grad_fn을 이용해 local gradient 계산 
 
 1.  local gradient를 해당 노드(에 해당하는 tensor)의 grad와 곱하기(chain rule) 
 
-1. 계산된 gradient를 input node(에 해당하는 tensor)의 grad에 저장
+1. 계산된 gradient를 input node(에 해당하는 tensor)의 grad를 계산
 
 마지막 node(loss) 부터 맨 앞 node(weight)까지 이 과정을 연쇄적으로 적용하면 gradient of loss w.r.t weight을 얻을 수 있다. 물론 여기서 말하는 gradient는 input을 이용해 evaluated된 값이다. 꼬리에 꼬리를 무는 computational graph가 있기에 '연쇄적'인 chain rule 적용이 가능한 것이다.
 
-Computation graph는 backprop을 하기 위해 필요한 자료구조라고 했다. 그런데 inference시에는 backprop이 필요하지 않다. ```torch.no_grad()```라는 context manager 아래에 inference code를 쓴다는 것은 computation graph자체를 안 만들겠다는 얘기다. 그러면 당연히 time, space가 절약되니까. 이 Context manage 아래서 결과로 나온 tensor는 항상 requires_grad=False이다. 
+Computation graph는 backprop을 하기 위해 필요한 자료구조라고 했다. 그런데 inference시에는 backprop이 필요하지 않다. ```torch.no_grad()```라는 context manager 아래에 inference code를 쓴다는 것은 backward를 위해 필요한 내용을 저장하지 않겠다는 얘기다. 그러면 당연히 time, space가 절약되니까. 이 Context manager 아래서 결과로 나온 tensor는 항상 requires_grad=False이다. 
 
 > Pytorch는 torch.autograd.Function이라는 class로 함수를 관리한다. 이 class는 method로 forward와 backward를 갖는다. 굳이 클래스를 만들어 두 함수를 묶어두는 이유는 backprop과정에서 두 함수가 공유해야할 변수가 있기 때문이다. Pytorch computation graph의 한 node에서 local gradient를 evaluate하기 위해선 backward함수가 forward 함수의 input을 알아야하는 경우가 그렇다.
 
