@@ -203,20 +203,14 @@ zo # fold open
 
 ```bash
 call NERDTreeAddKeyMap({
-    	\ 'key': 'yy',
-    	\ 'callback': 'NERDTreeYankCurrentNode',
-    	\ 'quickhelpText': 'put full path of current node into the default register' })
-
-function! NERDTreeYankCurrentNode()
-    let n = g:NERDTreeFileNode.GetSelected()
-    if n != {}
-    	" call setreg('"', n.path.str())
-    	call setreg('"', fnamemodify(n.path.str(), ':.'))
-    endif
-endfunction
+        \ 'key': 'yy',
+        \ 'callback': 'NERDTreeCopyPath',
+        \ 'quickhelpText': 'put full path of current node into the default register' })
 ```
 
-https://stackoverflow.com/a/16378375
+`~/.vim/plugged/nerdtree/nerdtree_plugin`아래 파일 적당히 하나 만들고(`yank_mapping.vim`) 그 안에 위 코드 적어주기. 이미 구현되어있는 `NERDTreeCopyPath`를 `yy`로 mapping해주는 게 끝.
+
+## ETC
 
 ## Pylint
 
